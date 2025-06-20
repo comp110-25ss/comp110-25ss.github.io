@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> While Loops + Functions Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429152.1743777">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>While Loops + Functions Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#conceptual">Conceptual</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#conceptual-solutions">Conceptual Solutions</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<h2 id="conceptual">Conceptual</h2>
+<ol type="1">
+<li>Produce a memory diagram for the following code snippet, being sure to include its stack and output.</li>
+</ol>
+<pre><code>    def main() -&gt; None:
+        &quot;&quot;&quot;Main Function&quot;&quot;&quot;
+        y: int = g(1)
+        f(y)
+        print(g(f(3)))
+        
+    def f(x: int) -&gt; int:
+        &quot;&quot;&quot;Function 0&quot;&quot;&quot;
+        if x % 2 == 0:
+            print(str(x) + &quot; is even&quot;)
+        else:
+            x += 1
+        return x
+        
+    def g(x: int) -&gt; int:
+        &quot;&quot;&quot;Function 1&quot;&quot;&quot;
+        while x % 2 == 1:
+            x += 1
+        return x
+
+    main()</code></pre>
+<p>1.1 Why is it that <code>main()</code> is defined above <code>f()</code> and <code>g()</code>, but we are able to call <code>f()</code> and <code>g()</code> inside <code>main()</code> without errors?</p>
+<p>1.2 On line 5, when <code>print(g(f(3)))</code> is called, is the code block inside of the <code>while</code> loop ever entered? Why or why not?</p>
+<p>1.3 What would happen if a line was added to the end of the snipped that said <code>print(x)</code>. Why?</p>
+<p><a href="#conceptual-solutions">Solutions</a></p>
+<!-- ## Function Writing
+
+1. `num_instances`
+
+Write a function called `num_instances`. Given two strings, `inp_str` and `search_str`, `num_instances` should `return` the count of non-overlapping occurrences of `search_str` in `inp_str`. "Non-overlapping occurrences" means that once a match of `search_str` is found within inp_str, the next search for `search_str` should start after the end of the current match. For example, in the string "HelloHello", the substring "Hello" appears twice, but only the first occurrence is counted once before moving to the next possible starting position. 
+
+2. `multiple_each_val_by_idx`
+
+Implement a function that processes an integer by multiplying each of its digits by their respective index positions and `return`s the result as a string. -->
+<h1 id="solutions">Solutions</h1>
+<h2 id="conceptual-solutions">Conceptual Solutions</h2>
+<ol type="1">
+<li>Memory Diagram Solution</li>
+</ol>
+<p><img class="img-fluid" src="/static/practice-mem-diagrams/Qz2-md.png" alt="The memory diagram includes a box on the top labeled Output and a box on the bottom labeled Stack, next to an area labeled Heap.
+The first frame in the Stack is labeled Globals and contains the variables main, f, and g. The variable main points to a small box on the heap that says fn 1-5. The variable f points to a small box on the heap that says fn 7-13. The variable g points to a small box on the heap that says fn 15-19.
+The next frame on the stack is labeled main and contains a return address and a variable y. The return address is 21 and y has a value of 2. The next frame is labeled g and contains a return address, return value, and a variable x. The return address is 2, the variable x has a value of 2 with the previous value of 1 crossed out, and the return value is 3. The next frame is labeled f and contains a return address, return value, and a variable x. The return address is 4, the variable x has a value of 2, and the return value is 2. The next frame is labeled f and contains a return address, return value, and a variable x. The return address is 5, the variable x has a value of 4 with the previous value of 3 crossed out, and the return value is 4. The final frame is labeled g and contains a return address, return value, and the variable x. The return address is 5, the variable x has a value of 4, and the return value is 4.
+The output box contains a line that says (in quotes) 2 is even. Then, on the next line it says (in quotes) 4.
+"></p>
+<p>1.1 Even though <code>main</code> is defined before <code>f</code> and <code>g</code>, it isn’t <strong>called</strong> until after <code>f</code> and <code>g</code> are defined.</p>
+<p>1.2 No because <code>x = 4</code>, so <code>x % 2 == 1</code> is False, and therefore the code block inside is never run.</p>
+<p>1.3 There would be an error because <code>x</code> is a local variable inside both <code>f</code> and <code>g</code>. Therefore, the program does not recognize that <code>x</code> exists in this context.</p>
+<!-- ## Function Writing Solutions
+
+1. Solution to `num_instances`
+
+```python
+def num_instances(inp_str: str, search_str: str):
+    count = 0  # To count occurrences of search_str
+    index = 0  # To iterate through inp_str
+
+
+    while index <= len(inp_str) - len(search_str):
+        # Check if the substring of inp_str starting at index matches search_str
+        match = True
+        sub_index = 0
+        
+        while sub_index < len(search_str):
+            if inp_str[index + sub_index] != search_str[sub_index]:
+                match = False
+            sub_index += 1
+        
+        if match:
+            count += 1
+            index += len(search_str)  # Move index by length of search_str to avoid overlapping matches
+        else:
+            index += 1  # Move to the next character in inp_str
+
+    print(count)
+
+
+ # Example usage
+ num_instances("HelloHeLloHEllo", "Hello")  # Output should be 1
+ num_instances("HelloHelloHEllo", "el")  # Output should be 2
+```
+
+2. Solution to `multiple_each_val_by_idx`
+
+```python
+def multiple_each_val_by_idx(number: int) -> str:
+   # Convert the number to a string to process each digit
+   num_str = str(number)
+  
+   # Initialize an empty string to build the result
+   result = ""
+  
+   # Iterate through each digit and its index
+   index = 0
+   while index < len(num_str):
+       # Get the digit at the current index
+       digit = int(num_str[index])
+      
+       # Multiply the digit by its index and append to result
+       result += str(digit * index)
+      
+       # Move to the next index
+       index += 1
+  
+   return result
+
+
+ # Example usage
+ print(multiple_each_val_by_idx(10784))  # Output should be "00142416"
+``` -->
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Alyssa Lytle,        Megan Zhang, David Karash</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

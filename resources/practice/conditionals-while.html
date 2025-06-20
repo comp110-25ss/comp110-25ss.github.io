@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Conditionals and While Loops - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429144.5304878">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Conditionals and While Loops</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#conceptual">Conceptual</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#conceptual-questions---solutions">Conceptual Questions - Solutions</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<h2 id="conceptual">Conceptual</h2>
+<ol type="1">
+<li><p>Every <code>if</code> statement must be followed by a paired <code>else</code> branch. (T/F)</p></li>
+<li><p>Lines contained in an <code>else</code> branch in Python do not have to be indented. (T/F)</p></li>
+<li><p>You can name a variable <code>else</code> in your program without Python confusing your variable’s name and the <code>else</code> keyword. (If you are unsure, this is a good one to try yourself!) (T/F)</p></li>
+<li><p>All subquestions of this problem will refer to this code snippet:</p>
+<pre><code> x: int = int(input(&quot;Pick a number: &quot;))
+ y: int = 10
+ z: int = 2
+ x = x - 1
+ if x &lt; 10:
+     print(&quot;A&quot;)
+ else:
+     if (x % z) == 0:
+         print (&quot;B&quot;)
+ if x == (y + z):
+     print(&quot;C&quot;)
+ else: 
+     print(&quot;D&quot;)</code></pre></li>
+</ol>
+<p>For the following subquestions, answer with a valid input value for <code>x</code> that would cause the given letter to print. It is OK for your input to cause other letters to print as well. If there is no such value, write “Unreachable”.</p>
+<p>4.1 <code>A</code></p>
+<p>4.2 <code>B</code></p>
+<p>4.3 <code>C</code></p>
+<p>4.4 <code>D</code></p>
+<p>Now, answer with a valid input value for <code>x</code> that would cause the <em>exact</em> given letter(s) to print (no other letters). If there is no such value, write “Unreachable”.<br />
+4.5</p>
+<p><code>A</code> <br> <code>C</code></p>
+<p>4.6</p>
+<p><code>B</code> <br> <code>C</code></p>
+<p>4.7</p>
+<p><code>C</code></p>
+<p>4.8</p>
+<p><code>D</code></p>
+<ol start="5" type="1">
+<li><p>Write the format of a conditional using the following: You might not need to use all and can use any multiple times: <code>if</code>, <code>else</code>, <code>==</code>, <code>&lt;condition&gt;</code>, <code>False</code>, <code>True</code>, <code>&lt;do something&gt;</code>.</p></li>
+<li><p>Write the format of a conditional using the following: You might not need to use all and can use any multiple times: <code>while</code>, <code>&lt;condition&gt;</code>, <code>==</code>, <code>False</code>, <code>True</code>, <code>&lt;do something&gt;</code>.</p></li>
+<li><p>What does the condition of a conditional have to evaluate to in order to enter its block?</p></li>
+<li><p>What happens when a return statement is encountered?</p></li>
+</ol>
+<hr />
+<p>All subquestions of this problem will refer to this pseudo code snippet:</p>
+<pre><code>    if &lt;condition1&gt;:
+        &lt;do_something&gt;
+    elif &lt;condition2&gt;:
+        &lt;do_something&gt;
+    else:
+        &lt;do_something&gt;</code></pre>
+<ol start="9" type="1">
+<li><p>From the general format of a conditional with an <code>elif</code> block, what needs to be True and/or False in order for the <code>elif</code> block to evaluate?</p></li>
+<li><p>Is <code>&lt;condition1&gt;</code> not being met the same as having <code>if &lt;condition1&gt; == False:</code>?</p></li>
+</ol>
+<hr />
+<p>All subquestions of this problem will refer to this code snippet:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>    <span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>: </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>        x: <span class="bu">str</span> <span class="op">=</span> <span class="st">&quot;x&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>        y: <span class="bu">str</span> <span class="op">=</span> <span class="st">&quot;y&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>        z: <span class="bu">str</span> <span class="op">=</span> x</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>        y <span class="op">=</span> x</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>        x <span class="op">=</span> <span class="st">&quot;y&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>        <span class="cf">if</span> <span class="kw">not</span>(x <span class="op">!=</span> y <span class="kw">and</span> x <span class="op">!=</span> <span class="st">&quot;y&quot;</span>):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>            <span class="bu">print</span>(<span class="ss">f&quot;x: </span><span class="sc">{x}</span><span class="ss">&quot;</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>            <span class="bu">print</span>(<span class="st">&quot;&#39;if&#39; condition not met.&quot;</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>    main()</span></code></pre></div>
+<ol start="11" type="1">
+<li><p>What is the condition in this code?</p></li>
+<li><p>What does the condition evaluate to? (Don’t do it in your head, draw a memory diagram!)</p></li>
+<li><p>What values should x, y, and/or z have to be assigned to in order for the else block to run?</p></li>
+<li><p>What other values can x, y, and/or z be assigned in order for the <code>if</code> block to run?</p></li>
+</ol>
+<hr />
+<p><a href="#conceptual-solutions">solutions</a></p>
+<h1 id="solutions">Solutions</h1>
+<h2 id="conceptual-questions---solutions">Conceptual Questions - Solutions</h2>
+<ol type="1">
+<li><p>F</p></li>
+<li><p>F</p></li>
+<li><p>F</p></li>
+<li><p>4.1 Any value &lt; 11</p>
+<p>4.2 Any value &gt;= 11 and odd. (Since <code>x % z == 0</code> must be True and <code>z</code> is 2, this means <code>x - 1</code> must be even.)</p>
+<p>4.3 13</p>
+<p>4.4 Any value != 13</p>
+<p>4.5 Unreachable</p>
+<p>4.6 13</p>
+<p>4.7 Unreachable</p>
+<p>4.8 Any value &gt;= 11 and even</p></li>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>    <span class="cf">if</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span> <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>        <span class="op">&lt;</span>do_something<span class="op">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>        <span class="op">&lt;</span>do_something<span class="op">&gt;</span></span></code></pre></div>
+<p>OR</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>    <span class="cf">if</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>        <span class="op">&lt;</span>do_something<span class="op">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>        <span class="op">&lt;</span>do_something<span class="op">&gt;</span></span></code></pre></div>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>    <span class="cf">while</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span> <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>        <span class="op">&lt;</span>do_something<span class="op">&gt;</span></span></code></pre></div>
+<p>OR</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>    <span class="cf">while</span> <span class="op">&lt;</span>condition<span class="op">&gt;</span>:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>        <span class="op">&lt;</span>do_something<span class="op">&gt;</span></span></code></pre></div>
+<ol start="7" type="1">
+<li><p>The condition must always evaluate to <code>True</code>.</p></li>
+<li><p>The return value is recorded in memory and the function is immediately exited.</p></li>
+<li><p><code>&lt;condition1&gt;</code> must not be met (condition should evaluate to <code>False</code>) AND <code>&lt;condition2&gt;</code> must be met (condition should evaluate to <code>True</code>).</p></li>
+<li><p>In this case, yes. If we had something like this:</p></li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="cf">if</span> (<span class="st">&quot;hello&quot;</span> <span class="op">==</span> <span class="st">&quot;hello&quot;</span>) <span class="op">==</span> <span class="va">False</span>:</span></code></pre></div>
+<p>the <code>&lt;condition&gt;</code> in this case would be everything in between the <code>if</code> and the <code>:</code>. In the pseudo-code, we are separating the <code>&lt;condition&gt;</code> to be separate from the rest (<code>== False</code>), while in real code the condition is always everything after the <code>if</code> and before the <code>:</code>.</p>
+<hr />
+<ol start="11" type="1">
+<li><p><code>not(x != y and x != "y")</code></p></li>
+<li><p>The condition evaluates to <code>True</code>.</p></li>
+<li><p>To ensure the <code>else</code> block runs in the given code, the condition <code>x != y and x != "y"</code> must be true. This means <code>x</code> should be different from <code>y</code> and <code>x</code> should also be different from the string <code>"y"</code>. For example, setting <code>x = "a"</code> and <code>y = "b"</code> will satisfy this condition, making the <code>else</code> block execute.</p></li>
+<li><p>To make the <code>if</code> block run, the condition <code>not(x != y and x != "y")</code> must be true, which happens when <code>x</code> is either the same as <code>y</code> or the same as <code>"y"</code>, or both. In the original code where <code>x = "y"</code>, <code>y = "x"</code>, and <code>z = "x"</code>, the <code>if</code> block runs as <code>not(x != y and x != "y")</code> evaluates to true.</p></li>
+</ol>
+<hr />
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Alyssa Lytle,        Viktorya Hunanyan,        Megan Zhang, David Karash</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

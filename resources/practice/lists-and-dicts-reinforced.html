@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Lists, Dictionaries, and Loops Reinforcement Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429152.7437472">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Lists, Dictionaries, and Loops Reinforcement Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a></li>
+<li><a href="#function-writing">Function Writing</a></li>
+<li><a href="#solutions">Solutions</a></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>IMPORTANT: For Quiz 03, focus on the problems with dictionaries!</p>
+<p>These questions are meant to test your understanding from <a href="/resources/practice/lists.html">Lists</a>, <a href="/resources/practice/dicts.html">Dictionaries</a>, <a href="/resources/practice/for-loops.html">for Loops</a>. You should complete those before doing the questions below.</p>
+<h1 id="questions">Questions</h1>
+<ol type="1">
+<li>The following questions will refer to the list below:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>my_list: <span class="bu">list</span>[<span class="bu">int</span>] <span class="op">=</span> <span class="bu">list</span>()</span></code></pre></div>
+<ul>
+<li>1a. Write line(s) of code that would add the number <code>8</code>, <code>0</code>, <code>3</code>, and <code>-1</code> to the list.</li>
+<li>1b. Write line(s) of code that removes <code>3</code> from the list.</li>
+<li>1c. Write line(s) of code that assigns the variable <code>dog</code> to the element at the second index.</li>
+<li>1d. Write line(s) of code that prints the amount of items in the list.</li>
+<li>1e. Change the value <code>8</code> to <code>0</code>.</li>
+<li>1f. We now have a function, <code>sum</code> that adds the elements of my_list and returns this amount. Write a line of code that instantiates a <code>list[int]</code> with the first value returned from calling <code>sum</code> on <code>my_list</code>.</li>
+</ul>
+<hr />
+<ol start="2" type="1">
+<li>The following questions will refer to the dictionary below:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>my_dict: <span class="bu">dict</span>[<span class="bu">int</span>, <span class="bu">str</span>] <span class="op">=</span> {}</span></code></pre></div>
+<ul>
+<li>2a. Write line(s) of code that would add the following key-value pairs to the dictionary:
+<ul>
+<li><code>8: 'eight'</code></li>
+<li><code>0: 'zero'</code></li>
+<li><code>3: 'three'</code></li>
+<li><code>-1: 'negative one'</code></li>
+</ul></li>
+<li>2b. Write line(s) of code that removes value <code>three</code>.</li>
+<li>2c. Write line(s) of code that assign the value associated with the key <code>0</code> in <code>my_dict</code> to a variable called <code>cat</code>.</li>
+<li>2d. Write line(s) of code that print the number of keys in <code>my_dict</code>.</li>
+<li>2e. Write line(s) of code that print the number of values in <code>my_dict</code>.</li>
+<li>2f. Change the value associated with the key <code>8</code> to <code>'zero'</code>.</li>
+<li>2g. Suppose we have a function <code>sum_dict_keys</code> that sums the keys of <code>my_dict</code> and returns this amount. Write a line of code that instantiates a <code>dict[str: int]</code> containing a single value, which is the result of calling <code>sum_dict_keys(my_dict)</code> and a key of “returned_amount”.</li>
+</ul>
+<hr />
+<ol start="3" type="1">
+<li>The following questions will refer to the dictionary below:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>my_dict: <span class="bu">dict</span>[<span class="bu">int</span>, <span class="bu">str</span>] <span class="op">=</span> {<span class="dv">0</span>: <span class="st">&quot;dog&quot;</span>, <span class="dv">1</span>: <span class="st">&quot;cat&quot;</span>, <span class="dv">2</span>: <span class="st">&quot;mouse&quot;</span>, <span class="dv">3</span>: <span class="st">&quot;bird&quot;</span>, <span class="dv">4</span>: <span class="st">&quot;whale&quot;</span>}</span></code></pre></div>
+<ul>
+<li>3a. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(my_dict)): </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>        <span class="bu">print</span>(my_dict[x])</span></code></pre></div>
+<ol type="a">
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>dog, cat, mouse, bird</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>3b. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(my_dict)): </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>        <span class="bu">print</span>(x)</span></code></pre></div>
+<ol type="a">
+<li><code>0, 1, 2, 3, 4</code></li>
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>3c. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>    <span class="cf">for</span> x <span class="kw">in</span> my_dict: </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>        <span class="bu">print</span>(my_dict[x])</span></code></pre></div>
+<ol type="a">
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>dog, cat, mouse, bird</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>3d. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> my_dict: </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span></code></pre></div>
+<ol type="a">
+<li><code>0, 1, 2, 3, 4</code></li>
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>3e. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>x: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="bu">len</span>(my_dict): </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    x <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<ol type="a">
+<li><code>0, 1, 2, 3, 4</code></li>
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>1, 2, 3, 4, 5</code></li>
+</ol>
+<ul>
+<li>3f. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>x: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="bu">len</span>(my_dict): </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>    <span class="bu">print</span>(my_dict[x])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    x <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<ol type="a">
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>dog, cat, mouse, bird</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2, 3, 4</code></li>
+</ol>
+<hr />
+<ol start="4" type="1">
+<li>The following questions will refer to the dictionary below:</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>my_dict: <span class="bu">dict</span>[<span class="bu">int</span>, <span class="bu">str</span>] <span class="op">=</span> {<span class="dv">8</span>: <span class="st">&quot;dog&quot;</span>, <span class="dv">1</span>: <span class="st">&quot;cat&quot;</span>, <span class="dv">10</span>: <span class="st">&quot;mouse&quot;</span>, <span class="dv">15</span>: <span class="st">&quot;bird&quot;</span>, <span class="dv">0</span>: <span class="st">&quot;whale&quot;</span>}</span></code></pre></div>
+<ul>
+<li>4a. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(my_dict)): </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    <span class="bu">print</span>(my_dict[x])</span></code></pre></div>
+<ol type="a">
+<li><code>whale, cat, KeyError</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>dog, cat, mouse</code></li>
+<li><code>bird, whale</code></li>
+</ol>
+<ul>
+<li>4b. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(my_dict)): </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span></code></pre></div>
+<ol type="a">
+<li><code>0, 1, 2, 3, 4</code></li>
+<li><code>0, 1, 2</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>4c. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> my_dict: </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>    <span class="bu">print</span>(my_dict[x])</span></code></pre></div>
+<ol type="a">
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>whale, cat, mouse, bird, dog</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>4d. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> my_dict: </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span></code></pre></div>
+<ol type="a">
+<li><code>8, 1, 10, 15, 0</code></li>
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>4e. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>x: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="bu">len</span>(my_dict): </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>    x <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<ol type="a">
+<li><code>0, 1, 2, 3, 4</code></li>
+<li><code>1, 2, 3, 4</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2</code></li>
+</ol>
+<ul>
+<li>4f. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>x: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="bu">len</span>(my_dict): </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>    <span class="bu">print</span>(my_dict[x])</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    x <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<ol type="a">
+<li><code>whale, cat, KeyError</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>dog, cat, mouse</code></li>
+<li><code>bird, whale</code></li>
+</ol>
+<hr />
+<ol start="5" type="1">
+<li>The following questions will refer to the dictionary below:</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>my_dict: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">str</span>] <span class="op">=</span> {<span class="st">&quot;cat&quot;</span>: <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;dog&quot;</span>: <span class="st">&quot;cat&quot;</span>, <span class="st">&quot;bird&quot;</span>: <span class="st">&quot;mouse&quot;</span>, <span class="st">&quot;mouse&quot;</span>: <span class="st">&quot;bird&quot;</span>, <span class="st">&quot;while&quot;</span>: <span class="st">&quot;whale&quot;</span>}</span></code></pre></div>
+<ul>
+<li>5a. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(my_dict)): </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>    <span class="bu">print</span>(my_dict[x])</span></code></pre></div>
+<ol type="a">
+<li><code>IndexOutOfRange</code></li>
+<li><code>dog, cat, mouse</code></li>
+<li><code>KeyError</code></li>
+<li><code>bird, whale</code></li>
+</ol>
+<ul>
+<li>5b. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(my_dict)): </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span></code></pre></div>
+<ol type="a">
+<li><code>0, 1, 2, 3, 4</code></li>
+<li><code>1, 2, 3, 4</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2</code></li>
+</ol>
+<ul>
+<li>5c. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> my_dict: </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>    <span class="bu">print</span>(my_dict[x])</span></code></pre></div>
+<ol type="a">
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>dog, cat, mouse, bird</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>cat, dog, bird</code></li>
+</ol>
+<ul>
+<li>5d. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="cf">for</span> x <span class="kw">in</span> my_dict: </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span></code></pre></div>
+<ol type="a">
+<li><code>cat, dog, bird, mouse, while</code></li>
+<li><code>dog, cat, mouse, bird</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>0, 1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>5e. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a>x: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="bu">len</span>(my_dict): </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a>    x <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<ol type="a">
+<li><code>0, 1, 2, 3, 4</code></li>
+<li><code>dog, cat, mouse, bird, whale</code></li>
+<li><code>IndexOutOfRange</code></li>
+<li><code>1, 2, 3, 4</code></li>
+</ol>
+<ul>
+<li>5f. What will print from the following code:</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a>x: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="bu">len</span>(my_dict): </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a>    <span class="bu">print</span>(my_dict[x])</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a>    x <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<ol type="a">
+<li><code>IndexOutOfRange</code></li>
+<li><code>dog, cat, mouse</code></li>
+<li><code>KeyError</code></li>
+<li><code>bird, whale</code></li>
+</ol>
+<h1 id="function-writing">Function Writing</h1>
+<ol start="6" type="1">
+<li>Write a function that will take a <code>list[str]</code> and returns a <code>list[int]</code> of the size of each string in the input list.</li>
+<li>Write a function that will take a <code>list[str]</code> and returns the sum of the lengths of all the strings.</li>
+<li>Write a function that will take a <code>list[str]</code> and mutates the list by adding a exclamation point to each string in the input list. Your function should not return anything.</li>
+<li>Write a function that takes a <code>str</code> input and returns a list with each element being a single character in the string input.</li>
+<li>Write a function that takes a <code>int</code> input and creates a list of the size of your input integer. Every element should be equal to their index value. When the function is called and finishes executing and the frame goes out of scope, the new list should still be avaiable for reference to a Global varibale.</li>
+<li>Write a function that take a <code>list[float]</code>, an <code>int</code>, and a <code>float</code> and inserts the <code>float</code> into the <code>list[float]</code> at the index specified by the <code>int</code> passed to the function.</li>
+<li>Write a function that takes a <code>list[int]</code> and returns a new list with only the even numbers.</li>
+<li>Write a function that takes a <code>list[str]</code> and returns a new list with only the strings that contain the letter ‘a’.</li>
+<li>Write a function that takes a <code>list[int]</code> and returns the largest number.</li>
+<li>Write a function that takes a <code>str</code> input and counts how many times of each vowel appears in the string and returns this as a summary in a dict[str, int].</li>
+<li>Write a function that takes two <code>list[int]</code> and returns a new list with the elements that appear in both lists.</li>
+<li>Write a function that takes a <code>list[float]</code> and returns the average of the list, ignoring any negative numbers.</li>
+<li>Write a function that takes a <code>list[str]</code> and returns a new list with the strings sorted by length in descending order.</li>
+<li>Write a function that takes a <code>list[str]</code> and returns a dictionary where the keys are the strings and the values are the lengths of each string.</li>
+<li>Write a function that takes a <code>str</code> and returns a dict[str, int] that counts the frequency of each character in the string.</li>
+<li>Write a function that takes a <code>list[str]</code> and returns a dictionary where the keys are the first letters of each string, and the values are lists of strings that start with that letter.</li>
+<li>Write a function that takes a <code>dict[str, int]</code> and returns a list[str] of all the keys that have even values.</li>
+<li>Write a function that takes a <code>dict[str, int]</code> and returns the key with the largest value. Assume the values of the <code>dict[str, int]</code> will not be negative.</li>
+<li>Write a function that takes two <code>dict[str, float]</code> and merges them into one. If both dictionaries have the same key, sum their values.</li>
+<li>Write a function that takes a <code>dict[str, list[float]]</code> where the keys are strings and the values are lists. The function should return a new dictionary where the keys are the original keys, but the values are the lengths of each list.</li>
+<li>Write a function that takes a <code>dict[float, int]</code> and returns a new dictionary with the keys and values swapped.</li>
+<li>Write a function that takes a dictionary of students’ names as keys and their test scores as values, then returns a new <code>dict[str, int]</code> with only students who scored above an 85.</li>
+</ol>
+<h1 id="solutions">Solutions</h1>
+<ol type="1">
+<li>List Manipulations</li>
+</ol>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a>my_list: <span class="bu">list</span>[<span class="bu">int</span>] <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a><span class="co"># 1a. Add the numbers 8, 0, 3, and -1 to the list.</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a>my_list.append(<span class="dv">8</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a>my_list.append(<span class="dv">0</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a>my_list.append(<span class="dv">3</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a>my_list.append(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true"></a><span class="co"># 1b. Remove the number 3 from the list.</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true"></a>my_list.pop(<span class="dv">2</span>)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true"></a><span class="co"># 1c. Assign the element at the second index to a variable named &#39;dog&#39;.</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true"></a>dog <span class="op">=</span> my_list[<span class="dv">2</span>]</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true"></a><span class="co"># 1d. Print the number of items in the list.</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true"></a><span class="bu">print</span>(<span class="bu">len</span>(my_list))</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true"></a><span class="co"># 1e. Change the value 8 to 0.</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true"></a>my_list[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true"></a><span class="co"># 1f. Instantiate a list[int] with the first value returned from calling sum on my_list.</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true"></a>summed_list <span class="op">=</span> [<span class="bu">sum</span>(my_list)]</span></code></pre></div>
+<hr />
+<ol start="2" type="1">
+<li>Dictionary Manipulations</li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a>my_dict: <span class="bu">dict</span>[<span class="bu">int</span>, <span class="bu">str</span>] <span class="op">=</span> {}</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a><span class="co"># 2a. Add key-value pairs to the dictionary.</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a>my_dict[<span class="dv">8</span>] <span class="op">=</span> <span class="st">&#39;eight&#39;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a>my_dict[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&#39;zero&#39;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a>my_dict[<span class="dv">3</span>] <span class="op">=</span> <span class="st">&#39;three&#39;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a>my_dict[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="st">&#39;negative one&#39;</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a><span class="co"># 2b. Remove the key-value pair where the value is &#39;three&#39;.</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true"></a>my_dict.pop(<span class="dv">3</span>) <span class="co"># recall that pop takes an index and in the case of dictionaries or indicies are essentially our keys</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true"></a><span class="co"># 2c. Assign the value associated with the key 0 to a variable called &#39;cat&#39;.</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true"></a>cat <span class="op">=</span> my_dict[<span class="dv">0</span>]</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true"></a><span class="co"># 2d. Print the number of keys in the dictionary.</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true"></a><span class="bu">print</span>(<span class="bu">len</span>(my_dict))</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true"></a><span class="co"># 2e. Print the number of values in the dictionary.</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true"></a><span class="bu">print</span>(<span class="bu">len</span>(my_dict))</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true"></a></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true"></a><span class="co"># 2f. Change the value associated with the key 8 to &#39;zero&#39;.</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true"></a>my_dict[<span class="dv">8</span>] <span class="op">=</span> <span class="st">&#39;zero&#39;</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true"></a></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true"></a><span class="co"># 2g. Instantiate a dict[str, int] with the key &#39;returned_amount&#39; and the value from sum_dict_keys(my_dict).</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true"></a>result_dict <span class="op">=</span> {<span class="st">&#39;returned_amount&#39;</span>: sum_dict_keys(my_dict)}</span></code></pre></div>
+<hr />
+<ol start="3" type="1">
+<li>Dictionary Looping and Output</li>
+</ol>
+<ul>
+<li>3a: Output = (a) dog, cat, mouse, bird, whale</li>
+<li>3b: Output = (a) 0, 1, 2, 3, 4</li>
+<li>3c: Output = (a) dog, cat, mouse, bird, whale</li>
+<li>3d: Output = (a) 0, 1, 2, 3, 4</li>
+<li>3e: Output = (a) 0, 1, 2, 3, 4</li>
+<li>3f: Output = (a) dog, cat, mouse, bird, whale</li>
+</ul>
+<hr />
+<ol start="4" type="1">
+<li>Looping with Different Key Values</li>
+</ol>
+<ul>
+<li>4a: Output = (a) whale, cat, KeyError</li>
+<li>4b: Output = (a) 0, 1, 2, 3, 4</li>
+<li>4c: Output = (a) dog, cat, mouse, bird, whale</li>
+<li>4d: Output = (a) 0, 1, 8, 10, 15</li>
+<li>4e: Output = (a) 0, 1, 2, 3, 4</li>
+<li>4f: Output = (a) whale, cat, KeyError</li>
+</ul>
+<hr />
+<ol start="5" type="1">
+<li>Dictionary with String Keys</li>
+</ol>
+<ul>
+<li>5a: Output = (c) KeyError</li>
+<li>5b: Output = (a) 0, 1, 2, 3, 4</li>
+<li>5c: Output = (a) dog, cat, mouse, bird, whale</li>
+<li>5d: Output = (a) cat, dog, bird, mouse, while</li>
+<li>5e: Output = (a) 0, 1, 2, 3, 4</li>
+<li>5f: Output = (c) KeyError</li>
+</ul>
+<hr />
+<ol start="6" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def size_of_strings(strings: list[str]) -&gt; list[int]:
+    &quot;&quot;&quot;Return a list of the size of each string in the input list.&quot;&quot;&quot;
+    result: list[int] = []
+    for x in range(0, len(strings)):
+        result.append(len(strings[x]))
+    return result
+
+# OR 
+
+def size_of_strings(strings: list[str]) -&gt; list[int]:
+    &quot;&quot;&quot;Return a list of the size of each string in the input list.&quot;&quot;&quot;
+    result: list[int] = []
+    i = 0  # Initialize a counter for the while loop
+    
+    while i &lt; len(strings):  # Loop until the end of the list
+        string_length = 0  # Manually count the length of the string
+        j = 0  # Initialize a second counter to measure string length
+        
+        while j &lt; len(strings[i]):  # Measure the length of each string
+            string_length += 1
+            j += 1
+        
+        result.append(string_length)  # Append the calculated length to result
+        i += 1  # Move to the next string in the list
+    
+    return result</code></pre>
+<hr />
+<ol start="7" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def sum_of_string_lengths(strings: list[str]) -&gt; int:
+    &quot;&quot;&quot;Return the sum of the lengths of all strings in the list.&quot;&quot;&quot;
+    total_length: int = 0
+    for string in strings:
+        total_length += len(string)
+    return total_length
+
+# OR
+
+def sum_of_string_lengths(strings: list[str]) -&gt; int:
+    &quot;&quot;&quot;Return the sum of the lengths of all strings in the list.&quot;&quot;&quot;
+    total_length = 0
+    i = 0
+    while i &lt; len(strings):
+        total_length += len(strings[i])
+        i += 1
+    return total_length</code></pre>
+<hr />
+<ol start="8" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def add_exclamation(strings: list[str]) -&gt; None:
+    &quot;&quot;&quot;Add an exclamation point to each string in the input list.&quot;&quot;&quot;
+    for i in range(len(strings)):
+        strings[i] += &#39;!&#39;
+    
+# OR
+
+def add_exclamation(strings: list[str]) -&gt; None:
+    &quot;&quot;&quot;Add an exclamation point to each string in the input list.&quot;&quot;&quot;
+    i = 0
+    while i &lt; len(strings):
+        strings[i] += &#39;!&#39;
+        i += 1</code></pre>
+<hr />
+<ol start="9" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def string_to_characters(input_string: str) -&gt; list[str]:
+    &quot;&quot;&quot;Return a list where each element is a character from the input string.&quot;&quot;&quot;
+    result: list[str] = []
+    for char in input_string:
+        result.append(char)
+    return result
+
+# OR
+
+def string_to_list(s: str) -&gt; list[str]:
+    &quot;&quot;&quot;Convert a string into a list where each element is a character.&quot;&quot;&quot;
+    result: list[str] = []
+    i = 0
+    while i &lt; len(s):
+        result.append(s[i])
+        i += 1
+    return result</code></pre>
+<hr />
+<ol start="10" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def count_str(size: int) -&gt; list[int]:
+    &quot;&quot;&quot;Create a list of the size of the input integer and assign it to a global variable.&quot;&quot;&quot;
+    result: list[int] = []
+    for x in range(0, size):
+        result.append(x)
+    return result
+size_list: list[int] = count_str(5)
+
+# OR
+
+def count_str(size: int) -&gt; list[int]:
+    &quot;&quot;&quot;Create a list of the size of the input integer using a while loop.&quot;&quot;&quot;
+    result: list[int] = []
+    x: int = 0
+    
+    while x &lt; size:
+        result.append(x)
+        x += 1
+        
+    return result
+
+size_list: list[int] = count_str(5)</code></pre>
+<hr />
+<ol start="11" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def insert_float(lst: list[float], index: int, num: float) -&gt; list[float]:
+    &quot;&quot;&quot;Insert a float into the list at the specified index without using the insert function.&quot;&quot;&quot;
+    result: list[float] = []
+    
+    for x in range(0, len(lst)):
+        if x == index:
+            result.append(num)  # Add the new float at the specified index
+            
+        result.append(lst[x])  # Add the existing float
+    
+    # If the index is at the end, append the new float after the last element
+    if index &gt;= len(lst):
+        result.append(num)
+
+    return result
+
+# OR
+
+def insert_float(lst: list[float], index: int, num: float) -&gt; list[float]:
+    &quot;&quot;&quot;Insert a float into the list at the specified index using a while loop.&quot;&quot;&quot;
+    result: list[float] = []
+    x: int = 0
+    
+    while x &lt; len(lst):
+        if x == index:
+            result.append(num)  # Add the new float at the specified index
+        
+        result.append(lst[x])  # Add the existing float
+        x += 1  # Increment the index
+    
+    # If the index is at the end, append the new float after the last element
+    if index &gt;= len(lst):
+        result.append(num)
+
+    return result</code></pre>
+<hr />
+<ol start="12" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def only_evens(lst: list[int]) -&gt; list[int]:
+    &quot;&quot;&quot;Return a new list with only the even numbers.&quot;&quot;&quot;
+    result: list[int] = []
+    for x in range(0, len(lst)):
+        if lst[x] % 2 == 0:
+            result.append(lst[x])
+    return result
+
+# OR
+
+def only_evens(lst: list[int]) -&gt; list[int]:
+    &quot;&quot;&quot;Return a new list with only the even numbers using a while loop.&quot;&quot;&quot;
+    result: list[int] = []
+    x: int = 0
+    
+    while x &lt; len(lst):
+        if lst[x] % 2 == 0:
+            result.append(lst[x])  # Add even numbers to the result list
+        x += 1  # Increment the index
+
+    return result</code></pre>
+<hr />
+<ol start="13" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def only_a_strings(strings: list[str]) -&gt; list[str]:
+    &quot;&quot;&quot;Return a new list with only the strings that contain the letter &#39;a&#39; using a for loop.&quot;&quot;&quot;
+    result: list[str] = []
+    
+    for string in strings:
+        if &#39;a&#39; in string:  # Check if &#39;a&#39; is in the current string
+            result.append(string)
+
+    return result
+
+# OR
+
+def only_a_strings(strings: list[str]) -&gt; list[str]:
+    &quot;&quot;&quot;Return a new list with only the strings that contain the letter &#39;a&#39;.&quot;&quot;&quot;
+    result: list[str] = []
+    i: int = 0
+    j: int = 0
+    while i &lt; len(strings):
+        while j &lt; len(strings[i]):
+            if strings[i][j] == &quot;a&quot;:
+                result.append(strings[i])
+            j += 1
+        i += 1
+    return result</code></pre>
+<hr />
+<ol start="14" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def largest_number(lst: list[int]) -&gt; int:
+    &quot;&quot;&quot;Return the largest number in the input list.&quot;&quot;&quot;
+    result: int = lst[0]
+    for x in range(0, len(lst)):
+        if lst[x] &gt; result:
+            result = lst[x]
+    return result
+
+# OR
+
+def largest_number(lst: list[int]) -&gt; int:
+    &quot;&quot;&quot;Return the largest number in the input list using a while loop.&quot;&quot;&quot;
+    if len(lst) == 0:  # Handle empty list case
+        raise ValueError(&quot;The list is empty&quot;)
+    
+    result: int = lst[0]
+    x: int = 0
+    
+    while x &lt; len(lst):
+        if lst[x] &gt; result:
+            result = lst[x]
+        x += 1  # Increment the index
+    
+    return result</code></pre>
+<hr />
+<ol start="15" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def count_vowels(string: str) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a dictionary with the count of each vowel in the input string.&quot;&quot;&quot;
+    result: dict[str, int] = {&quot;a&quot;: 0, &quot;e&quot;: 0, &quot;i&quot;: 0, &quot;o&quot;: 0, &quot;u&quot;: 0}
+    for x in range(0, len(string)):
+        if string[x] in result:
+            result[string[x]] += 1
+    return result
+
+# OR 
+
+def count_vowels(string: str) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a dictionary with the count of each vowel in the input string using a while loop.&quot;&quot;&quot;
+    result: dict[str, int] = {&quot;a&quot;: 0, &quot;e&quot;: 0, &quot;i&quot;: 0, &quot;o&quot;: 0, &quot;u&quot;: 0}
+    x: int = 0
+    
+    while x &lt; len(string):
+        if string[x] in result:
+            result[string[x]] += 1
+        x += 1  # Increment the index
+    
+    return result</code></pre>
+<hr />
+<ol start="16" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def same_nums(lst1: list[int], lst2: list[int]) -&gt; list[int]:
+    &quot;&quot;&quot;Return a new list with the elements that appear in both lists.&quot;&quot;&quot;
+    result: list[int] = []
+    for x in range(0, len(lst1)):
+        for y in range(0, len(lst2)):
+            if lst1[x] == lst2[y]:
+                result.append(lst1[x])
+    return result
+
+# OR
+
+def same_nums(lst1: list[int], lst2: list[int]) -&gt; list[int]:
+    &quot;&quot;&quot;Return a new list with the elements that appear in both lists using while loops.&quot;&quot;&quot;
+    result: list[int] = []
+    x: int = 0
+    
+    while x &lt; len(lst1):
+        y: int = 0
+        found: bool = False  # To track if a match is found
+        while y &lt; len(lst2):
+            if lst1[x] == lst2[y]:
+                result.append(lst1[x])
+                found = True  # Set found to True if a match is found
+            y += 1  # Increment the inner index
+        
+        # Increment the outer index regardless of finding a match
+        x += 1  
+    
+    return result</code></pre>
+<hr />
+<ol start="17" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def average_non_negative(lst: list[float]) -&gt; float:
+    &quot;&quot;&quot;Return the average of the list, ignoring any negative numbers.&quot;&quot;&quot;
+    total: float = 0
+    count: int = 0
+
+    # Use a while loop to iterate through the list
+    index: int = 0
+    while index &lt; len(lst):
+        if lst[index] &gt;= 0:  # Only consider non-negative numbers
+            total += lst[index]
+            count += 1  # Increment the count for valid numbers
+        index += 1  # Move to the next element
+
+    # Calculate and return the average
+    if count &gt; 0:  # Avoid division by zero
+        return total / count
+    return 0  # Return 0 if there are no non-negative numbers</code></pre>
+<hr />
+<ol start="18" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def sort_strings(strings: list[str]) -&gt; list[str]:
+    &quot;&quot;&quot;Return a new list with the strings sorted by length in descending order.&quot;&quot;&quot;
+    result: list[str] = []
+    while len(result) &lt; len(strings):
+        max_index = 0
+        for i in range(1, len(strings)):
+            if len(strings[i]) &gt; len(strings[max_index]):
+                max_index = i
+        result.append(strings[max_index])
+        strings[max_index] = &quot;&quot;
+
+    return result
+
+# OR 
+
+def sort_strings(strings: list[str]) -&gt; list[str]:
+    &quot;&quot;&quot;Return a new list with the strings sorted by length in descending order using while loops.&quot;&quot;&quot;
+    result: list[str] = []
+    temp_strings: list[str] = []  # Initialize an empty list for manual copying
+    
+    # Manually copy the original list to temp_strings
+    i: int = 0
+    while i &lt; len(strings):
+        temp_strings.append(strings[i])
+        i += 1  # Increment the index
+    
+    while len(result) &lt; len(strings):
+        max_index = 0
+        j: int = 1
+        
+        while j &lt; len(temp_strings):
+            if len(temp_strings[j]) &gt; len(temp_strings[max_index]):
+                max_index = j
+            j += 1  # Increment the inner index
+        
+        result.append(temp_strings[max_index])  # Append the longest string to result
+        temp_strings[max_index] = &quot;&quot;  # Mark the string as used by replacing it with an empty string
+
+    return result</code></pre>
+<hr />
+<ol start="19" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def strings_to_dict(strings: list[str]) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a dictionary where the keys are the strings and the values are the lengths of each string.&quot;&quot;&quot;
+    result: dict[str, int] = {}
+    for x in range(0, len(strings)):
+        result[strings[x]] = len(strings[x])
+    return result
+
+# OR
+
+def strings_to_dict(strings: list[str]) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a dictionary where the keys are the strings and the values are the lengths of each string using a while loop.&quot;&quot;&quot;
+    result: dict[str, int] = {}
+    x: int = 0
+    
+    while x &lt; len(strings):
+        result[strings[x]] = len(strings[x])  # Assign the string as key and its length as value
+        x += 1  # Increment the index
+    
+    return result</code></pre>
+<hr />
+<ol start="20" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def count_chars(string: str) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a dictionary with the frequency of each character in the input string.&quot;&quot;&quot;
+    result: dict[str, int] = {}
+    for x in range(0, len(string)):
+        if string[x] in result:
+            result[string[x]] += 1
+        else:
+            result[string[x]] = 1
+    return result
+
+# OR
+
+def count_chars(string: str) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a dictionary with the frequency of each character in the input string using a while loop.&quot;&quot;&quot;
+    result: dict[str, int] = {}
+    x: int = 0
+    
+    while x &lt; len(string):
+        if string[x] in result:
+            result[string[x]] += 1  # Increment the count if the character already exists
+        else:
+            result[string[x]] = 1  # Initialize the count for the character
+        x += 1  # Increment the index
+    
+    return result</code></pre>
+<hr />
+<ol start="21" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def group_strings_by_first_letter(strings: list[str]) -&gt; dict[str, list[str]]:
+    &quot;&quot;&quot;Return a dictionary where the keys are the first letters and the values are lists of strings starting with that letter.&quot;&quot;&quot;
+    result: dict[str, list[str]] = {}
+
+    # Use a while loop to iterate through the list of strings
+    index: int = 0
+    while index &lt; len(strings):
+        if strings[index]:  # Ensure the string is not empty
+            first_letter: str = strings[index][0]  # Get the first letter
+
+            # If the first letter is not in the result dictionary, add it with an empty list
+            if first_letter not in result:
+                result[first_letter] = []
+            result[first_letter].append(strings[index])  # Add the string to the appropriate list
+        index += 1  # Move to the next string
+
+    return result
+
+# OR
+
+def find_first_letter(strings: list[str]) -&gt; dict[str, list[str]]:
+    &quot;&quot;&quot;Return a dictionary with the first letter of each string as the key and a list of strings that start with that letter as the value.&quot;&quot;&quot;
+    result: dict[str, list[str]] = {}
+    for x in range(0, len(strings)):
+        if strings[x][0] in result:
+            result[strings[x][0]].append(strings[x])
+        else:
+            result[strings[x][0]] = [strings[x]]
+    return result</code></pre>
+<ol start="22" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def keys_with_even_values(d: dict[str, int]) -&gt; list[str]:
+    &quot;&quot;&quot;Return a list of keys that have even values.&quot;&quot;&quot;
+    result: list[str] = [] 
+    for key in d:
+        if d[key] % 2 == 0:
+            result.append(key)
+    return result
+
+# OR
+
+def keys_with_even_values(d: dict[str, int]) -&gt; list[str]:
+    &quot;&quot;&quot;Return a list of keys that have even values using a while loop.&quot;&quot;&quot;
+    result: list[str] = [] 
+    keys: list[str] = []  # Initialize an empty list for keys
+    x: int = 0
+
+    # Manually collect keys from the dictionary
+    for key in d:  # Use a for loop just to collect keys
+        keys.append(key)
+
+    while x &lt; len(keys):
+        if d[keys[x]] % 2 == 0:
+            result.append(keys[x])  # Append the key if its value is even
+        x += 1  # Increment the index
+    
+    return result</code></pre>
+<hr />
+<ol start="23" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def key_with_largest_value(d: dict[str, int]) -&gt; str:
+    &quot;&quot;&quot;Return the key with the largest value in the input dictionary.&quot;&quot;&quot;
+    largest_key: str = &quot;&quot;
+    largest_value: int = 0
+
+    # Use a for loop to iterate through the dictionary
+    for key in d:
+        if d[key] &gt; largest_value:
+            largest_value = d[key]  # Update largest value
+            largest_key = key  # Update largest key
+
+    return largest_key
+
+# OR
+
+def key_with_largest_value(d: dict[str, int]) -&gt; str:
+    &quot;&quot;&quot;Return the key with the largest value in the input dictionary.&quot;&quot;&quot;
+    largest_key: str = &quot;&quot;
+    largest_value: int = 0
+    index: int = 0
+
+    # Manually create a list of keys from the dictionary
+    keys: list[str] = []
+    
+    # Populate keys manually
+    while index &lt; len(d):
+        current_key = next(iter(d))  # Get the first key from the dictionary
+        keys.append(current_key)  # Add the key to the list of keys
+        d.pop(current_key)  # Remove the key from the dictionary to avoid duplicates
+        index += 1
+
+    # Use a while loop to find the key with the largest value
+    x: int = 0  # Index for the keys
+    while x &lt; len(keys):
+        key = keys[x]
+        if key in d and d[key] &gt; largest_value:
+            largest_value = d[key]  # Update largest value
+            largest_key = key  # Update largest key
+        x += 1  # Increment the index
+
+    return largest_key</code></pre>
+<hr />
+<ol start="24" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def merge_dicts(d1: dict[str, float], d2: dict[str, float]) -&gt; dict[str, float]:
+    &quot;&quot;&quot;Merge two dictionaries into one, summing the values of common keys.&quot;&quot;&quot;
+    result: dict[str, float] = {}
+    for key in d1:
+        result[key] = d1[key]
+    for key in d2:
+        if key in result:
+            result[key] += d2[key]
+        else:
+            result[key] = d2[key]
+    return result
+
+# OR
+
+def merge_dicts(d1: dict[str, float], d2: dict[str, float]) -&gt; dict[str, float]:
+    &quot;&quot;&quot;Merge two dictionaries into one, summing the values of common keys using a while loop.&quot;&quot;&quot;
+    result: dict[str, float] = {}
+    keys1: list[str] = []  # Manually create a list for keys in d1
+    keys2: list[str] = []  # Manually create a list for keys in d2
+    
+    # Populate keys1 and keys2 manually
+    for key in d1:
+        keys1.append(key)
+    for key in d2:
+        keys2.append(key)
+
+    x: int = 0  # Index for keys1
+    # Use a while loop to add keys from d1 to the result
+    while x &lt; len(keys1):
+        key = keys1[x]
+        result[key] = d1[key]  # Add key and value from d1 to result
+        x += 1  # Increment index
+
+    y: int = 0  # Index for keys2
+    # Use another while loop to process keys from d2
+    while y &lt; len(keys2):
+        key = keys2[y]
+        if key in result:
+            result[key] += d2[key]  # Sum the values for common keys
+        else:
+            result[key] = d2[key]  # Add new keys and values to result
+        y += 1  # Increment index
+
+    return result</code></pre>
+<hr />
+<ol start="25" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def length_of_values(d: dict[str, list[float]]) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a dictionary with the lengths of the lists in the input dictionary.&quot;&quot;&quot;
+    result: dict[str, int] = {}
+    for key in d:
+        result[key] = len(d[key])
+    return result</code></pre>
+<hr />
+<ol start="26" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def swap_keys_values(d: dict[float, int]) -&gt; dict[int, float]:
+    &quot;&quot;&quot;Return a new dictionary with the keys and values swapped.&quot;&quot;&quot;
+    result: dict[int, float] = {}
+    for key in d:
+        result[d[key]] = key
+    return result</code></pre>
+<hr />
+<ol start="27" type="1">
+<li>Solution below:</li>
+</ol>
+<pre><code>def find_above_85(d: dict[str, int]) -&gt; dict[str, int]:
+    &quot;&quot;&quot;Return a new dictionary with only the students who scored above an 85.&quot;&quot;&quot;
+    result: dict[str, int] = {}
+    for key in d:
+        if d[key] &gt; 85:
+            result[key] = d[key]
+    return result</code></pre>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Viktorya Hunanyan, Mitchell Anderson</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

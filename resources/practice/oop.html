@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> OOP Conceptual Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429143.6682863">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>OOP Conceptual Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<li><a href="#magic-methods-conceptual-questions">Magic Methods Conceptual Questions</a></li>
+<li><a href="#general-questions">General Questions</a></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#conceptual-questions-solutions">Conceptual Questions Solutions</a></li>
+<li><a href="#magic-methods-conceptual-questions-solutions">Magic Methods Conceptual Questions Solutions</a></li>
+<li><a href="#general-questions-solutions">General Questions Solutions</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="conceptual-questions">Conceptual Questions</h1>
+<ol type="1">
+<li>What does <code>__init__</code> return? Why is it important for it to return this?</li>
+<li>Does every class need an <code>__init__</code> method?</li>
+<li>Let’s say you have a class with 5 attributes. When you call the constructor of this class, do you need to pass 5 arguments to the constructor? Is it possible to pass less than 5? How so?</li>
+<li>How many methods does a class have to have?</li>
+<li>A class definition provides a pattern for creating objects, but doesn’t make any objects itself. (T/F)</li>
+<li>By convention, Python class names start with a lowercase letter. (T/F)</li>
+<li>When you define a method in a class, all objects of that class have that method associated with it. (T/F)</li>
+<li>The first parameter of a method is a copy of the object the method is called on called <code>self</code>. (T/F)</li>
+<li>A class <em>definition</em> must come before an object of that class is <em>instantiated</em>. (T/F)</li>
+<li>You must have an instance of a class (an object) to call the class’s constructor. (T/F)</li>
+<li>Constructors must have the <code>self</code> parameter in their signature. (T/F)</li>
+<li>Constructors must take at least one parameter other than the self parameter. (T/F)</li>
+<li>Objects are passed into functions by reference. (T/F)</li>
+<li>The type of an object is the same as the name of the class it is an instance of. (T/F)</li>
+<li><code>__init__</code> doesn’t take <code>self</code> as an argument when the constructor is called, but it does have it as a parameter. (T/F)</li>
+<li><code>__init__</code> doesn’t contain a <code>return</code> statement, but it does return something. (T/F)</li>
+<li>Similar to how a function is first <em>defined</em> then <em>called</em>, a class is first <em>defined</em> then ____.</li>
+</ol>
+<h1 id="magic-methods-conceptual-questions">Magic Methods Conceptual Questions</h1>
+<p>The following questions will refer to the following code:</p>
+<pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f&quot;Vector({self.x}, {self.y})&quot;
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+v1 = Vector(2, 3)
+v2 = Vector(4, 5)
+v3 = v1 + v2
+print(v1)
+print(v2)
+print(v3)</code></pre>
+<ol type="1">
+<li>Where is the <code>__str__</code>method called? How do you know it is called?</li>
+<li>Where is the <code>__add__</code> method called? How do you know it is called?</li>
+<li>What is the output of <code>print(v1)</code>?</li>
+<li>What is the output of <code>print(v2)</code>?</li>
+<li>What is the output of <code>print(v3)</code>?</li>
+<li>From questions 1 and 2, in order to call a magic method, how do you do this? Give an example of calling a <code>__mul__</code> method on the vector object v1. This method will take in an int and multiple each component of the input vector by that int.</li>
+<li>Implement the <code>__mul__</code> method discussed in question 3.</li>
+<li>In general, what is the point of magic methods? To answer this, compare and contrast the <code>__mul__</code> method vs the <code>__add__</code> method in the Vector class.</li>
+</ol>
+<h1 id="general-questions">General Questions</h1>
+<ol type="1">
+<li><p>Write the general formula of how you instantiate an object belonging to a class using the following. You might not need to use all and can use any multiple times: <code>:</code>, <code>=</code>, <code>()</code>, <code>&lt;arg&gt;</code>, <code>&lt;class_name&gt;</code>, <code>&lt;variable_name&gt;</code>, <code>method_name</code>, <code>__init__</code>.</p></li>
+<li><p>Write the general formula of how you call the constructor of a class using the following. You might not need to use all and can use any multiple times: <code>:</code>, <code>=</code>, <code>()</code>, <code>&lt;arg&gt;</code>, <code>&lt;class_name&gt;</code>, <code>&lt;variable_name&gt;</code>, <code>method_name</code>, <code>__init__</code>.</p></li>
+<li><p>Write the general formula of how you call a method of a class on an object stored in <code>&lt;variable_name&gt;</code>, using the following. You might not need to use all and can use any multiple times: <code>:</code>, <code>=</code>, <code>()</code>, <code>&lt;arg&gt;</code>, <code>&lt;class_name&gt;</code>, <code>&lt;variable_name&gt;</code>, <code>method_name</code>, <code>__init__</code>.</p></li>
+<li><p>Give an example of calling a constructor of a built in type.</p></li>
+<li><p>Give an example of calling a method on an object. Use the methods that we have already practiced.</p></li>
+<li><p>Given the following class definition, do the following:</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">class</span> TA:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    semester_pay: <span class="bu">int</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    hours_per_week: <span class="bu">int</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    title: <span class="bu">str</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, title: <span class="bu">str</span>):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>        <span class="va">self</span>.title <span class="op">=</span> title</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>        <span class="cf">if</span> <span class="va">self</span>.title <span class="op">==</span> <span class="st">&quot;Comp 110 TA&quot;</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>            <span class="va">self</span>.hours_per_week <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>            <span class="va">self</span>.semester_pay <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>            <span class="va">self</span>.hours_per_week <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>            <span class="va">self</span>.semester_pay <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    <span class="kw">def</span> todo_list(<span class="va">self</span>, todo_list: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">bool</span>]) <span class="op">-&gt;</span> <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">bool</span>]:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>        <span class="cf">return</span> todo_list</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>    <span class="kw">def</span> check_off(<span class="va">self</span>, task: <span class="bu">str</span>, todo_list: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">bool</span>]) <span class="op">-&gt;</span> <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">bool</span>]:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>        <span class="cf">if</span> task <span class="kw">in</span> todo_list:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>            todo_list[task] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>        <span class="cf">return</span> todo_list</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>    <span class="kw">def</span> change_class(<span class="va">self</span>, new_title: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="st">&quot;TA&quot;</span>:</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>        <span class="cf">return</span> TA(new_title)</span></code></pre></div>
+<ul>
+<li><p>6a. In the fall, you become a TA for Bio 101. Using the class above, create a <code>TA</code> object that is a <code>"Bio 101 TA"</code>.</p></li>
+<li><p>6b. The next semester you change the class you TA for. Using the <code>change_class</code> method, create a new object of a <code>"Comp 110 TA"</code>.</p></li>
+<li><p>6c. As a comp 110 TA, you have to do the following:</p>
+<ul>
+<li>4 hours of OH</li>
+<li>1 hour of AH</li>
+<li>grade quiz question 6.1</li>
+</ul>
+<p>Using the <code>todo_list</code> method create a list of items that you have to do. You need to make sure that you have some way of accessing this list so that you can check off items as you progress through the week.</p></li>
+<li><p>6d. In your todo list object, check off <code>"1 hour of AH"</code>.</p></li>
+<li><p>6e. In your todo list object, check off <code>"4 hours of OH"</code>.</p></li>
+</ul>
+<h1 id="solutions">Solutions</h1>
+<h2 id="conceptual-questions-solutions">Conceptual Questions Solutions</h2>
+<ol type="1">
+<li><p>For the scope of this class we say that <code>__init__</code> returns the reference number to the object created. More than likely, when the class that this <code>__init__</code> method belongs to is called, it is assigned to a variable. More specifically, the return value of calling the class will be assigned to this variable. It is important for <code>__init__</code> to return the object so that the created object can be referenced using the variable it was assigned to. If it wasn’t assigned to anything—that is, if the class created an object without returning this object—then this object is not referenced by anything in the stack and is floating in the void of the heap. Without a reference, the object becomes inaccessible, and Python’s garbage collector will eventually remove it from memory, as it’s no longer needed.</p></li>
+<li><p>For the scope of this class, yes all classes need an <code>__init__</code> method. This because when we want to create an object belonging to a class, we will call the class that the object will belong to. When a class is called, Python allocates memory for a new object of that class. This new object is an empty “shell” instance of the class. After the memory allocation, Python calls the class’s <code>__init__</code> method to initialize the object. The new, empty object is automatically passed to <code>__init__</code> as self, making self a reference to the specific instance being created. The <code>__init__</code> method then goes ahead and adds any attributes to that empty object.</p></li>
+<li><p>You do not need to pass 5 arguments in order to assign 5 feilds a value. For example the code below has 3 attributes but only passes 1 argument to the constructor:</p></li>
+</ol>
+<pre><code>class Week: 
+    day: str
+    days_of_the_week: dict[str, int]
+    my_num: int
+
+    def __init__(self, day): 
+        self.day = day 
+        self.days_of_the_week = {&quot;Sun&quot;: 0, &quot;Mon&quot;: 1, &quot;Tues&quot;: 2, &quot;Wed&quot;: 3, &quot;Thurs&quot;: 4, &quot;Fri&quot;: 5, &quot;Sat&quot;: 6}
+
+        for days in self.days_of_the_week: 
+            if days == day: 
+                self.my_num = self.days_of_the_week[days]</code></pre>
+<ol start="4" type="1">
+<li><p>Every class must have at a miniumum 1 method, the <code>__init__</code> method.</p></li>
+<li><p>True</p></li>
+<li><p>False</p></li>
+<li><p>True</p></li>
+<li><p>False; It is not a copy.</p></li>
+<li><p>True</p></li>
+<li><p>False; The classes constructor creates the instance of the object. You don’t need an existing instance of a class to call the class’s constructor. Calling the constructor (by calling the class) is what creates an instance of the class in the first place. When you call the class itself, like <code>MyClass()</code>, Python internally calls the constructor <code>__init__</code> to initialize a new instance.</p></li>
+<li><p>True</p></li>
+<li><p>False</p></li>
+<li><p>True</p></li>
+<li><p>True</p></li>
+<li><p>True</p></li>
+<li><p>True</p></li>
+<li><p>Instantiated</p></li>
+</ol>
+<h2 id="magic-methods-conceptual-questions-solutions">Magic Methods Conceptual Questions Solutions</h2>
+<ol type="1">
+<li>The <code>__str__</code> method is called when <code>print(v1)</code>, <code>print(v2)</code>, and <code>print(v3)</code> are executed. This is because any argument passed to the <code>print()</code> function is first passed to the <code>str()</code> in order to turn the argument to a string. The <code>str()</code> returns a string representation of the argument passed to it’s function.</li>
+</ol>
+<p>We know how to do things such as:</p>
+<pre><code>print(8)
+x: str = &quot;float&quot;
+print(x)
+print(type(x))
+print(False)
+print(8 + 4.0)</code></pre>
+<p>All of these will output a string representtion of the simplified argument value passed to the <code>print()</code> function. But notice, all the argument above are of type that are built into python already. In our case, when we have <code>print(v1)</code>, what is the type of <code>v1</code>? Well <code>v1</code> is of the type <code>Vector</code>. Does python know how to print out a <code>Vector</code> object?? Is this a type that the creator of python thought everyone would use? No, it’s a type that we defined! So therefore, when we want to print this object of the type <code>Vector</code>, we have to tell python how exactly we want it to print it. More speficially, the <code>print()</code> function simply prints out whatever it recieves from the <code>str()</code> function therefore, we have to specify how to turn a <code>Vector</code> object into a string representation. That is where our <code>__str__</code> magic method come in. When python calls <code>print()</code>, it has no problem entering into the <code>print()</code> function but it encounters a problem when it needs to call the <code>str()</code> function since it doesn’t know how exactly you want to print this object. So what python does is it checks to see if there is a magic method to overload this operation – the counterpart of the <code>str()</code>. So it checks in the <code>Vector</code> class and sees <code>__str__</code> is defined so it passes the argument, otherwise passed to <code>str()</code>, to this magic method and evaluates the function body and it returns a string representation of the <code>Vector</code> object that it passes back to the print function and print outputs.</p>
+<ol start="2" type="1">
+<li><p>The same logic for the solution to 1 applies here as well. The <code>__add__</code> method is called in the line <code>v3 = v1 + v2</code>. This line uses the <code>+</code> operator between two <code>Vector</code> instances (<code>v1</code> and <code>v2</code>). When the <code>+</code> operator is used, Python automatically calls the <code>__add__</code> method of the first operand, in this case, <code>v1</code>.</p></li>
+<li><p><code>Vector(2, 3)</code></p></li>
+<li><p><code>Vector(4, 5)</code></p></li>
+<li><p><code>Vector(6, 8)</code></p></li>
+<li><p>To call a magic method, you use the corresponding operator or function associated with that method, rather than calling the method directly.</p></li>
+</ol>
+<p>For instance:</p>
+<ul>
+<li>For <code>__str__</code>, you use <code>str()</code> or <code>print()</code>.</li>
+<li>For <code>__add__</code>, you use the <code>+</code> operator.</li>
+</ul>
+<p>To implement and call a <code>__mul__</code> method that multiplies each component of the <code>Vector</code> by an integer, you would use the <code>*</code> operator. For example, if <code>__mul__</code> were defined in <code>Vector</code>, you could call it with <code>v1 * 3</code>, which would return a new <code>Vector</code> with each component of <code>v1</code> multiplied by <code>3</code>.</p>
+<ol start="7" type="1">
+<li>Implementation is below:</li>
+</ol>
+<pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f&quot;Vector({self.x}, {self.y})&quot;
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __mul__(self, scalar):
+        return Vector(self.x * scalar, self.y * scalar)
+
+# Example Usage
+v1 = Vector(2, 3)
+v4 = v1 * 3
+print(v4)</code></pre>
+<ol start="8" type="1">
+<li>Magic methods allow classes to define custom behavior for built-in operations and functions, enabling objects to integrate seamlessly with Python’s syntax and operators. They make custom objects behave more like built-in types.</li>
+</ol>
+<p>The <code>__add__</code> method allows <code>Vector</code> objects to be combined using the <code>+</code> operator, resulting in a new <code>Vector</code> with summed components. The <code>__mul__</code> method enables the use of the <code>*</code> operator to scale a <code>Vector</code> by multiplying its components by a scalar, yielding a new <code>Vector</code>.</p>
+<p>The key difference is that <code>__add__</code> expects another <code>Vector</code> as its argument, while <code>__mul__</code> takes a scalar integer. Since Python doesn’t inherently know how to handle operations on custom objects, magic methods allow you to define these operations in any way you choose. For example, in the <code>__add__</code> method, we decided that only two vectors should be added together, while in <code>__mul__</code>, we allowed scaling the vector by a scalar.</p>
+<h2 id="general-questions-solutions">General Questions Solutions</h2>
+<ol type="1">
+<li><code>&lt;variable_name&gt;: &lt;class_name&gt; = &lt;class_name&gt;(&lt;arg&gt;)</code></li>
+<li><code>&lt;class_name&gt;(&lt;arg&gt;)</code></li>
+<li><code>&lt;variable_name&gt;.&lt;method_name&gt;(&lt;arg&gt;)</code></li>
+<li><code>my_list = list()</code></li>
+<li><code>my_list.append(3)</code></li>
+<li>Answers below:</li>
+</ol>
+<ul>
+<li>6a. Code below:</li>
+</ul>
+<pre><code>bio_ta = TA(&quot;Bio 101 TA&quot;)</code></pre>
+<ul>
+<li>6b. Code below:</li>
+</ul>
+<pre><code>comp_ta = bio_ta.change_class(&quot;Comp 110 TA&quot;)</code></pre>
+<ul>
+<li>6c. Code below:</li>
+</ul>
+<pre><code>todo_list = {
+    &quot;4 hours of OH&quot;: False,
+    &quot;1 hour of AH&quot;: False,
+    &quot;grade quiz question 6.1&quot;: False
+}
+comp_todo = comp_ta.todo_list(todo_list)</code></pre>
+<ul>
+<li>6d. Code below:</li>
+</ul>
+<pre><code>comp_todo = comp_ta.check_off(&quot;1 hour of AH&quot;, comp_todo)</code></pre>
+<ul>
+<li>6e. Code below:</li>
+</ul>
+<pre><code>comp_todo = comp_ta.check_off(&quot;4 hours of OH&quot;, comp_todo)</code></pre>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Viktorya Hunanyan,        David Karash,        Megan Zhang, Alyssa Lytle</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

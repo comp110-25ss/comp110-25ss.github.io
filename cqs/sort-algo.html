@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> CQ12 - Sorting Algorithms - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429165.7868307">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="exercises-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>CQ12 - Sorting Algorithms</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#selectrion_sort">selectrion_sort()</a></li>
+<li><a href="#insertion_sort">insertion_sort()</a></li>
+<li><a href="#submission">Submission</a></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>In this challenge question, you will create two functions that do the same thing except in two different ways! You will implement a selection sort and insertion sort. Both algorithms organize a list of numbers in non-decreasing order, but they do so in distinct ways. Before you being, in create a python file called <code>sorting_algorithms</code> in your <code>CQs</code> folder. You will write your functions in this file.</p>
+<h1 id="selectrion_sort">selectrion_sort()</h1>
+<p>The <em>Selection Sort</em> algorithm sorts a list by repeatedly finding the smallest element from the unsorted portion and swapping it with the first unsorted element. For each pass through the list, it identifies the minimum value in the remaining unsorted elements and positions it at the correct location.</p>
+<p>Your task is to define the funciton <code>selectrion_sort()</code>. This function should:</p>
+<ul>
+<li><ol type="1">
+<li>Iterate through the list to find the minimum value in the unsorted part.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Swap this minimum value with the first unsorted element.</li>
+</ol></li>
+</ul>
+<p>Continue this process until the entire list is sorted.</p>
+<p>Here’s a visual representation of the <em>Selection Sort</em> process for the list <code>[29, 10, 14, 37, 14]</code>:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 24%" />
+<col style="width: 11%" />
+<col style="width: 19%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Pass</strong></th>
+<th><strong>Current List</strong></th>
+<th><strong>Comparison</strong></th>
+<th><strong>Min Element</strong></th>
+<th><strong>Swap (if needed)</strong></th>
+<th><strong>Resulting List</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pass 1</td>
+<td><code>[29, 10, 14, 37, 14]</code></td>
+<td><code>29 &gt; 10 → min = 10</code> <br> <code>10 &lt; 14</code> <br> <code>10 &lt; 37</code> <br> <code>10 &lt; 14</code></td>
+<td><code>10</code></td>
+<td>Swap <code>29</code> and <code>10</code></td>
+<td><code>[10, 29, 14, 37, 14]</code></td>
+</tr>
+<tr class="even">
+<td>Pass 2</td>
+<td><code>[10, 29, 14, 37, 14]</code></td>
+<td><code>29 &gt; 14 → min = 14</code> <br> <code>14 &lt; 37</code> <br> <code>14 &lt; 14</code></td>
+<td><code>14</code></td>
+<td>Swap <code>29</code> and <code>14</code></td>
+<td><code>[10, 14, 29, 37, 14]</code></td>
+</tr>
+<tr class="odd">
+<td>Pass 3</td>
+<td><code>[10, 14, 29, 37, 14]</code></td>
+<td><code>29 &lt; 37</code> <br> <code>29 &gt; 14 → min = 14</code></td>
+<td><code>14</code></td>
+<td>Swap <code>29</code> and <code>14</code></td>
+<td><code>[10, 14, 14, 37, 29]</code></td>
+</tr>
+<tr class="even">
+<td>Pass 4</td>
+<td><code>[10, 14, 14, 37, 29]</code></td>
+<td><code>37 &gt; 29 → min = 29</code></td>
+<td><code>29</code></td>
+<td>Swap <code>37</code> and <code>29</code></td>
+<td><code>[10, 14, 14, 29, 37]</code></td>
+</tr>
+<tr class="odd">
+<td>Pass 5</td>
+<td><code>[10, 14, 14, 29, 37]</code></td>
+<td>No comparisons (only one element)</td>
+<td><code>—</code></td>
+<td>No swap (already sorted)</td>
+<td><code>[10, 14, 14, 29, 37]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example usage of your function:</p>
+<pre class="plaintext"><code>&gt;&gt;&gt; from CQs.sorting_algorithms import selection_sort
+&gt;&gt;&gt; x: list[int] = [4, 6, 8, 89, 0, -1]
+&gt;&gt;&gt; selection_sort(x)
+&gt;&gt;&gt; print(x)
+[-1, 0, 4, 6, 8, 89]
+&gt;&gt;&gt; y: list[int] = [0, -5, -4, -100, 0, -1]
+&gt;&gt;&gt; selection_sort(y)
+&gt;&gt;&gt; print(y)
+[-100, -5, -4, -1, 0, 0]</code></pre>
+<h1 id="insertion_sort">insertion_sort()</h1>
+<p>The <em>Insertion Sort</em> algorithm sorts a list by building a sorted portion of the list one element at a time. For each element in the unsorted part, it places it in the correct position relative to the already sorted part of the list. This is done by shifting elements that are greater than the current element to the right to make room for it.</p>
+<p>Your task is to define the function <code>insertion_sort()</code>. This function should:</p>
+<ol type="1">
+<li>Begin at the second element in the list and treat the element as the “key.”</li>
+<li>Shift elements of the sorted portion that are greater than the key one position to the right.</li>
+<li>Insert the key in its correct sorted position.</li>
+</ol>
+<p>Continue this process until the entire list is sorted.</p>
+<p>Here’s a visual representation of the <em>Insertion Sort</em> process for the list <code>[29, 10, 14, 37, 14]</code>:</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 23%" />
+<col style="width: 14%" />
+<col style="width: 31%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Pass</strong></th>
+<th><strong>Current List</strong></th>
+<th><strong>Key Element</strong></th>
+<th><strong>Shifts</strong></th>
+<th><strong>Resulting List</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pass 1</td>
+<td><code>[29, 10, 14, 37, 14]</code></td>
+<td><code>10</code></td>
+<td><code>29</code> shifts right</td>
+<td><code>[10, 29, 14, 37, 14]</code></td>
+</tr>
+<tr class="even">
+<td>Pass 2</td>
+<td><code>[10, 29, 14, 37, 14]</code></td>
+<td><code>14</code></td>
+<td><code>29</code> shifts right</td>
+<td><code>[10, 14, 29, 37, 14]</code></td>
+</tr>
+<tr class="odd">
+<td>Pass 3</td>
+<td><code>[10, 14, 29, 37, 14]</code></td>
+<td><code>37</code></td>
+<td>No shifts</td>
+<td><code>[10, 14, 29, 37, 14]</code></td>
+</tr>
+<tr class="even">
+<td>Pass 4</td>
+<td><code>[10, 14, 29, 37, 14]</code></td>
+<td><code>14</code></td>
+<td><code>37</code> shifts right, <code>29</code> shifts right</td>
+<td><code>[10, 14, 14, 29, 37]</code></td>
+</tr>
+<tr class="odd">
+<td>Pass 5</td>
+<td><code>[10, 14, 14, 29, 37]</code></td>
+<td>—</td>
+<td>List is already sorted</td>
+<td><code>[10, 14, 14, 29, 37]</code></td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example usage of your function:</p>
+<pre class="plaintext"><code>&gt;&gt;&gt; from CQs.sorting_algorithms import insertion_sort
+&gt;&gt;&gt; x: list[int] = [4, 6, 8, 89, 0, -1]
+&gt;&gt;&gt; insertion_sort(x)
+&gt;&gt;&gt; print(x)
+[-1, 0, 4, 6, 8, 89]
+&gt;&gt;&gt; y: list[int] = [0, -5, -4, -100, 0, -1]
+&gt;&gt;&gt; insertion_sort(y)
+&gt;&gt;&gt; print(y)
+[-100, -5, -4, -1, 0, 0]
+&gt;&gt;&gt; z: list[int] = [1, 0, 0, 1, 0, -1]
+&gt;&gt;&gt; insertion_sort(z)
+&gt;&gt;&gt; print(z)
+[-1, 0, 0, 0, 1, 1]</code></pre>
+<p>Again, notice that the you will result in the same sorted lists for both <code>insertion_sort()</code> and <code>selectrion_sort()</code> as they do the same thing excpet in two different ways.</p>
+<h1 id="submission">Submission</h1>
+<p>Create a .zip file by running the following command in your terminal:</p>
+<p>python -m tools.submission CQs/sorting_algorithms.py</p>
+<p>Then, drag and drop that .zip file into Gradescope!</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Viktorya Hunanyan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

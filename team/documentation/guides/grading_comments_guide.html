@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-scroll="0" data-nav1="true">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Graders Guide to Grading Comments - COMP110 - 24F</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/styles.css?v=1750429138.214083">
+</head>
+
+<body id="body" class="absolute-page container">
+  
+    <div onKeyPress="return myFunction(event)">
+        <form id="log-in" class="center-text" id="form01" action="demo_form.asp" onsubmit="return false;" >
+            <h3 style="margin-bottom: 20px">Team Login</h3>
+            <input id="username" type="text" placeholder="username" style="margin-bottom: 10px">
+            <input id="password" type="text" placeholder="password">
+            <input class="hidden" type="button" value="Submit" onclick="myFunction(0)">
+        </form>
+    </div>
+
+
+    <a name="top"></a>
+    <div id="page-container">
+    <div id="content-wrapper">
+    <script src="/static/scripts/log-in-element.js"></script>
+    <div class="wrapper">
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+      <div class="container">
+        <a href="/team" class="navbar-brand">COMP 110</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto"> 
+                <li class="nav-item">
+                    <a class="nav-link" href="/team/documentation">documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/team/career">career</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="logistics-page" class="container">
+        <div class="row pt-4">
+            <div class="col-12">
+            <h2 >Graders Guide to Grading Comments</h2>
+            <hr class="title"/>
+        </div>
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#good-vs-bad-commenting">Good vs Bad Commenting</a>
+<ul>
+<li><a href="#good-commenting">Good Commenting</a></li>
+<li><a href="#bad-commenting">Bad Commenting</a></li>
+</ul></li>
+<li><a href="#when-would-you-usually-expect-to-see-comments">When Would You Usually Expect to See Comments?</a>
+<ul>
+<li><a href="#key-moments-to-expect-comments">Key Moments to Expect Comments:</a></li>
+</ul></li>
+<li><a href="#encourage-commenting">Encourage Commenting!</a></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>This semester, we are hoping to make commenting mandatory! We hope this will encourage students to think critically about what makes sense and why, helping them make important conceptual leaps. Grading comments will be part of the manual grading process, as many exercises already include this element. We are incorporating it into every write-up, requiring meaningful comments that describe what is happening. These comments don’t need to be extensive but should reflect a good-faith effort to explain the process in the student’s own words.</p>
+<p>This document is intended to guide anyone involved in grading.</p>
+<h2 id="good-vs-bad-commenting">Good vs Bad Commenting</h2>
+<h3 id="good-commenting">Good Commenting</h3>
+<p>Example 1.</p>
+<p><img class="img-fluid" src="/static/assets/good_ex_one.png"/></p>
+<p><strong>Reason:</strong></p>
+<p>This is from Wordle. This is an example of good commenting because it clearly shows that the student understands what they have learned so far – instantiating variables, loops, user input, concatenating, and reassigning variables. When students learn a new topic, it is expected for them to identify where they are using it. Because this was their first introduction to while loops, especially having a nested while loop, it makes sense why there is this much commenting. Even though these comments clearly show a conceptual understanding, they do not have to be this extensive, especially as we tend towards the end of the semester.</p>
+<p>Example 2.</p>
+<p><img class="img-fluid" src="/static/assets/good_ex_two.png"/></p>
+<p><strong>Reason:</strong></p>
+<p>This is from dict_utils. This is an example of good commenting because it clearly shows that the student understands what is happening at each step. In terms of dictionaries, they identify what they are iterating through with respect to a dictionary object. Even though they have learned to instantiate variables, the student still comments “create blank dict to hold…”. This is good commenting as opposed to simply saying “instantiating an empty dictionary” since it gives a reason for why they are doing what they are doing. Sometimes this isn’t necessary. For example ‘max: int = 0’. Since students are already familiar with instantiating variables and using them to hold values (such as with indexing), commenting on this process is not necessary but still shows that the student understands what the use of the dictionary is for.</p>
+<p>Example 3.</p>
+<p><img class="img-fluid" src="/static/assets/good_ex_three.png"/></p>
+<p><strong>Reason:</strong></p>
+<p>This is dict_utils. This is an example of good commenting because it clearly shows that the student understands what is happening at each step and is explaining it in their own words. Even when some things are obvious to us, we have to keep in mind that for the majority of students this is their first time coding. Comments like “iterate through all ‘keys’ in our input dict” serve as reminders for students about what the for loop is doing, translating the code into plain English. While most of the comments state the “obvious”, there are two lines that show the student is really trying to understand. These are:</p>
+<pre><code>    “tis makes the value of blank_dict now the key”
+    
+    “therfore ‘inverts’ the two” </code></pre>
+<p>Example 4.</p>
+<p><img class="img-fluid" src="/static/assets/good_ex_four.png"/></p>
+<p><strong>Reason:</strong></p>
+<p>This is from list_utils. Notice that non-extensive commenting doesn’t always mean bad commenting. Here, the student kept comments to a minimal but noted conceptual details. Before list_utils, students have already learned to iterate using a while loop, are familiar with indexing, functions, and conditionals. Now they are practicing iterating through lists and practicing obtaining values from the list. The comments could improve on specifying that to obtain a value in the list you must index on the list but overall this is an example of good commenting.</p>
+<h3 id="bad-commenting">Bad Commenting</h3>
+<p>Example 1.</p>
+<p><img class="img-fluid" src="/static/assets/bad_ex_one.png"/></p>
+<p><strong>Reason:</strong></p>
+<p>This is dict_utils. This is an example of not so great commenting because it simply points out things that students have already learned. They already learned to instantiate a variable and have had practice with return statements. This does not show any sort of conceptual understanding of what is happening in the code, especially about what the exercise is testing them on (dicts and lists).</p>
+<p>To improve, one comment can be sufficient! Since elem already describes each value in inp_list, there’s no need to comment on what is being iterated over, as the variable names are self-explanatory. The if statement is also clear about what it is testing, so a comment like “if the element is a key in our_dict” is not necessary. However, a comment in the else block is appropriate, as it explains the condition that is not met by the if statement and clarifies why the else block differs (i.e., why we assign 1 as a value at a key instead of incrementing it). Although some comments may not be necessary, students are still encouraged to include them if they find it helpful. For example, as seen in the second-to-last example in the “Good” section, translating code into plain English can aid in understanding and improve clarity.</p>
+<p><img class="img-fluid" src="/static/assets/improved_ex_one.png"/></p>
+<p>Example 2. <strong>NO COMMENTS == BAD COMMENTING.</strong></p>
+<p><strong>No comments imply that there were no challenges or moments spent considering how to approach a code.</strong> It’s quite rare for a student to complete every exercise, code question, and practice problem without engaging in some form of problem-solving. Even as a TA, I always use a piece of paper to map out my approach when working on practice problems. This process often results in comments being added to my code.</p>
+<p>As a general rule, <strong>if 2 or more minutes are spent thinking about how to write a particular line or block of code, it’s a good idea to add a comment.</strong> Explain what’s happening on that line, how the solution was reached, the reasoning behind the approach, or provide a note for future reference to recall the problem-solving steps.</p>
+<h3 style="text-align: center;">
+!!!!!!
+</h3>
+<p>As mentioned above, comments don’t need to be extensive, but they should reflect a genuine effort to explain the process in the student’s own words. We don’t want to be too pedantic about commenting so that it doesn’t start feeling like a chore to be done at the end of coding. Instead, it should be an integral part of the problem-solving process. Sometimes stating the obvious is fine, but you can notice a “good-faith” effort usually at the end of a function or section of code where everything comes together like in the second-to-last example in the “Good” section.</p>
+<p>If you notice that many students are not making a sincere effort to comment and explain their code, let us know and we will issue an announcement to emphasize the importance of good commenting and provide examples of what that looks like.</p>
+<h3 style="text-align: center;">
+!!!!!!
+</h3>
+<h2 id="when-would-you-usually-expect-to-see-comments">When Would You Usually Expect to See Comments?</h2>
+<p>As the semester progresses, we anticipate fewer comments on basic concepts like simple <code>while</code> loops, variable instantiation, and value assignment, as students should become comfortable with these topics. Instead, we expect comments to focus on specific objects, values (especially with nested data types), and conceptual ideas in OOP. However, at the start of the course, it’s important to see comments that may seem obvious, such as <code>#instantiating a variable ‘bear’ to hold the string value “Good doggy!”</code> or <code>#returning a string</code>. These comments often serve as clarifications for students who are just beginning to learn computational thinking.</p>
+<p>We expect comments to appear when students first learn a new topic. As they progress, comments on earlier topics will naturally decrease, with the focus shifting to newer concepts.</p>
+<h3 id="key-moments-to-expect-comments">Key Moments to Expect Comments:</h3>
+<ul>
+<li>When introducing a new topic or concept (e.g., <code>for</code> loops, <code>for…in range()</code> loops, lists, dictionaries, class objects, accessing attributes locally vs. globally).</li>
+<li>When working with nested data types: Comments should help clarify the structure and access patterns of nested data types, such as lists of dictionaries, or dictionaries of lists. This is particularly important when navigating or modifying nested structures.</li>
+<li>When implementing complex logic or algorithms (e.g., recursion, searching algorithms, programs where there are a lot of reassignments or variables to store values), should be thoroughly commented to explain the thought process, the purpose of each step, and any edge cases considered.</li>
+<li>When handling errors or exceptions, especially if there are multiple possible outcomes or if the handling is non-obvious.</li>
+</ul>
+<h2 id="encourage-commenting">Encourage Commenting!</h2>
+<p>When helping a student and noticing that they don’t know where to start or have conceptual misunderstandings, start by walking them through the problem as you normally would, explaining the key concepts and steps. Afterward, ask the student to walk you through the problem by explaining it back to you. This will help reinforce their understanding and reveal any remaining gaps in their knowledge.</p>
+<p>Once they’ve explained the problem, instruct them to comment on their code in the same way they explained it. Encourage them to identify and annotate the key moments where everything starts to make sense or when they gain a deeper understanding of the concept. These comments should serve as markers of their learning process, highlighting not only the technical steps but also their growing comprehension.</p>
+<p>Additionally, remind them to:</p>
+<ul>
+<li>Focus on the logic and flow: Have them comment on why each part of the code is necessary and how it contributes to solving the problem.</li>
+<li>Identify breakthrough moments: Encourage them to note when they understand a tricky concept, such as how a loop iterates through a data structure or how a function returns a value.</li>
+<li>Highlight areas of uncertainty: If they’re still unsure about certain parts, suggest that they leave comments to indicate these areas for further review or discussion.</li>
+<li>Reflect on the problem-solving approach: Ask them to comment on their approach to solving the problem, including any alternative strategies they considered and why they chose the final one.</li>
+</ul>
+</div>
+
+       
+
+    </div> 
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):              Alyssa Lytle, Viktorya Hunanyan</span>
+    </div>       
+  </div>
+
+  <div class='link-page mt-3 container'>
+    <footer>
+        <h6 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+          - <a href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback Form</a>
+          - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h6>
+      </footer>
+  </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Load our React components. -->
+
+    <script type="text/babel" src="/static/components//Itinerary/EventSection.tsx?cache=1750429138.214083"></script>
+    <script type="text/babel" src="/static/components//Itinerary/DateSection.tsx?cache=1750429138.214083"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Dates.tsx?cache=1750429138.214083"></script>
+        <script type="text/babel" src="/static/components//Itinerary/DropdownButton.tsx?cache=1750429138.214083"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Dropdown.tsx?cache=1750429138.214083"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Search.tsx?cache=1750429138.214083"></script>
+    <script type="text/babel" src="/static/components//Itinerary/PillButtons.tsx?cache=1750429138.214083"></script>
+    <script type="text/babel" src="/static/components//Itinerary/PillButton.tsx?cache=1750429138.214083"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Itinerary.jsx?cache=1750429138.214083"></script>
+    <script src="/static/scripts/log-in-handler.js"></script>
+
+    
+</body>
+
+</html>

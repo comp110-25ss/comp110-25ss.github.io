@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Functions Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429143.1203878">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Functions Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#conceptual">Conceptual</a></li>
+<li><a href="#calling-functions">Calling functions</a></li>
+<li><a href="#spot-the-error">Spot the error</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#conceptual-1">Conceptual</a></li>
+<li><a href="#calling-functions-1">Calling functions</a></li>
+<li><a href="#spot-the-error-1">Spot the error</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<h2 id="conceptual">Conceptual</h2>
+<ol type="1">
+<li><p>What is a function call, and how does it differ from a function definition?</p></li>
+<li><p>What is the difference between parameters and arguments in the context of functions?</p></li>
+<li><p>What is a function signature, and why is it significant?</p></li>
+<li><p>Can the return statement in a function be replaced with a print statement? Why or why not?</p></li>
+<li><p>Does a function need to have a return statement? Why or why not?</p></li>
+<li><p>What will follow the arrow in a function signature if the return statement is “return None”? What does this mean?</p></li>
+<li><p>Use the following to write the format of a function signature. You might not need to use all and can use any multiple times: <code>def</code>, <code>()</code>, <code>=</code>, <code>function_name</code>, <code>param_1</code>, <code>param_2</code>, <code>param_n</code>, <code>arg_1</code>, <code>arg_2</code>, <code>arg_n</code>, <code>type_of_value</code>, <code>-&gt;</code>, <code>:</code></p></li>
+<li><p>Use the following to write the format of a function call. You might not need to use all and can use any multiple times: <code>def</code>, <code>()</code>, <code>=</code>, <code>function_name</code>, <code>param_1</code>, <code>param_2</code>, <code>param_n</code>, <code>arg_1</code>, <code>arg_2</code>, <code>arg_n</code>, <code>type_of_value</code>, <code>-&gt;</code>, <code>:</code></p></li>
+<li><p>When you call a function, once the function is executed, where do you return back to?</p></li>
+<li><p>When you call a function, is the return value outputted? If yes, explain how? If not, explain how you could print the return value?</p></li>
+<li><p>If you never encounter a <code>return</code> statement in your function, what is your return value?</p></li>
+<li><p>What is the purpose of the <code>return</code> keyword, and what happens if it is omitted in a function?</p></li>
+<li><p>What happens if you call a function before it is defined? Why?</p></li>
+<li><p>How can you pass a function as an argument to another function? How does this work? Provide an example.</p></li>
+<li><p>The following questions questions will refer to the code snippet below:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>    <span class="kw">def</span> echo(word: <span class="bu">str</span>, times: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>        <span class="cf">return</span> word <span class="op">*</span> times</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="bu">print</span>(echo(word<span class="op">=</span><span class="st">&quot;hello&quot;</span>, times<span class="op">=</span><span class="dv">4</span>))</span></code></pre></div>
+<p>15.1 Identify where a call to a function occurs. How do you know it is a call? 15.2 Where do we have a return <em>type</em> declared? 15.3 Where do we have a return statement? 15.4 What value does the call to the function hold? How do you know? Show this both through code and through a memory diagram of the snippet. 15.5 Explain why <code>print(echo)</code> does not function the same as <code>echo(word="hello", times=4)</code>. Show this both through code and through a memory diagram of the snippet. 15.6 Change the code to provide the same output but with a different functionality. 15.7 On line 2, we multiply <code>word</code> by <code>times</code>, both of which are local variables. In the operation <code>word * times</code>, what exactly is being multiplied?</p>
+<ol start="16" type="1">
+<li>For the following code, explain what is happening on line 5 with the statement <code>word=word</code> within <code>returning(word=word)</code>. Use the following terms in your explanation: value, local variable, parameter, assignment operator, keyword argument, and call.</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>    <span class="kw">def</span> returning(word: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>: </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>        <span class="cf">return</span> word</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="kw">def</span> echo(word: <span class="bu">str</span>, times: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>        <span class="cf">return</span> returning(word<span class="op">=</span>word) <span class="op">*</span> times</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    <span class="bu">print</span>(echo(word<span class="op">=</span><span class="st">&quot;hello&quot;</span>, times<span class="op">=</span><span class="dv">4</span>))</span></code></pre></div>
+<h2 id="calling-functions">Calling functions</h2>
+<ol type="1">
+<li>For the following code snippet, write a line of code that will result in the following output:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>    <span class="kw">def</span> flavor(taste: <span class="bu">str</span>, percent: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;This flavor is &quot;</span> <span class="op">+</span> <span class="bu">str</span>(percent) <span class="op">+</span> <span class="st">&quot;% &quot;</span> <span class="op">+</span> taste)</span></code></pre></div>
+<p>Output:</p>
+<pre class="plaintext"><code>    $ python -m flavor
+    This flavor is 100% umami</code></pre>
+<ol start="2" type="1">
+<li>For the following code snippet, write a line of code that will call the <code>main</code> function. Next, write a line of code to be inserted within the body of the <code>main</code> function. This line should call the <code>eat</code> function with the argument passed when the main function was called.</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>    <span class="kw">def</span> eat(food: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;Eating &quot;</span> <span class="op">+</span> food)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="kw">def</span> main(food: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>        food_item <span class="op">=</span> <span class="st">&quot;apple&quot;</span></span></code></pre></div>
+<ol start="3" type="1">
+<li>For the following code snippet, write a line of code that will call the <code>have_done</code> function with the arguments <code>"homework"</code> and <code>False</code>. If you wanted to print the string created by the <code>have_done</code> function, how would you modify your function call?</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>    <span class="kw">def</span> have_done(task, completed) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>        <span class="cf">return</span> <span class="st">&quot;Completed &quot;</span> <span class="op">+</span> task <span class="op">+</span> <span class="st">&quot;: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(completed)</span></code></pre></div>
+<h2 id="spot-the-error">Spot the error</h2>
+<ol type="1">
+<li>Does the following code contain any issues that could affect its example usage? If yes, what is it and why is it a problem?</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>    <span class="kw">def</span> fuel_needed(distance: <span class="bu">float</span>, mpg: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>        <span class="cf">return</span> distance <span class="op">/</span> mpg</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    <span class="kw">def</span> total_fuel_cost(distance: <span class="bu">float</span>, mpg: <span class="bu">float</span>, price_per_gallon: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>        fuel_needed(distance<span class="op">=</span>distance, mpg<span class="op">=</span>mpg) <span class="op">*</span> price_per_gallon</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    <span class="co"># Example usage:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>    <span class="bu">print</span>(total_fuel_cost(distance<span class="op">=</span><span class="dv">300</span>, mpg<span class="op">=</span><span class="dv">25</span>, price_per_gallon<span class="op">=</span><span class="dv">4</span>))</span></code></pre></div>
+<ol start="2" type="1">
+<li>Does the following code contain any issues that could affect its example usage? If yes, what is it and why is it a problem?</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>    <span class="kw">def</span> fuel_needed(distance: <span class="bu">float</span>, mpg: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>        <span class="cf">return</span> distance <span class="op">/</span> mpg</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    <span class="kw">def</span> total_fuel_cost(distance: <span class="bu">float</span>, mpg: <span class="bu">float</span>, price_per_gallon: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>        <span class="bu">print</span>(fuel_needed(distance<span class="op">=</span>distance, mpg<span class="op">=</span>mpg) <span class="op">*</span> price_per_gallon)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    <span class="co"># Example usage:</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    total_fuel_cost(distance<span class="op">=</span><span class="dv">300</span>, mpg<span class="op">=</span><span class="dv">25</span>, price_per_gallon<span class="op">=</span><span class="dv">4</span>)</span></code></pre></div>
+<ol start="3" type="1">
+<li>Does the following code contain any issues that could affect its example usage? If yes, what is it and why is it a problem?</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>    <span class="kw">def</span> greet(name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;, your name starts with an &quot;</span> <span class="op">+</span> name[<span class="dv">0</span>] <span class="op">+</span> <span class="st">&quot; and ends with an &quot;</span> <span class="op">+</span> name[<span class="bu">len</span>(name) <span class="op">-</span> <span class="dv">1</span>])</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="st">&quot;I&#39;m so happy to see you &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;!&quot;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>    <span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>        <span class="bu">print</span>(greet(name<span class="op">=</span><span class="st">&quot;Molly&quot;</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>    <span class="co"># Example usage: </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>    main()</span></code></pre></div>
+<ol start="4" type="1">
+<li>Does the following code contain any issues that could affect its example usage? If yes, what is it and why is it a problem?</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>    <span class="kw">def</span> greet(name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>        <span class="cf">return</span> <span class="st">&quot;I&#39;m so happy to see you &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;!&quot;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;, your name starts with an &quot;</span> <span class="op">+</span> <span class="bu">str</span>(name[<span class="dv">0</span>]) <span class="op">+</span> <span class="st">&quot; and ends with an &quot;</span> <span class="op">+</span> <span class="bu">str</span>(name[<span class="bu">len</span>(name) <span class="op">-</span> <span class="dv">1</span>]))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    <span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>        <span class="bu">print</span>(greet(name<span class="op">=</span><span class="st">&quot;Molly&quot;</span>))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="co"># Example usage: </span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>    main()</span></code></pre></div>
+<ol start="5" type="1">
+<li>Does the following code contain any issues that could affect its example usage? If yes, what is it and why is it a problem?</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>    greet(name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>        <span class="cf">return</span> <span class="st">&quot;I&#39;m so happy to see you &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;!&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;, your name starts with an &quot;</span> <span class="op">+</span> <span class="bu">str</span>(name[<span class="dv">0</span>]) <span class="op">+</span> <span class="st">&quot; and ends with an &quot;</span> <span class="op">+</span> <span class="bu">str</span>(name[<span class="bu">len</span>(name) <span class="op">-</span> <span class="dv">1</span>]))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>    <span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>        <span class="bu">print</span>(greet(name<span class="op">=</span><span class="st">&quot;Molly&quot;</span>))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>    <span class="co"># Example usage: </span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>    main()</span></code></pre></div>
+<ol start="6" type="1">
+<li>Does the following code contain any issues that could affect its example usage? If yes, what is it and why is it a problem?</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>    <span class="kw">def</span> greet(name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;I&#39;m so happy to see you &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">&quot;, your name starts with an &quot;</span> <span class="op">+</span> <span class="bu">str</span>(name[<span class="dv">0</span>]) <span class="op">+</span> <span class="st">&quot; and ends with an &quot;</span> <span class="op">+</span> <span class="bu">str</span>(name[<span class="bu">len</span>(name) <span class="op">-</span> <span class="dv">1</span>]))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>    <span class="kw">def</span> main() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>        <span class="bu">print</span>(greet(name<span class="op">=</span><span class="st">&quot;Molly&quot;</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>    <span class="co"># Example usage: </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a>    main()</span></code></pre></div>
+<h1 id="solutions">Solutions</h1>
+<h2 id="conceptual-1">Conceptual</h2>
+<ol type="1">
+<li><p>A function definition is where you create the function and specify what it does. It includes the function signature and everything indented below it. The signature consists of the function name, parameters, the types of the parameters, and the return type. The function body contains the code block that executes when the function is called. A function call occurs when you invoke or execute the function by writing the function name followed by parentheses. If the function accepts inputs, the parentheses will contain the values assigned to the parameters, also known as arguments. When a function definition is encountered, the function body is not executed; it is bypassed until the function is called. To call a function, you must first define it.</p></li>
+<li><p>Parameters are the variables listed in the function signature that define the expected inputs. Your parameters will hold the values passed into the function when the function is called. These values that are assigned to the parameters are called arguments. Arguments are the actual values passed to the function when it is called.</p></li>
+<li><p>A function signature refers to the first line of a function definition, where the <code>def</code> keyword is used. Following the <code>def</code> keyword is the function name, and after the function name is a set of parentheses that enclose the parameter list. After the parameter list comes the return type. The function signature is important because it defines how the function can be called and what kinds of inputs and outputs are expected. Without a signature, you wouldn’t know what parameters to provide or even how to call the function, since the function name would be missing.</p></li>
+<li><p>No, the <code>return</code> statement cannot be replaced with a <code>print</code> statement. The return statement ends the function execution and passes a value back to the caller. The <code>print</code> statement merely outputs a value to the console without returning anything to the function caller.</p></li>
+<li><p>No, a function does not need to have a return statement. If no return is present, the function will return None by default after completing its execution. However, using return is necessary when you need to send a value back to the caller.</p></li>
+<li><p>The arrow (<code>-&gt;</code>) in a function signature will be followed by <code>None</code>. This indicates that the function does not return any meaningful value (ex. <code>int</code>, <code>float</code>, <code>bool</code>, etc.) and will return <code>None</code>.</p></li>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">def</span> function_name(param_1: type_of_value, param_2: type_of_value, param_n: type_of_value) <span class="op">-&gt;</span> type_of_value:</span></code></pre></div>
+<ol start="8" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a>function_name(param_1<span class="op">=</span>arg_1, param_2<span class="op">=</span>arg_2, param_n<span class="op">=</span>arg_n)</span></code></pre></div>
+<ol start="9" type="1">
+<li><p>After the function is executed, you will return back to the point in the code where the function was called.</p></li>
+<li><p>No, the return value is not automatically outputted. To see the return value, you need to use a print statement to output it. Your argument within the print function is going to be the call to your function that you would like to receive the return value from.</p></li>
+<li><p>If there is no <code>return</code> statement in a function, it returns <code>None</code> by default.</p></li>
+<li><p>The return keyword ends the function execution and specifies the value to be returned to the caller. If omitted, the function will return <code>None</code> after execution.</p></li>
+<li><p>If you call a function before it is defined, you will get an error. Python reads from top to bottom and so if the function is not defined and memorized in memory, when python encounters the function at a function call, it will not know what the function_name is referring to. The function must be defined before it can be called as Python needs to know that the function is defined before executing trying to call it.</p></li>
+<li><p>To pass a function’s return value as an argument to another function, you need to call the first function, which will execute it and produce a return value. That return value can then be passed as an argument to the second function.</p></li>
+</ol>
+<p>This works because when you call the first function, it returns a value, and that value is then used as input (an argument) for the second function.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>    <span class="kw">def</span> double(x: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>        <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>    <span class="kw">def</span> add_five(y: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a>        <span class="cf">return</span> y <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a>    <span class="bu">print</span>(add_five(y<span class="op">=</span>double(x<span class="op">=</span><span class="dv">3</span>)))</span></code></pre></div>
+<ol start="15" type="1">
+<li>The following questions questions will refer to the code snippet below:</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a>    <span class="kw">def</span> echo(word: <span class="bu">str</span>, times: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>        <span class="cf">return</span> word <span class="op">*</span> times</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    <span class="bu">print</span>(echo(word<span class="op">=</span><span class="st">&quot;hello&quot;</span>, times<span class="op">=</span><span class="dv">4</span>))</span></code></pre></div>
+<p>15.1 Line 4. <code>echo</code> is called. We know it is a call as it follows the syntax described in question 8 of the conceptual problems.</p>
+<p>15.2 Line 1. The signature declares the return <em>type</em>.</p>
+<p>15.3 Line 2.</p>
+<p>15.4 “hellohellohellohello”. Show this both through code and through a memory diagram of the snippet.</p>
+<p>15.5 <code>echo</code> is a function. In memory, it holds the value <code>id: 1</code> within the <code>Globals</code> frame. When we <code>print(echo)</code>, we are printing the <strong>value</strong> that <code>echo</code> holds, which is the ID number, <code>id: 1</code>. <code>echo(word="hello", times=4)</code> is a call to the function and holds the return value. In code, if you type <code>print(echo)</code>, you will receive something similar to <code>&lt;function echo at 0x1012a22a0&gt;</code>, where <code>0x1012a22a0</code> is a hexadecimal representation of a reference number to a location in memory. Just like in memory, the name of the function, <code>echo</code>, is identified as being defined as a function.</p>
+<p>15.6</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a>    <span class="kw">def</span> echo(word: <span class="bu">str</span>, times: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>        <span class="bu">print</span>(word <span class="op">*</span> times)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>    echo(word<span class="op">=</span><span class="st">&quot;hello&quot;</span>, times<span class="op">=</span><span class="dv">4</span>)</span></code></pre></div>
+<p>15.7 The <strong>values</strong> that the local variables hold. Whenever we reference any variable (such as a parameter), we are referencing the value that it holds.</p>
+<ol start="16" type="1">
+<li>On line 5, within the call <code>returning(word=word)</code>, the statement <code>word=word</code> uses a keyword argument to pass a value to the <code>returning</code> function. In this context, <code>word</code> on the left side of the <code>=</code> is a parameter in the <code>returning</code> function, while <code>word</code> on the right side is a local variable from the <code>echo</code> function. The local variable <code>word</code> holds the value <code>"hello"</code> when <code>echo</code> is executed. The assignment operator <code>=</code> is used here to pass this value to the parameter <code>word</code> in the <code>returning</code> function. Thus, the keyword argument <code>word=word</code> effectively assigns the value of the local variable <code>word</code> from <code>echo</code> to the parameter <code>word</code> in <code>returning</code>, ensuring that <code>returning</code> receives the correct value to process and return.</li>
+</ol>
+<h2 id="calling-functions-1">Calling functions</h2>
+<ol type="1">
+<li><p><strong>For the <code>flavor</code> function:</strong></p>
+<p>To call the <code>flavor</code> function using keyword arguments:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a> flavor(taste<span class="op">=</span><span class="st">&quot;umami&quot;</span>, percent<span class="op">=</span><span class="fl">100.0</span>)</span></code></pre></div></li>
+<li><p><strong>For calling the <code>main</code> function and modifying its body with keyword arguments:</strong></p>
+<p>To call the <code>main</code> function with a keyword argument:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a> main(food<span class="op">=</span><span class="st">&quot;apple&quot;</span>)</span></code></pre></div>
+<p>In the <code>main</code> function, to call the <code>eat</code> function with keyword arguments:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a> <span class="kw">def</span> main(food: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>     food_item <span class="op">=</span> <span class="st">&quot;apple&quot;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a>     eat(food<span class="op">=</span>food)</span></code></pre></div></li>
+<li><p><strong>For calling <code>have_done</code> and printing the result with keyword arguments:</strong></p>
+<p>To call <code>have_done</code> with keyword arguments:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a> have_done(task<span class="op">=</span><span class="st">&quot;homework&quot;</span>, completed<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<p>To print the result of this function call:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a> <span class="bu">print</span>(have_done(task<span class="op">=</span><span class="st">&quot;homework&quot;</span>, completed<span class="op">=</span><span class="va">False</span>))</span></code></pre></div></li>
+</ol>
+<h2 id="spot-the-error-1">Spot the error</h2>
+<ol type="1">
+<li><p><strong>Code Snippet 1:</strong></p>
+<p><strong>Problem:</strong> The <code>total_fuel_cost</code> function does not return a value. It performs a calculation but does not include a <code>return</code> statement. As a result, it returns <code>None</code> by default, which leads to <code>print(total_fuel_cost(...))</code> printing <code>None</code> which is not the intended use of line 8.</p>
+<p><strong>Solution:</strong> Add a <code>return</code> statement in the <code>total_fuel_cost</code> function:</p></li>
+<li><p><strong>Code Snippet 2:</strong></p>
+<p><strong>Problem:</strong> There is no issue with this code that stops execution. The <code>total_fuel_cost</code> function correctly prints the result.</p>
+<p><strong>Solution:</strong> None needed; the code works as intended.</p></li>
+<li><p><strong>Code Snippet 3:</strong></p>
+<p><strong>Problem:</strong> There is no issue with this code that stops execution. The <code>greet</code> function prints a message and then returns a string. The <code>main</code> function calls <code>greet</code> and prints its return value.</p>
+<p><strong>Solution:</strong> None needed; the code works as intended.</p></li>
+<li><p><strong>Code Snippet 4:</strong></p>
+<p><strong>Problem:</strong> The <code>print</code> statement after the <code>return</code> statement in the <code>greet</code> function is unreachable code. Once the <code>return</code> statement is executed, the function exits, and any code following it will not be executed. This does not stop the example usage however if the user wanted to print statement on line 3, this would not be outputted.</p>
+<p><strong>Solution:</strong> Move the <code>print</code> statement before the <code>return</code> statement:</p></li>
+<li><p><strong>Code Snippet 5:</strong></p>
+<p><strong>Problem:</strong> There is a syntax error due to incorrect indentation. The <code>greet</code> function definition is not properly aligned.</p>
+<p><strong>Solution:</strong> Correct the indentation of the <code>greet</code> function definition:</p></li>
+<li><p><strong>Code Snippet 6:</strong></p>
+<p><strong>Problem:</strong> There is no issue with this code that stops the execution of calling <code>main</code>. The <code>greet</code> function prints two messages, and then <code>main</code> calls <code>greet</code> and prints its return value (which is <code>None</code>). It’s important to note that the intended use of the example usage is to call the <code>main</code> function. There are no issues that stop this execution however there is an issue within the body of the main function which calls <code>greet</code> and tries to print its return value (which might not be intended). Since greet doesn’t return anything (implicitly returns None), the output will include None instead of the intended greeting message.</p>
+<p><strong>Solution:</strong> None needed; the code works as intended. <code>main</code> is called without issues.</p></li>
+</ol>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Alyssa Lytle,        Viktorya Hunanyan,        Lizzie Coats,        Megan Zhang, David Karash</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

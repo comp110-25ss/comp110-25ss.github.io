@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-scroll="0" data-nav1="true">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contributing to the 110 Site - COMP110 - 24F</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/styles.css?v=1750429138.3511846">
+</head>
+
+<body id="body" class="absolute-page container">
+  
+    <div onKeyPress="return myFunction(event)">
+        <form id="log-in" class="center-text" id="form01" action="demo_form.asp" onsubmit="return false;" >
+            <h3 style="margin-bottom: 20px">Team Login</h3>
+            <input id="username" type="text" placeholder="username" style="margin-bottom: 10px">
+            <input id="password" type="text" placeholder="password">
+            <input class="hidden" type="button" value="Submit" onclick="myFunction(0)">
+        </form>
+    </div>
+
+
+    <a name="top"></a>
+    <div id="page-container">
+    <div id="content-wrapper">
+    <script src="/static/scripts/log-in-element.js"></script>
+    <div class="wrapper">
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+      <div class="container">
+        <a href="/team" class="navbar-brand">COMP 110</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navmenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto"> 
+                <li class="nav-item">
+                    <a class="nav-link" href="/team/documentation">documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/team/career">career</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="logistics-page" class="container">
+        <div class="row pt-4">
+            <div class="col-12">
+            <h2 >Contributing to the 110 Site</h2>
+            <hr class="title"/>
+        </div>
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#making-contributions-to-the-110-site">Making Contributions to the 110 Site</a>
+<ul>
+<li><a href="#create-a-branch">Create a branch</a></li>
+<li><a href="#commit-push-changes-to-branch">Commit + Push Changes to Branch</a></li>
+<li><a href="#make-a-pull-request">Make a Pull Request</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="making-contributions-to-the-110-site">Making Contributions to the 110 Site</h1>
+<p>If you have already set up your <a href="/team/documentation/guides/ta_profile.html">TA profile</a>, you’ve already done all of these steps! This just generalizes the steps in case you are modifying anything else on the site! (If you haven’t set up your profile, do that first!)</p>
+<h2 id="create-a-branch">Create a branch</h2>
+<ol type="1">
+<li><p>Make sure you’re on the main branch (<code>git checkout main</code>) and run the command:</p>
+<p><code>git pull origin main</code> to get the latest updates.</p></li>
+<li><p>Checkout a new <code>git</code> branch. In your terminal run the following command, replacing <code>branch-name</code> with a descriptive name, not using any spaces (e.g. <code>git checkout -b qz01-review-edits</code>):</p>
+<p><code>git checkout -b branch-name</code></p></li>
+<li><p>In the terminal type:</p>
+<p><code>git branch</code></p>
+<p>This will give you all the branches you have created. You should now see the new branch you have created.</p></li>
+</ol>
+<p>Now you can go ahead and make any edits you want!</p>
+<h2 id="commit-push-changes-to-branch">Commit + Push Changes to Branch</h2>
+<ol type="1">
+<li><p>Now you can add all your changes to stage them for committing! You can use</p>
+<p><code>git add path/to/file</code> to add the file you modified.</p></li>
+<li><p>In the terminal type:</p>
+<p><code>git status</code></p>
+<p>This will check the changes that we have made are ready to be committed.</p></li>
+<li><p>Commit your changes! In the terminal type:</p>
+<p><code>git commit -m "Message describing the changes we have made or add"</code></p></li>
+<li><p>In the terminal type:</p>
+<p><code>git push origin branch-name</code></p></li>
+</ol>
+<h2 id="make-a-pull-request">Make a Pull Request</h2>
+<ol type="1">
+<li><p>Open GitHub Pull Requests on the <code>comp110</code> repo: <a href="https://github.com/comp110-lytle/comp110/pulls" class="uri">https://github.com/comp110-lytle/comp110/pulls</a></p></li>
+<li><p>You might/should see a notification box: “Your recently pushed branches…”. If so select “Compare &amp; Pull Request”. If not, select “New Pull Request”, and in the Compare branch drop-down select your branch.</p></li>
+<li><p>Scroll through the differences and confirm your latest changes were successfully pushed. If you don’t see them, check that you committed everything you expected and pushed to your branch. Select “Create Pull Request”.</p></li>
+<li><p>In the description box, briefly describe your branch.</p></li>
+<li><p>On the right-hand sidebar, select your Web Lead as a reviewer.</p></li>
+<li><p>Create pull request!</p></li>
+</ol>
+</div>
+
+       
+
+    </div> 
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):              Alyssa Lytle, Viktorya Hunanyan</span>
+    </div>       
+  </div>
+
+  <div class='link-page mt-3 container'>
+    <footer>
+        <h6 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+          - <a href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback Form</a>
+          - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h6>
+      </footer>
+  </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Load our React components. -->
+
+    <script type="text/babel" src="/static/components//Itinerary/EventSection.tsx?cache=1750429138.3511846"></script>
+    <script type="text/babel" src="/static/components//Itinerary/DateSection.tsx?cache=1750429138.3511846"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Dates.tsx?cache=1750429138.3511846"></script>
+        <script type="text/babel" src="/static/components//Itinerary/DropdownButton.tsx?cache=1750429138.3511846"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Dropdown.tsx?cache=1750429138.3511846"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Search.tsx?cache=1750429138.3511846"></script>
+    <script type="text/babel" src="/static/components//Itinerary/PillButtons.tsx?cache=1750429138.3511846"></script>
+    <script type="text/babel" src="/static/components//Itinerary/PillButton.tsx?cache=1750429138.3511846"></script>
+    <script type="text/babel" src="/static/components//Itinerary/Itinerary.jsx?cache=1750429138.3511846"></script>
+    <script src="/static/scripts/log-in-handler.js"></script>
+
+    
+</body>
+
+</html>

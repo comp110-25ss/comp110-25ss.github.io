@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Challenge Question - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429166.7515159">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Challenge Question</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#importing-scope-challenge-question">Importing + Scope Challenge Question</a>
+<ul>
+<li><a href="#part-0.-setup">Part 0. Setup</a>
+<ul>
+<li><a href="#part-0.0-create-folder">Part 0.0 Create Folder</a></li>
+<li><a href="#part-0.1-create-files">Part 0.1 Create Files</a></li>
+</ul></li>
+<li><a href="#part-1.-concatenation.py">Part 1. <code>concatenation.py</code></a>
+<ul>
+<li><a href="#part-1.1-concat-function">Part 1.1 <code>concat</code> Function</a></li>
+<li><a href="#part-1.2-calling-the-concat-function">Part 1.2 Calling the <code>concat</code> Function</a></li>
+</ul></li>
+<li><a href="#part-2.-visualize.py">Part 2. <code>visualize.py</code></a>
+<ul>
+<li><a href="#part-2.0-import-the-function">Part 2.0 Import the function</a></li>
+<li><a href="#suppress-the-function-call">2.1 Suppress the function call</a></li>
+<li><a href="#global-variables">2.2 Global Variables</a></li>
+</ul></li>
+<li><a href="#part-3.-coordinates.py">Part 3. <code>coordinates.py</code></a>
+<ul>
+<li><a href="#part-3.0-get_coords-function">Part 3.0 <code>get_coords</code> Function</a></li>
+<li><a href="#part-3.1-importing-and-calling-the-get_coords-function">Part 3.1 Importing and calling the <code>get_coords</code> function</a></li>
+</ul></li>
+<li><a href="#part-4.-submission">Part 4. Submission</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="importing-scope-challenge-question">Importing + Scope Challenge Question</h1>
+<p>For this assignment, we’re going to practice <em>importing</em> functions from different files!</p>
+<h2 id="part-0.-setup">Part 0. Setup</h2>
+<h3 id="part-0.0-create-folder">Part 0.0 Create Folder</h3>
+<p>In your <strong>CQs</strong> folder, you’re going to want to create <em>another folder</em>! Right click on <strong>CQs</strong> and select “New Folder…”. Name this folder <code>cq04</code>.</p>
+<h3 id="part-0.1-create-files">Part 0.1 Create Files</h3>
+<p>Inside your <strong>cq04</strong> folder, create the following three files (right click and select “New File…” for each one):</p>
+<ul>
+<li><code>coordinates.py</code></li>
+<li><code>concatenation.py</code></li>
+<li><code>visualize.py</code></li>
+</ul>
+<p>Initialize each file with a Docstring and the <code>__author__</code> variable.</p>
+<h2 id="part-1.-concatenation.py">Part 1. <code>concatenation.py</code></h2>
+<h3 id="part-1.1-concat-function">Part 1.1 <code>concat</code> Function</h3>
+<p>In <code>concatenation.py</code>, write a function that matches the following description:</p>
+<ul>
+<li>Name: <code>concat</code></li>
+<li>Parameters: two <code>str</code>s</li>
+<li>Return type: <code>str</code></li>
+<li>Behavior: It should return the <em>concatenation</em> of the two input strings.</li>
+</ul>
+<h4 id="example-behavior-in-repl">Example behavior in REPL</h4>
+<pre>
+<div class="terminal">
+/workspace (main*) > python
+>>> from CQs.cq04.concatenation import concat
+>>> concat("hello","world")
+'helloworld'
+>>> concat("123","4567")
+'1234567'
+</div>
+</pre>
+<h3 id="part-1.2-calling-the-concat-function">Part 1.2 Calling the <code>concat</code> Function</h3>
+<p>Now, still working in the file <code>concatenation.py</code>, create the global variables <code>word1</code> with the value <code>"happy"</code> and <code>word2</code> with the value <code>"tuesday"</code>. Print the result of calling <code>concat</code> with the arguments <code>word1</code> and <code>word2</code>.</p>
+<h2 id="part-2.-visualize.py">Part 2. <code>visualize.py</code></h2>
+<h3 id="part-2.0-import-the-function">Part 2.0 Import the function</h3>
+<p>In <code>visualize.py</code> <em>import</em> the function <code>concat</code> from <code>concatentation.py</code>. <em>Do not call the function yet!</em></p>
+<p>Try running your file either in the trailhead or the terminal.</p>
+<p><em>Reminder:</em> To run your file in the terminal, use <code>python -m CQs.cq04.visualize</code></p>
+<p>What happens? You should see an output! That’s because it is running the entire module including the function call from <code>concatenation.py</code> when you import the function!</p>
+<h3 id="suppress-the-function-call">2.1 Suppress the function call</h3>
+<p>Add <em>something</em> to <code>concatenation.py</code> so that the function call still occurs when you run the <code>concatentation.py</code> file, but not when you import it. <em>(Hint: We covered this in our previous lesson! It’s something you’ve commonly used in assignments leading up to this one!</em>)</p>
+<h3 id="global-variables">2.2 Global Variables</h3>
+<p>Now let’s actually <em>call</em> the <code>concat</code> function in <code>visualize.py</code>!</p>
+<p>Let’s first create some global variables! Create variable <code>x</code> with value <code>"123"</code> and <code>y</code> with value <code>"abc"</code>. Call <code>concat</code> using <code>x</code> and <code>y</code> as your arguments and <code>print</code> the result!</p>
+<h2 id="part-3.-coordinates.py">Part 3. <code>coordinates.py</code></h2>
+<h3 id="part-3.0-get_coords-function">Part 3.0 <code>get_coords</code> Function</h3>
+<p>In <code>coordinates.py</code>, write a function that matches the following description:</p>
+<ul>
+<li>Name: <code>get_coords</code></li>
+<li>Parameters: <code>xs: str</code> and <code>ys: str</code></li>
+<li>Return type: <code>None</code></li>
+<li>Behavior: It should <em>print</em> the formatted pairs of each character in the two input strings. (See example.)</li>
+</ul>
+<pre>
+<div class="terminal">
+>>> from CQs.cq04.coordinates import get_coords
+>>> get_coords("12","34")
+(1,3)
+(1,4)
+(2,3)
+(2,4)
+>>> get_coords("hi","bye")
+(h,b)
+(h,y)
+(h,e)
+(i,b)
+(i,y)
+(i,e)
+</div>
+</pre>
+<p>For this, you’re going want to use a while loop <em>inside</em> another while loop, or a <strong>nested while loop</strong>. Your outer loop will iterate over every character in <code>xs</code> and your inner loop will iterate over every character in <code>ys</code> and contain the <code>print</code> statement.</p>
+<h3 id="part-3.1-importing-and-calling-the-get_coords-function">Part 3.1 Importing and calling the <code>get_coords</code> function</h3>
+<p>Now, go back to <code>visualize.py</code> and <em>import</em> the function <code>get_coords</code> from <code>coordinates.py</code>.</p>
+<p>Call <code>get_coords</code> using your existing <code>x</code> and <code>y</code> global variables!</p>
+<h2 id="part-4.-submission">Part 4. Submission</h2>
+<p>For this assignment, you’re actually going to compress the entire <code>cq04</code> file to submit! You can do this by using the following command:</p>
+<p><code>python -m tools.submission CQs/cq04</code></p>
+<p>As usual, drop the generated .zip file into Gradescope!</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Alyssa Lytle</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

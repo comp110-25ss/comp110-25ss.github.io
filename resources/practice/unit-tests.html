@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Unit Tests Practice Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429144.2288437">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Unit Tests Practice Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#general">General</a></li>
+<li><a href="#unit-test-writing">Unit Test Writing</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#conceptual-solutions">Conceptual Solutions</a></li>
+<li><a href="#unit-test-writing-1">Unit Test Writing</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<hr />
+<h2 id="general">General</h2>
+<ol type="1">
+<li>How do you create a test function? What identifies the function as a test?</li>
+<li>How do you create a file to write all your unit tests?<br />
+</li>
+<li>What does the assert statement do?</li>
+<li>Explain the difference between a use case and an edge case. Give an example of both within a function.</li>
+</ol>
+<p><a href="#conceptual-solutions">Solutions</a></p>
+<hr />
+<h2 id="unit-test-writing">Unit Test Writing</h2>
+<ol start="5" type="1">
+<li>Suppose you have the following function, designed to return the index of the first even number in a list.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> find_even(nums: <span class="bu">list</span>[<span class="bu">int</span>]) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    idx: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="cf">while</span> idx <span class="op">&lt;</span> <span class="bu">len</span>(nums):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>        <span class="cf">if</span> nums[idx] <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>            <span class="cf">return</span> idx</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>        idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span></code></pre></div>
+<p>Fill in this unit test with a use case.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">def</span> test_find_even_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;Put code here.&quot;&quot;&quot;</span></span></code></pre></div>
+<hr />
+<ol start="6" type="1">
+<li>Suppose you have the following function, designed to calculate the sum of the elements in a list.</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">def</span> sum_numbers(numbers: <span class="bu">list</span>[<span class="bu">int</span>]) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    <span class="cf">if</span> <span class="bu">len</span>(numbers) <span class="op">==</span> <span class="dv">0</span>: </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>        <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&quot;Empty list - no elements to add&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>    total: <span class="bu">int</span> <span class="op">=</span> numbers[<span class="dv">0</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(numbers)): </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>        total <span class="op">+=</span> numbers[i]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>        </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>    <span class="cf">return</span> total</span></code></pre></div>
+<p>Fill in this unit test with a use case.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">def</span> test_list_sum_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;Put code here.&quot;&quot;&quot;</span></span></code></pre></div>
+<hr />
+<ol start="7" type="1">
+<li>Suppose you have the following function, designed to determine if a number is prime.</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">def</span> is_prime(n: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="bu">int</span>(n <span class="op">**</span> <span class="fl">0.5</span>) <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>        <span class="cf">if</span> n <span class="op">%</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>            <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    <span class="cf">return</span> <span class="va">True</span></span></code></pre></div>
+<p>Fill in this unit test with a use case.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">def</span> test_is_prime_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;Put code here.&quot;&quot;&quot;</span></span></code></pre></div>
+<hr />
+<ol start="8" type="1">
+<li>Suppose you want to test that a list of dictionaries will be mutated correctly. Here’s a function that mutates a list of dictionaries by adding a new key-value pair to each dictionary in the list.</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">def</span> add_key_to_dicts(dicts: <span class="bu">list</span>[<span class="bu">dict</span>], key: <span class="bu">str</span>, value: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="cf">for</span> d <span class="kw">in</span> dicts:</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>        d[key] <span class="op">=</span> value</span></code></pre></div>
+<p>Fill in this unit test with a use case to verify that the list of dictionaries is mutated correctly.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">def</span> test_add_key_to_dicts_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;Put code here.&quot;&quot;&quot;</span></span></code></pre></div>
+<hr />
+<ol start="9" type="1">
+<li>Suppose you want to test that a dictionary will be mutated correctly. Here’s a function that mutates a dictionary by incrementing the value of a given key by 1.</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">def</span> increment_dict_value(d: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">int</span>], key: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>    <span class="cf">if</span> key <span class="kw">in</span> d:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>        d[key] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>        d[key] <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
+<p>Fill in this unit test with a use case to verify that the dictionary is mutated correctly.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">def</span> test_increment_dict_value_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;Put code here.&quot;&quot;&quot;</span></span></code></pre></div>
+<hr />
+<ol start="10" type="1">
+<li>Suppose you have the following function, designed to sum the elements in a dictionary of list values and return the key with the largest summed value.</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">def</span> max_sum_dict(d: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">list</span>[<span class="bu">int</span>]]) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    keys <span class="op">=</span> []</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>    <span class="cf">for</span> key <span class="kw">in</span> d:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>        keys.append(key)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>    values_list_1 <span class="op">=</span> d[keys[<span class="dv">0</span>]]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>    values_list_2 <span class="op">=</span> d[keys[<span class="dv">1</span>]]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>    total_1 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>    <span class="cf">for</span> value <span class="kw">in</span> values_list_1:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a>        total_1 <span class="op">+=</span> value</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a>    total_2 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a>    <span class="cf">for</span> value <span class="kw">in</span> values_list_2:</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true"></a>        total_2 <span class="op">+=</span> value</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true"></a>    <span class="cf">if</span> total_1 <span class="op">&gt;</span> total_2:</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true"></a>        <span class="cf">return</span> keys[<span class="dv">0</span>]</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true"></a>        <span class="cf">return</span> keys[<span class="dv">1</span>]</span></code></pre></div>
+<p>Fill in this unit test with a use case to verify that the function returns the key with the largest summed value.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="kw">def</span> test_max_sum_dict_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;Put code here.&quot;&quot;&quot;</span></span></code></pre></div>
+<hr />
+<h1 id="solutions">Solutions</h1>
+<h2 id="conceptual-solutions">Conceptual Solutions</h2>
+<ol type="1">
+<li><p>A test function is created just like any other Python function, but it is identified as a test by starting its name with <code>test_</code>. In frameworks like pytest, any function that starts with <code>test_</code> is automatically detected and run as a test.</p></li>
+<li><p>Create a new Python file, often named <code>&lt;module_name&gt;_test.py</code>, in the same directory as your module. Write all your test functions in this file.</p></li>
+<li><p>The assert statement checks if a condition is true. If the condition is false, an AssertionError is raised, indicating that the test has failed.</p></li>
+<li><p>A use case is a typical scenario where the function is expected to work as intended. For example, in a function that sums a list, a use case would be passing a list like <code>[1, 2, 3]</code>. An edge case is a situation where the function might struggle or behave differently, like passing an empty list <code>[]</code> to a sum function.</p></li>
+</ol>
+<h2 id="unit-test-writing-1">Unit Test Writing</h2>
+<ol start="5" type="1">
+<li>Solution below:</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="kw">def</span> test_find_even_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a>    nums <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>    <span class="cf">assert</span> find_even(nums) <span class="op">==</span> <span class="dv">3</span></span></code></pre></div>
+<hr />
+<ol start="6" type="1">
+<li>Solution below:</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="kw">def</span> test_list_sum_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>    <span class="co"># Test case 1: Normal list of positive numbers</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a>    <span class="cf">assert</span> sum_numbers([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]) <span class="op">==</span> <span class="dv">15</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>    <span class="co"># Test case 2: List with negative numbers</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>    <span class="cf">assert</span> sum_numbers([<span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">4</span>, <span class="op">-</span><span class="dv">5</span>]) <span class="op">==</span> <span class="op">-</span><span class="dv">15</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>    <span class="co"># Test case 3: Mixed positive and negative numbers</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>    <span class="cf">assert</span> sum_numbers([<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">3</span>]) <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>    <span class="co"># Test case 4: List with a single element</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>    <span class="cf">assert</span> sum_numbers([<span class="dv">10</span>]) <span class="op">==</span> <span class="dv">10</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a>    <span class="co"># Do not worry about handling the exception! </span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a>    <span class="co"># That is out of the scope of the class :)</span></span></code></pre></div>
+<hr />
+<ol start="7" type="1">
+<li>Solution below:</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="kw">def</span> test_is_prime_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>    <span class="cf">assert</span> is_prime(<span class="dv">7</span>) <span class="kw">is</span> <span class="va">True</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>    <span class="cf">assert</span> is_prime(<span class="dv">8</span>) <span class="kw">is</span> <span class="va">False</span></span></code></pre></div>
+<hr />
+<ol start="8" type="1">
+<li>Solution below:</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="kw">def</span> test_add_key_to_dicts_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>    dicts <span class="op">=</span> [{<span class="st">&quot;a&quot;</span>: <span class="dv">1</span>}, {<span class="st">&quot;b&quot;</span>: <span class="dv">2</span>}]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>    add_key_to_dicts(dicts, <span class="st">&quot;c&quot;</span>, <span class="dv">3</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>    <span class="cf">assert</span> dicts <span class="op">==</span> [{<span class="st">&quot;a&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;c&quot;</span>: <span class="dv">3</span>}, {<span class="st">&quot;b&quot;</span>: <span class="dv">2</span>, <span class="st">&quot;c&quot;</span>: <span class="dv">3</span>}]</span></code></pre></div>
+<hr />
+<ol start="9" type="1">
+<li>Solution below:</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="kw">def</span> test_increment_dict_value_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>    d <span class="op">=</span> {<span class="st">&quot;a&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;b&quot;</span>: <span class="dv">2</span>}</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>    increment_dict_value(d, <span class="st">&quot;a&quot;</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>    <span class="cf">assert</span> d[<span class="st">&quot;a&quot;</span>] <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a>    increment_dict_value(d, <span class="st">&quot;c&quot;</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a>    <span class="cf">assert</span> d[<span class="st">&quot;c&quot;</span>] <span class="op">==</span> <span class="dv">1</span></span></code></pre></div>
+<hr />
+<ol start="10" type="1">
+<li>Solution below:</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="kw">def</span> test_max_sum_dict_use_case() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>    d <span class="op">=</span> {<span class="st">&quot;a&quot;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">&quot;b&quot;</span>: [<span class="dv">4</span>, <span class="dv">5</span>]}</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>    <span class="cf">assert</span> max_sum_dict(d) <span class="op">==</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Viktorya Hunanyan, Alyssa Lytle</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

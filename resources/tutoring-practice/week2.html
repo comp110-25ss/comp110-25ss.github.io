@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Week 2 Practice - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429159.1452777">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="resources-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Week 2 Practice</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#concepts-reviewed">Concepts Reviewed</a></li>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#elif">Elif</a></li>
+<li><a href="#while-loop">While-Loop</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#elif-1">Elif</a></li>
+<li><a href="#while-loop-1">While-Loop</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="concepts-reviewed">Concepts Reviewed</h1>
+<p>These questions are optional supplements that ideally help you get prepared for the quizzes ahead of time. Before working through these practice questions, you should get familiar with the concepts covered in the lessons of the third week.</p>
+<p><br></p>
+<h1 id="questions">Questions</h1>
+<p>These questions might not be in the same format as quizzes. Don’t hesitate to bring them to the Tutoring section for help.</p>
+<h3 id="elif">Elif</h3>
+<ol type="1">
+<li><p>What is the purpose of using <code>elif</code>? In other words, in what circumstance do we want to use <code>elif</code> over a bunch of nested <code>if-else</code> statements?</p></li>
+<li><p>What is the operation order of <code>elif</code> statements? For example, if you have multiple <code>elif</code> statements and all of them evaluate to <code>True</code>, only the first one will get executed or the last one? Or maybe all of them?</p></li>
+<li><p>What would be the output of the following codes? 3.1</p></li>
+</ol>
+<pre><code>x = 4
+
+if x &lt; 5:
+    print(&quot;A&quot;)
+elif x &lt; 10:
+    print(&quot;B&quot;)
+elif x &lt; 15:
+    print(&quot;C&quot;)
+else:
+    print(&quot;D&quot;)</code></pre>
+<p>A. <code>ABCD</code> B. <code>ABC</code> C. <code>D</code> D. <code>A</code></p>
+<p>3.2 Reassign the value of <code>x</code>, so that only <code>D</code> will get printed.</p>
+<p>3.3 What will be the output if we change all the <code>elif</code> statements above to the <code>if</code> statement?</p>
+<ol start="4" type="1">
+<li>Rewrite the following codes with <code>elif</code>:</li>
+</ol>
+<pre><code>course: int = 110
+
+if course == 110:
+    print(&quot;Welcome to COMP 110!&quot;)
+else:
+    if course &lt; 110:
+        print(&quot;Enrolled!&quot;)
+    else:
+        print(&quot;Prerequisites not satisfied&quot;)</code></pre>
+<p><br></p>
+<h3 id="while-loop">While-Loop</h3>
+<ol type="1">
+<li>Given the following codes: match them with the corresponding term:</li>
+</ol>
+<pre><code>i: int = 0
+while i &lt; 10:
+    print(i)
+    i += 1</code></pre>
+<ol type="a">
+<li>Repeat Block</li>
+<li>Condition</li>
+<li>Increment</li>
+</ol>
+<ol start="2" type="1">
+<li><p>(True or False) Codes within the repeat block of the while loop will always get executed at least once.</p></li>
+<li><p>Try to evaluate the following codes:</p></li>
+</ol>
+<pre><code>x: int = 10
+result:str = &quot;&quot;
+
+while x &gt; 0:
+    if x % 3 == 0:
+        result = result + str(x)
+    else:
+        result = str(x) + result
+    x = x // 2
+print(result)</code></pre>
+<ol start="4" type="1">
+<li>Try to count (if possible) how my iterations of do following loops have: 4.1</li>
+</ol>
+<pre><code>course = &quot;comp110&quot;
+i: int = 0
+while i &lt; len(course):
+    # Codes omitted
+    i += 1</code></pre>
+<p>4.2 ~~~ j: int = 1 while j &lt; 10: # Codes omitted j += 2 ~~~</p>
+<p>4.3 ~~~ z:float = 10.0 while z &gt; 0: # Codes omitted z = z ** (1/2) ~~~</p>
+<ol start="5" type="1">
+<li>See if there is something wrong with the following loops, if so, how can you correct them? 5.1</li>
+</ol>
+<pre><code>i = 0
+while i &lt; 5:
+    print(i)</code></pre>
+<p>5.2 ~~~ j = 10 while j &gt; 0: print(j) j -= 1 ~~~</p>
+<p>5.3 ~~~ number:str = “11111” while i &lt;= len(number): print(number[i]) i += 1 ~~~</p>
+<p>5.4 ~~~ while True: print(“True”) ~~~</p>
+<ol start="6" type="1">
+<li>Design a loop that can achieve the desired requirements: 6.1 Create a loop that can print all even numbers between 1 to 100</li>
+</ol>
+<p>6.2 Given this string <code>ComputerScience</code>, use a loop that can print the characters that have <code>odd</code> indies. (Index 0, 2, 4, 6, 8…)</p>
+<p>6.3 (Continued on 5.2)How about a loop that can print every character except the last one? (Be careful with the IndexOutOfBound!)</p>
+<p>6.4 A loop that will print numbers from 0 all the way to negative infinity</p>
+<ol start="7" type="1">
+<li>Elaborate on your thought, when will the infinite loops get intentionally used in real-life scenarios?</li>
+</ol>
+<h1 id="solutions">Solutions</h1>
+<h3 id="elif-1">Elif</h3>
+<ol type="1">
+<li><p><code>elif</code> is more efficient and readable than normal <code>if-else</code> statements. To achieve the function of <code>elif</code>, a deep nested <code>if-else</code> statement might be used and therefore make the code difficult to interpret.</p></li>
+<li><p>The order of <code>elif</code> statements is sequential, only the first conditional statement that evaluates to <code>True</code> will get executed, and the rest of the <code>elif</code> statements are skipped.</p></li>
+<li><p>What would be the output of the following codes? 3.1 D</p></li>
+</ol>
+<p>3.2 say x=15 or any number greater than 14</p>
+<p>3.3 A, B, and C will all get printed in sequence.</p>
+<ol start="4" type="1">
+<li>Rewrite the following codes with <code>elif</code>:</li>
+</ol>
+<pre><code>course: int = 110
+
+if course == 110:
+    print(&quot;Welcome to COMP 110!&quot;)
+elif course &lt; 110:
+    print(&quot;Enrolled!&quot;)
+else:
+    print(&quot;Prerequisites not satisfied&quot;)</code></pre>
+<h3 id="while-loop-1">While-Loop</h3>
+<ol type="1">
+<li></li>
+</ol>
+<ol type="a">
+<li>Repeat Block: block inside the while loop</li>
+<li>Condition: i&lt;10</li>
+<li>Increment: i+=1</li>
+</ol>
+<ol start="2" type="1">
+<li><p>False, if the conditional statement at the start never met, the repeat block never got executed.</p></li>
+<li><p>“12510”</p></li>
+<li><p>Try to count (if possible) how my iterations of do following loops have: 4.1: 8</p></li>
+</ol>
+<p>4.2: 5</p>
+<p>4.3 Infinity</p>
+<ol start="5" type="1">
+<li>See if there is something wrong with the following loops, if so, how can you correct them? 5.1: No increment on i, causing an infinite loop</li>
+</ol>
+<p>5.2: j-=1 should be placed inside the while loop.</p>
+<p>5.3: i is not defined before the loop, meanwhile the condition of the loop will eventually lead to <code>IndexError</code>.</p>
+<p>5.4: Infinite loop</p>
+<ol start="7" type="1">
+<li>Some tasks might need to run continuously until an external condition or event occurs. Say a server listening loops which needs to continuously active to incoming requests until it is turned off.</li>
+</ol>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Vincent Li</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

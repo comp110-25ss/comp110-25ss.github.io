@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Practice with Conditionals, Local Variables, and User Input - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429164.9356315">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Practice with Conditionals, Local Variables, and User Input</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#practice-with-conditionals-local-variables-and-user-input">Practice with Conditionals, Local Variables, and User Input</a>
+<ul>
+<li><a href="#part-0.-introduction-and-setup">Part 0. Introduction and Setup</a></li>
+<li><a href="#part-1.-guess_a_number-signature">Part 1. <code>guess_a_number</code>: Signature</a></li>
+<li><a href="#part-2.-calling-your-function">Part 2. Calling your Function</a></li>
+<li><a href="#part-3.-guess_a_number-giving-it-functionality">Part 3. <code>guess_a_number</code>: Giving it Functionality</a>
+<ul>
+<li><a href="#establish-a-secret-number">3.0 Establish a Secret Number</a></li>
+<li><a href="#user-input">3.1 User Input</a></li>
+<li><a href="#give-feedback">3.2 Give Feedback</a></li>
+</ul></li>
+<li><a href="#part-4.-add-__name__-__main__">Part 4. Add <code>__name__ == "__main__"</code></a></li>
+<li><a href="#part-5.-submission">Part 5. Submission</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="practice-with-conditionals-local-variables-and-user-input">Practice with Conditionals, Local Variables, and User Input</h1>
+<h2 id="part-0.-introduction-and-setup">Part 0. Introduction and Setup</h2>
+<p>For this challenge question, you are going to be writing a simple number guessing game!</p>
+<p>First, right click on your “CQs” folder and select “New File…”. Name this file <code>cq02_conditionals.py</code>.</p>
+<p>Make sure to initialize your file with a docstring and <code>__author__</code> variable!</p>
+<h2 id="part-1.-guess_a_number-signature">Part 1. <code>guess_a_number</code>: Signature</h2>
+<p>Now, let’s write a function that takes no inputs and doesn’t return anything called <code>guess_a_number</code>. All inputs will be made by the user and nothing will be returned, but rather displayed in your terminal!</p>
+<p>Start by just creating the signature and having the function <code>return None</code>. We will add more to it in a bit</p>
+<h2 id="part-2.-calling-your-function">Part 2. Calling your Function</h2>
+<p>Let’s go ahead and call our function to see what it does!</p>
+<p>Below your function definition call <code>guess_a_number()</code>.</p>
+<p>Now, try running your file! You’ll notice you don’t get any output yet because even though your function is being called, it doesn’t do anything yet!</p>
+<h2 id="part-3.-guess_a_number-giving-it-functionality">Part 3. <code>guess_a_number</code>: Giving it Functionality</h2>
+<h3 id="establish-a-secret-number">3.0 Establish a Secret Number</h3>
+<p>First, let’s establish a secret number for the player of the game to guess! Create a <em>local variable</em> inside your function body that is called <code>secret</code>, is an <code>int</code> and equals <code>7</code>. (You’ll get a warning line under your variable, but that’s ok! It’s just because we haven’t used it yet.)</p>
+<h3 id="user-input">3.1 User Input</h3>
+<p>Next in the code, you should ask the player to “Guess a number:” using the <code>input</code> function and store their response as a <em>local variable</em> in the function.</p>
+<p>Then, print back the following string <em>exactly</em>: “Your guess was x”, where <code>x</code> is the number they input.</p>
+<p>Here’s an example of what it should look like in your terminal:</p>
+<pre>
+<div class="terminal">
+/workspace (main*) > python -m CQs.cq02_conditionals
+Guess a number: 7
+Your guess was 7
+</div>
+</pre>
+<p>and in your trailhead: <img class="img-fluid" src="/static/cqs/cq02/guess_trailhead.png"></p>
+<h3 id="give-feedback">3.2 Give Feedback</h3>
+<p>Now, you should tell the player whether or not their guess was correct, too high, or too low! You can do this using your conditionals!</p>
+<ul>
+<li>If their guess is correct, print <code>"You got it!"</code></li>
+<li>If their guess is too low, print <code>"Your guess was too low! The secret number is x"</code> where <code>x</code> is the value of the secret number.</li>
+<li>If their guess is too high, print <code>"Your guess was too high! The secret number is x"</code> where <code>x</code> is the value of the secret number.</li>
+</ul>
+<p>Here’s an example of what it should look like in your terminal:</p>
+<pre>
+<div class="terminal">
+/workspace (main*) > python -m CQs.cq02_conditionals
+Guess a number: 7
+Your guess was 7
+You got it!
+</div>
+</pre>
+<pre>
+<div class="terminal">
+/workspace (main*) > python -m CQs.cq02_conditionals
+Guess a number: 9
+Your guess was 9
+Your guess was too high! The secret number is 7
+</div>
+</pre>
+<pre>
+<div class="terminal">
+/workspace (main*) > python -m CQs.cq02_conditionals
+Guess a number: 2
+Your guess was 2
+Your guess was too low! The secret number is 7
+</div>
+</pre>
+<p>and in your trailhead: <img class="img-fluid" src="/static/cqs/cq02/correct_guess.png"></p>
+<p><img class="img-fluid" src="/static/cqs/cq02/high_guess.png"></p>
+<p><img class="img-fluid" src="/static/cqs/cq02/low_guess.png"></p>
+<h2 id="part-4.-add-__name__-__main__">Part 4. Add <code>__name__ == "__main__"</code></h2>
+<p>Finally, replace the line where you call <code>guess_a_number()</code> with:</p>
+<pre><code>    if __name__ == &quot;__main__&quot;:
+        guess_a_number()</code></pre>
+<p>Right now, you’re just doing this because it’s good practice, but we will explain why you do it soon! However, now that you know conditionals, you can get some intuition behind what it’s doing. It’s checking the value of some variable <code>__name__</code> and only calling your function if <code>__name__ == "__main__"</code>. More on this later! ;)</p>
+<h2 id="part-5.-submission">Part 5. Submission</h2>
+<p>Create a .zip file by running the following command in your terminal:</p>
+<p><code>python -m tools.submission CQs/cq02_conditionals.py</code></p>
+<p>Then, drag and drop that .zip file into Gradescope!</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Alyssa Lytle</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

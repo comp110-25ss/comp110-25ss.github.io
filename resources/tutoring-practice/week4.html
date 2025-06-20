@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Week 4 Practice - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429160.9869726">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="resources-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Week 4 Practice</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#concepts-reviewed">Concepts Reviewed</a></li>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#lists">Lists</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#lists-1">Lists</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="concepts-reviewed">Concepts Reviewed</h1>
+<p>These questions are optional supplements that ideally help you get prepared for the quizzes ahead of time. (Some of them are also designed for elaboration purposes as you can see from the tag. Don’t worry them if you just want to get prepared for the quizzes) Before working through these practice questions, you should get familiar with the concepts covered in the lessons of the fourth week.</p>
+<p><br></p>
+<h1 id="questions">Questions</h1>
+<p>These questions might not be in the same format as quizzes. Don’t hesitate to bring them to the Tutoring section for help.</p>
+<h3 id="lists">Lists</h3>
+<ol type="1">
+<li><p>What happens when you assign one list to another (e.g., list1 = list2) and then modify one of the lists? Say we now modify the values of list 2, will the values of list 1 also get changed?</p></li>
+<li></li>
+</ol>
+<pre><code>list1 = [1, 2, 3, 4]
+list2 = list1
+list2.append(5)
+print(list1)</code></pre>
+<p>Considering the above codes, what would be printed out as the output? A) [1, 2, 3, 4, 5] B) [1, 2, 3, 4] C) [5, 4, 3, 2, 1] D) Error</p>
+<ol start="3" type="1">
+<li><p>Where should we put a newly created list in the Memory Diagram?</p></li>
+<li><p>Recall the Chapter when we learn <code>String</code>, how to use the index to access the last item within a list without calling the function <code>len()</code>?</p></li>
+<li><p>Function writing relates to the list: 5.1 Could you write a function that will take a list of <code>int</code> and return the average of this list of <code>int</code>?</p></li>
+<li><p>Identify the usage and difference of <code>pop()</code> and <code>append()</code> in list.</p></li>
+<li><p>(For elaboration)In Python, which method can be used to combine two lists into a single list?</p></li>
+</ol>
+<ol type="A">
+<li>combine()</li>
+<li>append()</li>
+<li>extend()</li>
+<li>join()</li>
+</ol>
+<ol start="8" type="1">
+<li><p>(For elaboration)Identify the following statements regarding list slicing are True or False: 8.1 list[::2] returns items at even indices only. 8.2 list[::-1] reverses the list. 8.3 list[1:3] returns the first three items. 8.4 list[:3] returns the last three items.</p></li>
+<li></li>
+</ol>
+<pre><code>a = [1, 2, 3]
+b = a * 2
+b[0] = 5
+print(a)
+print(b)</code></pre>
+<p>Considering the above codes, what would be the outputs of the last two print() functions?</p>
+<ol start="10" type="1">
+<li><p>Say I have a new <code>item</code> that, instead of adding it to the end of the list, but at the <code>specific index</code>. Which built-in function would be the correct one to use for this purpose?</p></li>
+<li><p>Identify the following statements are True or False:</p></li>
+</ol>
+<p>11.1 Lists can contain elements of different data types. 11.2 Lists are mutable. 11.3 The + operator can be used to append elements to a list. 11.4 Lists can be nested within other lists.</p>
+<ol start="12" type="1">
+<li></li>
+</ol>
+<pre><code>my_list = [&#39;Python&#39;, &#39;is&#39;, &#39;awesome&#39;, &#39;is&#39;, &#39;110&#39;, &#39;is&#39;, &#39;cool&#39;]</code></pre>
+<p>Write a one-line code that can return the index of <code>110</code> in this list.</p>
+<ol start="13" type="1">
+<li>Continue on 12:</li>
+</ol>
+<pre><code>print(my_list.index(&#39;is&#39;))</code></pre>
+<p>What would be the output of this line of code based on the <code>my_list</code> from Q12? A) 1 B) 2 C) 3 D) [1, 3]</p>
+<h1 id="solutions">Solutions</h1>
+<h3 id="lists-1">Lists</h3>
+<ol type="1">
+<li><p>Yes, it will get changed. In Python, a list is a reference data type. So assigning list1 = list2 means they are now referring to the same list.</p></li>
+<li><p>A</p></li>
+<li><p>Heap</p></li>
+<li><p>list[-1]</p></li>
+<li><p>The append() method adds a single element to the end of the list. Whereas the pop() method removes and returns the last element of the list. If an index is given, it removes and returns the element at that index.</p></li>
+<li><p>C</p></li>
+<li><p>8.1 True 8.2 True 8.3 False 8.4 False</p></li>
+<li><p>[1, 2, 3] and [5, 2, 3, 1, 2, 3]</p></li>
+<li><p>.insert()</p></li>
+<li><p>11.1 True 11.2 True 11.3 False 11.4 True</p></li>
+<li><p>print(my_list.index(‘110’))</p></li>
+<li><p>A</p></li>
+</ol>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Vincent Li</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

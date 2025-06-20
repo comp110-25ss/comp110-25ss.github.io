@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Scope Conceptual Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429152.037943">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Scope Conceptual Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#conceptual">Conceptual</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#conceptual-solutions">Conceptual Solutions</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<h2 id="conceptual">Conceptual</h2>
+<p>For the following, you must prove your answer to each question. Prove using both memory diagrams and verify your diagram with code in VS code.</p>
+<ol type="1">
+<li>Global variables are limited to the scope of the function they are declared in. (T/F)</li>
+<li>Variables can have the same name but store different values if they are defined in a different scope. (T/F)</li>
+<li>An object declared in the Globals frame can be passed into a function and the changes that occur on the object within the function frame will also be seen in the original object. (T/F)
+<ul>
+<li>3a. The function copies the object and manipulates the copied object and pastes the chanegs in the original object. (T/F)</li>
+<li>3b. For the function to manipulate the object, the object must be passed as one of the parameters. (T/F)</li>
+<li>3c. The function does not create a copy of the object rather one of it’s parameters holds the reference number to the object. (T/F)</li>
+<li>3d. The variable that holds the reference to the object in the function frame, holds the same value as the varibale that instantiated the object in the Globals frame. (T/F)</li>
+</ul></li>
+<li>For the following code snippet, create a memory diagram of what is happening. Explain why we are able to do line 9:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>xs <span class="op">=</span> <span class="st">&quot;01&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>ys <span class="op">=</span> <span class="st">&quot;23&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">def</span> get_coords() <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    x_idx: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    <span class="cf">while</span> x_idx <span class="op">&lt;</span> <span class="bu">len</span>(xs):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>        y_idx: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>        <span class="cf">while</span> y_idx <span class="op">&lt;</span> <span class="bu">len</span>(ys):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>            <span class="bu">print</span>(<span class="ss">f&quot;(</span><span class="sc">{xs</span>[x_idx]<span class="sc">}</span><span class="ss">,</span><span class="sc">{ys</span>[y_idx]<span class="sc">}</span><span class="ss">)&quot;</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>            y_idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>        x_idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a> <span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>    get_coords()</span></code></pre></div>
+<ol start="5" type="1">
+<li>Give an example of a Global variable being referenced inside of a local frame (this varible should not reference an object). Explain what is happening in your example and how scope is in use.</li>
+<li>Give an example of when a Global variable and a local variable have the same name but in different local frames, one is used over the other.</li>
+</ol>
+<p><a href="#conceptual-solutions">Solutions</a></p>
+<h1 id="solutions">Solutions</h1>
+<h2 id="conceptual-solutions">Conceptual Solutions</h2>
+<ol type="1">
+<li>False Global variables are not limited to the function scope; they are accessible throughout the entire program unless shadowed by a local variable of the same name within a function.</li>
+</ol>
+<p>Example:</p>
+<pre><code>    x = 10  # Global variable
+
+    def func():
+        print(x)  # Accesses the global variable
+
+    func()  # Output: 10</code></pre>
+<p>Furthermore, when a <code>function_1</code> is called inside of the body of another function, <code>function_2</code>, <code>function_1</code> is accesible because it is global. Python will first check in <code>function_1</code>’s frame to see if <code>function_2</code> is defined and if it is not then it will move up to the last frame that does not have an RV. Once it does this, it will check again if function_2 is defined and if it is not, it will continue doing this until it has found <code>function_2</code> defined in a frame. It will eventially get to the globals frame where it will see function_2 is defined and holds a referene number that is defining what function_2 is. At this point, Python will understand that <code>function_1</code> is a function and return to the line where it was encountered in <code>function_2</code>’s body, now recognizing <code>function_1</code> as callable and executing it accordingly.</p>
+<hr />
+<ol start="2" type="1">
+<li>True Variables in different scopes (such as global and local scope) can have the same name but will store different values within their respective scopes.</li>
+</ol>
+<p>Example:</p>
+<pre><code>    x = 10  # Global variable
+
+    def func():
+        x = 20  # Local variable with the same name
+        print(x)  # Output: 20 (Local scope)
+
+    func()
+    print(x)  # Output: 10 (Global scope)</code></pre>
+<p>For more examples, please refer to the memory diagram page.</p>
+<hr />
+<ol start="3" type="1">
+<li>True If an object is passed to a function and modified, the changes are reflected globally because Python passes a reference to the object, not a copy. Remember, that we also pass values to the function and that value is the whatever is in your halfbox in memory. This will be a reference (reference number (id number)). Remember, to mutate an object, we pass by reference!</li>
+</ol>
+<p>Example:</p>
+<pre><code>lst = [1, 2, 3]  # Global object (mutable)
+
+def modify_list(some_list):
+    some_list.append(4)
+
+modify_list(lst)
+print(lst)  # Output: [1, 2, 3, 4]</code></pre>
+<p>For more examples, please refer to the memory diagram page.</p>
+<p>3a. False; The function does not copy the object. Instead, it directly manipulates the original object via the reference.</p>
+<p>3b. False; To manipulate an object a mutable object, it does not have to be passed as a parameter to the function to access and modify it.</p>
+<p>For example:</p>
+<pre><code>ex: list[int] = [2, 4]
+
+def example(num): 
+    if num &gt; len(ex): 
+        ex.append(num)
+
+example(4)
+print(ex)  # will print [2, 4, 4]</code></pre>
+<p>We must note that this is only the case for mutable data types.</p>
+<p>For example, the following snippet is unable to modify the <code>xs</code> variable becuase a string is an immutable type.</p>
+<pre><code>xs = &quot;01&quot;
+ys = &quot;23&quot;
+
+def get_coords() -&gt; None:
+    x_idx: int = 0
+    while x_idx &lt; len(xs):
+        y_idx: int = 0
+        while y_idx &lt; len(ys):
+            xs += xs[x_idx]
+            y_idx += 1
+        x_idx += 1
+
+print(xs)</code></pre>
+<p>3c. True; The function operates on the original object via the reference held by the parameter.</p>
+<p>3d. True; The reference (memory address/id number) held in the function parameter is the same as the reference of the original object, so any changes to the object in the function are reflected globally.</p>
+<hr />
+<ol start="4" type="1">
+<li>On line 9, <code>xs[x_idx]</code> and <code>ys[y_idx]</code> access characters from the strings <code>xs</code> and <code>ys</code> using indexing. A memory diagram would show the <code>Globals</code> frame holding <code>xs</code> and <code>ys</code> as string objects. The <code>x_idx</code> and <code>y_idx</code> variables exist within the local frame of <code>get_coords</code>, indexing into <code>xs</code> and <code>ys</code>. The print statement outputs pairs of characters from xs and ys, i.e., <code>(0,2), (0,3), (1,2), (1,3)</code>.</li>
+</ol>
+<p>The ability to perform this operation comes from the fact that <code>xs</code> and <code>ys</code> are global variables, so they are accessible inside get_coords().</p>
+<hr />
+<ol start="5" type="1">
+<li>Example below:</li>
+</ol>
+<pre><code>    x = 42  # Global variable
+
+    def print_global():
+        print(x)  # References the global variable
+
+    print_global()  # Output: 42</code></pre>
+<ul>
+<li>x is declared in the global scope.</li>
+<li>Inside the function print_global(), the global variable x is accessed and printed. Exactly the same explanation as number 1 except here, python is looking for the <code>x</code> variable.</li>
+<li>The function does not have its own x, so it refers to the global one.</li>
+</ul>
+<hr />
+<ol start="6" type="1">
+<li>Example below:</li>
+</ol>
+<pre><code>    x = 5  # Global variable
+
+    def local_scope():
+        x = 10  # Local variable with the same name
+        print(x)  # Output: 10 (Local variable is used)
+
+    local_scope()
+    print(x)  # Output: 5 (Global variable remains unchanged)</code></pre>
+<p>As you seen in the body of the function, when we <code>print(x)</code>, <code>10</code> is output. This is because of the process described in question 1; python will look in the area it is currently in before moving to another space (just like real life, if you lose your airpods while sitting on the couch, you aren’t going to start looking for you airpods in your kitchen, you start in the place where you are at and then expand outwards to the places that make sense.)</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Viktorya Hunanyan,        Alyssa Lytle,        Megan Zhang, David Karash</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

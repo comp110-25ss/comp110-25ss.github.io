@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Recursive Functions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429142.5488498">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Recursive Functions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a></li>
+<li><a href="#challenge-problems">Challenge Problems</a></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#questions-1">Questions</a></li>
+<li><a href="#challenge-questions">Challenge Questions</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>Recursion is not a difficult topic. It is simply the process of a function calling itself during its own execution to obtain a new value that will be used in the previous call. This concept is straightforward because we are already familiar with how to call functions and visualize function calls using diagrams.</p>
+<p>The hard part is determining what to include in your function call and identifying the exact recursive step. How quickly you can do this depends on practice and the ability to spot patterns.</p>
+<p>For example, why can adults add numbers much faster than children who are just learning to count? It’s because adults have practiced recognizing patterns in numbers over years of experience. They’ve internalized shortcuts, like instantly knowing that 7 + 3 equals 10 without counting each number individually.</p>
+<p>Similarly, mastering recursion involves recognizing the structure of problems that can be broken down into smaller, self-similar subproblems and applying the recursive step effectively. All of you are capable of writing recursive functions once you are able identify the base case and recursive step and understand the algorithm!</p>
+<p>The problems below might initially seem challenging because recursion introduces a new way of thinking about pattern recognition. Hopefully, by the end of this problem set, you’ll feel more confident and quicker at identifying the recursive step.</p>
+<h1 id="questions">Questions</h1>
+<ol type="1">
+<li><p>Write a function, <code>factorial</code>, that will calculate the factorial of an input number. <em>We are aware we did this in class but lets see if you can do it on your own and are able to think through this without referring to any notes.</em> If you do not know what a factorial is, google it. <a href="#question1">Solution</a></p></li>
+<li><p>Write a function, <code>sum_of_natural_numbers</code>, that given an input number, <code>n</code>, it will sum of the first <code>n</code> natural numbers. Below is an example usage of this function. <a href="#question2">Solution</a></p></li>
+</ol>
+<pre>
+<div class="terminal">
+>>> from test import sum_of_natural_numbers
+>>> sum_of_natural_numbers(5)
+15
+>>> sum_of_natural_numbers(0) 
+0
+</div>
+</pre>
+<ol start="3" type="1">
+<li>Write a function, <code>sum_of_digits</code>, that will return the sum of digits of a number passed to the function. Below is an example usage of this function. <a href="#question3">Solution</a></li>
+</ol>
+<pre>
+<div class="terminal">
+>>> from test import sum_of_digits
+>>> sum_of_digits(123)
+6
+>>> sum_of_digits(9876)
+30
+</div>
+</pre>
+<ol start="4" type="1">
+<li>Write a function, <code>power</code>, that will return the power of a number to some value passed. Below is an example usage of this function. <a href="#question4">Solution</a></li>
+</ol>
+<pre>
+<div class="terminal">
+>>> from test import power
+>>> power(2, 3)
+8
+>>> power(5, 0)
+1
+>>> power(3, 4)
+81
+</div>
+</pre>
+<ol start="5" type="1">
+<li>Write a function, <code>gcd</code>, that will calculate the Greatest Common Divisor (GCD) (this will come in handy if you continue on in the major and chose to take Comp 283 or Math 381). Here is a <a href="https://youtu.be/JUzYl1TYMcU?si=C0forteoqnqLT_nw">video</a> that will help you understand the algorithm that you need to implement. Below is an example usage of this function. <a href="#question5">Solution</a></li>
+</ol>
+<pre>
+<div class="terminal">
+>>> from test import gcd
+>>> gcd(48, 18)
+6
+>>> gcd(56, 98)
+14
+</div>
+</pre>
+<ol start="6" type="1">
+<li>Write a function, <code>reverse_string</code>, that takes a string <code>s</code> as input and returns a new string that is the reverse of <code>s</code>. Below is an example usage of this function. <a href="#question6">Solution</a></li>
+</ol>
+<pre>
+<div class="terminal">
+>>> reverse_string("hello")
+'olleh'
+>>> reverse_string("a")
+'a'
+>>> reverse_string("")
+''
+</div>
+</pre>
+<p><em>Hint:</em> To solve the problem of reversing a string using recursion, you will need a helper function to manage the recursion properly. The reverse_string function can be responsible for starting the process, while the helper function will do the actual recursive work.</p>
+<p>The key reason we need the helper function is that recursion requires some form of state to be passed along with each recursive call. In this case, we need to keep track of the index we are working on as we move through the string. The reverse_string function, by itself, doesn’t have an easy way to track this index, so we use a helper function to handle that.</p>
+<ul>
+<li><code>reverse_string</code>: This function is the starting point. It simply calls the helper function and passes the string along with the starting index (which is the last character of the string). The helper function should be called passing the last index of the input string as the index to be used in the helper function.</li>
+<li><code>reverse_helper</code>: This function is responsible for the actual recursion. It keeps track of the current character by using the index parameter, and it reduces the index with each recursive call, effectively moving from the end of the string towards the beginning.</li>
+</ul>
+<p>Here is a skeleton code if you are still stuck:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> reverse_string(s: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="cf">return</span> reverse_helper(s<span class="op">=</span>?, index<span class="op">=</span>?) <span class="co"># finish the function call</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">def</span> reverse_helper(s: <span class="bu">str</span>, index: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="co"># your code here </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="co"># Testing the function</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="bu">print</span>(reverse_string(<span class="st">&quot;hello&quot;</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="bu">print</span>(reverse_string(<span class="st">&quot;a&quot;</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="bu">print</span>(reverse_string(<span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<ol start="7" type="1">
+<li>Write a function, <code>fibonacci</code>, that computes the n-th number in the Fibonacci sequence, where n is a number passed to the function. Here is a <a href="https://youtu.be/pgWBbkqiUwQ?si=Dy7q72l2FuNDuCmc">video</a> that will help you understand the algorithm that you need to implement. Below is an example usage of this function. <a href="#question7">Solution</a></li>
+</ol>
+<pre>
+<div class="terminal">
+>>> fibonacci(5)
+5
+>>> fibonacci(0)
+0
+>>> fibonacci(6)
+8
+</div>
+</pre>
+<ol start="8" type="1">
+<li>Write a function, <code>factorial_list</code>, that takes a list of non-negative integers and returns a new list where each element is the factorial of the corresponding element in the input list. Below is an example usage of this function. <a href="#question8">Solution</a></li>
+</ol>
+<pre>
+<div class="terminal">
+>>> my_list = [3, 4, 5]
+>>> factorial_list(my_list)
+[6, 24, 120]
+</div>
+</pre>
+<h1 id="challenge-problems">Challenge Problems</h1>
+<p><em>You are fully capable of completing these</em></p>
+<p>It doesn’t matter how long it takes you; thinking through these problems is far more important than getting the answer quickly. The process of problem-solving and truly understanding the concepts is more valuable than rushing to find the correct solution.</p>
+<p>It’s incredibly rewarding to spend a couple of days wrestling with a problem that seems unsolvable, only to finally figure it out after persistent effort. This is far more fulfilling than simply looking at the answer after only a couple of attempts. If you need hints, that’s completely okay. If you need to watch a video, that’s okay too. What matters most is that you’re putting in the effort to understand these problems. This effort is far more valuable than completing them quickly without fully grasping the concepts.</p>
+<ol type="1">
+<li>Write a recursive function <code>fibonacci_sequence</code> that generates the Fibonacci sequence starting from 0 and 1, and appends the next Fibonacci number to the list until it exceeds a given value up_to.</li>
+</ol>
+<p>The function should take two arguments: - <code>up_to</code> (int): The value that the sequence should not exceed. - <code>fib_list</code> (list[int]): A list that holds the Fibonacci numbers generated so far</p>
+<p>The function should compute and return the Fibonacci sequence up to but not exceeding the up_to value. <a href="#cquestion1">Solution</a></p>
+<pre>
+<div class="terminal">
+>>> result = fibonacci_sequence(9, [0, 1])
+>>> print(result)
+[0, 1, 1, 2, 3, 5, 8]
+</div>
+</pre>
+<ol start="2" type="1">
+<li>Implement a recursive binary search function, <code>binary_search</code>, to find if a target number exists in a sorted list of integers. Binary search works by repeatedly dividing the search interval in half and checking if the middle element matches the target, or if the target is smaller or larger than the middle element.</li>
+</ol>
+<p>Write a function <code>binary_search</code> that takes:</p>
+<ul>
+<li><code>arr</code> (list[int]): A sorted list of integers.</li>
+<li><code>target</code> (int): The number to search for.</li>
+<li><code>low</code> (int): The starting index of the current search range.</li>
+<li><code>high</code> (int): The ending index of the current search range.</li>
+</ul>
+<p>The function should return:</p>
+<ul>
+<li>The index of the target if it is found.</li>
+<li>-1 if the target is not found in the list.</li>
+</ul>
+<p>The recursive approach should: - Check if the middle element equals the target. - If the target is smaller than the middle element, search the left half. - If the target is larger than the middle element, search the right half. - If the list is empty (when low exceeds high), return -1</p>
+<p><a href="#cquestion2">Solution</a></p>
+<pre>
+<div class="terminal">
+>>> arr = [1, 3, 5, 7, 9, 11]
+>>> print(binary_search(arr, 7, 0, len(arr) - 1))
+3
+>>> print(binary_search(arr, 4, 0, len(arr) - 1))
+-1
+</div>
+</pre>
+<h1 id="solutions">Solutions</h1>
+<h2 id="questions-1">Questions</h2>
+<h5 id="question1">1. Code below:</h5>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">def</span> factorial(n):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="bu">print</span>(factorial(<span class="dv">5</span>))  <span class="co"># Output: 120 (5 * 4 * 3 * 2 * 1)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="bu">print</span>(factorial(<span class="dv">0</span>))  <span class="co"># Output: 1 (base case)</span></span></code></pre></div>
+<h5 id="question2">2. Code below:</h5>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">def</span> sum_of_natural_numbers(n):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="cf">return</span> n <span class="op">+</span> sum_of_natural_numbers(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="bu">print</span>(sum_of_natural_numbers(<span class="dv">5</span>))  <span class="co"># Output: 15 (1 + 2 + 3 + 4 + 5)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="bu">print</span>(sum_of_natural_numbers(<span class="dv">0</span>))  <span class="co"># Output: 0 (base case)</span></span></code></pre></div>
+<h5 id="question3">3. Code below:</h5>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">def</span> sum_of_digits(n):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    <span class="cf">return</span> (n <span class="op">%</span> <span class="dv">10</span>) <span class="op">+</span> sum_of_digits(n <span class="op">//</span> <span class="dv">10</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="bu">print</span>(sum_of_digits(<span class="dv">123</span>))  <span class="co"># Output: 6 (1 + 2 + 3)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="bu">print</span>(sum_of_digits(<span class="dv">9876</span>)) <span class="co"># Output: 30 (9 + 8 + 7 + 6)</span></span></code></pre></div>
+<h5 id="question4">4. Code below:</h5>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">def</span> power(base, exponent):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    <span class="cf">if</span> exponent <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="cf">return</span> base <span class="op">*</span> power(base, exponent <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="bu">print</span>(power(<span class="dv">2</span>, <span class="dv">3</span>))  <span class="co"># Output: 8 (2 * 2 * 2)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="bu">print</span>(power(<span class="dv">5</span>, <span class="dv">0</span>))  <span class="co"># Output: 1 (base case)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="bu">print</span>(power(<span class="dv">3</span>, <span class="dv">4</span>))  <span class="co"># Output: 81 (3 * 3 * 3 * 3)</span></span></code></pre></div>
+<h5 id="question5">5. Code below:</h5>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">def</span> gcd(a, b):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    <span class="cf">if</span> b <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>        <span class="cf">return</span> a</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a>    <span class="cf">return</span> gcd(b, a <span class="op">%</span> b)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="bu">print</span>(gcd(<span class="dv">48</span>, <span class="dv">18</span>))  <span class="co"># Output: 6</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="bu">print</span>(gcd(<span class="dv">56</span>, <span class="dv">98</span>))  <span class="co"># Output: 14</span></span></code></pre></div>
+<h5 id="question6">6. Code below:</h5>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">def</span> reverse_string(s):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    <span class="cf">return</span> reverse_helper(s, <span class="bu">len</span>(s) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="kw">def</span> reverse_helper(s, index):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    <span class="cf">if</span> index <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>    <span class="cf">return</span> s[index] <span class="op">+</span> reverse_helper(s, index <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="co"># Testing the function</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="bu">print</span>(reverse_string(<span class="st">&quot;hello&quot;</span>))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a><span class="bu">print</span>(reverse_string(<span class="st">&quot;a&quot;</span>))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a><span class="bu">print</span>(reverse_string(<span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<h5 id="question7">7. Code below:</h5>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">def</span> fibonacci(n):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    <span class="cf">elif</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    <span class="cf">return</span> fibonacci(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fibonacci(n <span class="op">-</span> <span class="dv">2</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a><span class="bu">print</span>(fibonacci(<span class="dv">5</span>))  <span class="co"># Output: 5 (0, 1, 1, 2, 3, 5)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="bu">print</span>(fibonacci(<span class="dv">0</span>))  <span class="co"># Output: 0 (base case)</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a><span class="bu">print</span>(fibonacci(<span class="dv">6</span>))  <span class="co"># Output: 8 (0, 1, 1, 2, 3, 5, 8)</span></span></code></pre></div>
+<h5 id="question8">8. Code below:</h5>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="kw">def</span> factorial(n):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>    <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="kw">def</span> factorial_list(my_list):</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    result <span class="op">=</span> []</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>    <span class="cf">for</span> num <span class="kw">in</span> my_list:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>        result.append(factorial(num))</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>    <span class="cf">return</span> result</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="co"># Example usage:</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>my_list <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a><span class="bu">print</span>(factorial_list(my_list))  <span class="co"># Output: [6, 24, 120]</span></span></code></pre></div>
+<h2 id="challenge-questions">Challenge Questions</h2>
+<h5 id="cquestion1">1. Code below:</h5>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">def</span> fibonacci_sequence(up_to, fib_list):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>    <span class="cf">if</span> <span class="bu">len</span>(fib_list) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>        fib_list <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>    next_value <span class="op">=</span> fib_list[<span class="bu">len</span>(fib_list) <span class="op">-</span> <span class="dv">1</span>] <span class="op">+</span> fib_list[<span class="bu">len</span>(fib_list) <span class="op">-</span> <span class="dv">2</span>]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>    <span class="cf">if</span> next_value <span class="op">&gt;</span> up_to:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>        <span class="cf">return</span> fib_list</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    fib_list.append(next_value)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="cf">return</span> fibonacci_sequence(up_to, fib_list)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="co"># To use the function:</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>result <span class="op">=</span> fibonacci_sequence(<span class="dv">9</span>, [<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="bu">print</span>(result)  <span class="co"># Output: [0, 1, 1, 2, 3, 5, 8]</span></span></code></pre></div>
+<h5 id="cquestion2">2. Code below:</h5>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="kw">def</span> binary_search(arr, target, low, high):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    <span class="cf">if</span> high <span class="op">&gt;=</span> low:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>        mid <span class="op">=</span> (low <span class="op">+</span> high) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a>        <span class="cf">if</span> arr[mid] <span class="op">==</span> target:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a>            <span class="cf">return</span> mid</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a>        <span class="cf">elif</span> arr[mid] <span class="op">&gt;</span> target:</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true"></a>            <span class="cf">return</span> binary_search(arr, target, low, mid <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true"></a>        <span class="cf">else</span>:</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true"></a>            <span class="cf">return</span> binary_search(arr, target, mid <span class="op">+</span> <span class="dv">1</span>, high)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true"></a>arr <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>]</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true"></a><span class="bu">print</span>(binary_search(arr, <span class="dv">7</span>, <span class="dv">0</span>, <span class="bu">len</span>(arr) <span class="op">-</span> <span class="dv">1</span>))  <span class="co"># Output: 3 (index of 7)</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true"></a><span class="bu">print</span>(binary_search(arr, <span class="dv">4</span>, <span class="dv">0</span>, <span class="bu">len</span>(arr) <span class="op">-</span> <span class="dv">1</span>))  <span class="co"># Output: -1 (not found)</span></span></code></pre></div>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Viktorya Hunanyan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Lists Conceptual Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429151.8608215">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Lists Conceptual Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#list-general-questions">List General Questions</a></li>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<li><a href="#lists-in-loops">Lists in loops</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#list-general-questions-1">List General Questions</a></li>
+<li><a href="#conceptual-questions-1">Conceptual Questions</a></li>
+<li><a href="#lists-in-loops-1">Lists in loops</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<h2 id="list-general-questions">List General Questions</h2>
+<ol type="1">
+<li><p>Explain in words how you modify elements in a list? How would you do this in python? Give an example.</p></li>
+<li><p>Write the general formula of how you call a method on an object using the following. You might not need to use all and can use any multiple times: <code>&lt;method_name&gt;</code>, <code>()</code>, <code>&lt;object_variable&gt;</code>, <code>.</code> , <code>&lt;arg&gt;</code>. Give examples.</p></li>
+<li><p>Give two ways of instantiating an empty list. What are the components you need and what does each part do? Give an example for each. Your explanation should include the words ‘function’, ‘constructor’, ‘variable’, ‘instantiate’, ‘assign’, and ‘reference’.</p></li>
+<li><p>For the following code snippet:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>    <span class="co"># code snippet</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    names[<span class="dv">0</span>]</span></code></pre></div>
+<p>Explain what each component of the code means (i.e. what is <code>names</code>? What is <code>names[0]</code> refering to? Is this a value or a reference?) In your explanation include the words ‘reference’, ‘list’, ‘object’, ‘variable’, ‘value’, ‘name’, ‘index’, and ‘zeroth’. Prove your answer using a memory diagram. Your explanation of your proof should include the words ‘id number’, ‘variable’, ‘index’, ‘element’, ‘value’ and ‘reference’.</p>
+<ol start="5" type="1">
+<li>How do you know when you are indexing versus instantiating a list as both use square brackets?</li>
+</ol>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+<ol start="6" type="1">
+<li>Identify the arguments that pop() and append() take in these examples. Explain what they mean/what the methods will do with them:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>    my_list.pop(<span class="dv">6</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    my_list.append(<span class="dv">9</span>)</span></code></pre></div>
+<h2 id="lists-in-loops">Lists in loops</h2>
+<p>For the following lists:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>    x: <span class="bu">list</span>[<span class="bu">int</span>] <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    y: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> [“cat”, “dog”, “turtle”, “elephant”, “fish”]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    z: <span class="bu">list</span>[<span class="bu">str</span>] <span class="op">=</span> [“z”]</span></code></pre></div>
+<ol start="7" type="1">
+<li><p>Iterate through the lists and print out every element using a while loop.</p></li>
+<li><p>Iterate through the lists and print out every element using a for loop.</p></li>
+<li><p>Iterate through the lists and print out every element using a for.. in range() loop.</p></li>
+<li><p>Compare and contrast the difference between the different types of loops.</p></li>
+<li><p>Modify your solutions for the above by also printing out the index values. You should not instantiate new variables in order to do this or use any built-in functions that we have not learned, only add a print statement and use the existing variables.</p></li>
+<li><p>Which loops are you able to do this for? What does this tell you about these loops? Consider the benefits between one loop over another.</p></li>
+</ol>
+<h1 id="solutions">Solutions</h1>
+<h2 id="list-general-questions-1">List General Questions</h2>
+<ol type="1">
+<li>In order to modify elements in a list, you first need to identify the element you want to change. Then you must find where the element is within your object. Once you have access to the element’s position, you then want to assign at that position in the list to the desired value. Lists in Python are ordered collections, which means each element has a specific index that starts from 0. You can access elements in a list using these indices.</li>
+</ol>
+<p>To access an element, use the index inside square brackets []. To modify an element, you use the assignment operator =.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>    <span class="co"># example</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    my_list: <span class="bu">list</span>[“bark”, “meow”, “tweet”] <span class="co"># Change “meow” to “moo”</span></span></code></pre></div>
+<p>Using the english explanation above, we can break this down: “First need to identify the element you want to change” We want to change “meow” in my_list.</p>
+<p>“Find where the element is within your object” “meow” is at index 1.</p>
+<p>“Assign at that position in the list to the desired value”</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>    my_list[<span class="dv">1</span>] <span class="op">=</span> “moo”</span></code></pre></div>
+<ol start="2" type="1">
+<li><code>&lt;object_variable&gt;</code>.<code>&lt;method_name&gt;</code>(<code>&lt;arg&gt;</code>)</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>    <span class="co"># example</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>    my_list.pop(<span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>    my_list.append(“Hello”)</span></code></pre></div>
+<ol start="3" type="1">
+<li>Two ways of instantiating an empty list:</li>
+</ol>
+<ul>
+<li><p><em>Using the list constructor:</em> The <code>list()</code> function is a constructor that instantiates an empty list object. The constructor belongs to the <code>List</code> class. The constructor doesn’t take any arguments for creating an empty list. You assign the result of this function to a variable, which will reference the newly created empty list.</p>
+<p>Example: <code>python  empty_list = list()</code></p>
+<ul>
+<li><em>Components:</em>
+<ul>
+<li><code>list()</code>: The constructor function that creates a new list object.</li>
+<li><code>empty_list</code>: A variable that is assigned the reference to the new list object created by the <code>list()</code> constructor.</li>
+</ul></li>
+</ul></li>
+<li><p><em>Using square brackets:</em> You can instantiate an empty list using a pair of square brackets <code>[]</code>. This directly creates and instantiates a new empty list object, which you then assign to a variable.</p>
+<p>Example: <code>python  empty_list = []</code></p>
+<ul>
+<li><strong>Components:</strong>
+<ul>
+<li><code>[]</code>: This is shorthand syntax for creating and instantiating an empty list object.</li>
+<li><code>empty_list</code>: A variable that is assigned the reference to the newly instantiated empty list.</li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="4" type="1">
+<li>Explanation of <code>names[0]</code>:</li>
+</ol>
+<ul>
+<li><code>names</code> is a variable. Variables store references to objects in memory, and in this case, <code>names</code> is a variable that references a list object. The name of this variable serves as a pointer to the list object.</li>
+<li><code>names[0]</code>: Here, <code>names</code> refers to the list object, and the <code>[0]</code> is an index that specifies the position of the element you want to access. The <code>0</code> is the zeroth index of the list, which refers to the first element in the list.</li>
+<li><em>Is this a value or a reference?</em> The expression <code>names[0]</code> retrieves the value stored at the zeroth index of the list. Although <code>names</code> holds a reference to the entire list object, <code>names[0]</code> directly returns the value located at that index.</li>
+</ul>
+<ol start="5" type="1">
+<li>To differentiate between creating a list and indexing a list when both use square brackets [], focus on how the brackets are used.</li>
+</ol>
+<p>When creating a list, square brackets either contain comma-separated values or are empty. They are typically part of an assignment to a variable. For example, <code>my_list = []</code> creates an empty list, <code>while my_list = [1, 2, 3]</code> creates a list with values. The key difference is that you’re using the brackets to define the contents of a new list.</p>
+<p>In contrast, when indexing a list, square brackets are used <em>after a variable</em> that <em>references a list</em>, containing an index to access or modify a specific element. For instance, <code>first_item = my_list[0]</code> retrieves the first element, and <code>my_list[2] = 10</code> modifies the third element. In this case, the brackets indicate you’re accessing a position within an existing list, rather than creating one.</p>
+<p>In short, if square brackets are part of an assignment and define elements, you’re creating a list. If they’re used after a list variable with a number inside, you’re indexing a list.</p>
+<p>To prove the difference between <em>creating a list</em> and <em>indexing a list</em>, let’s use a memory diagram and walk through the steps. First let’s instantiate the list with some elements. The type of these elements does not matter or the amount, as long as we have one element for the example.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>    <span class="co"># example list</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>    my_list: <span class="bu">list</span>[<span class="bu">int</span>] <span class="op">=</span> [<span class="dv">1</span>]</span></code></pre></div>
+<ul>
+<li><p><em>List creation</em>: When this code runs, a list object <code>[1, 2, 3]</code> is created in heap memory. To bind, or reference this list object, the <code>my_list</code> variable, stored in the Globals frame of the Stack will hold a value. This value is a reference to the list object which we denote by an id number. This id number is a unique identifier in memory.</p></li>
+<li><p><em>Variable assignment</em>: The variable <code>my_list</code> holds a <em>reference</em> to this list object, meaning that <code>my_list</code> points to the memory location of the list. It does not hold the object or the elements in the object.</p></li>
+<li><p><em>Pseudo-Memory diagram</em>:</p>
+<ul>
+<li><code>my_list</code> → list[int] object <code>[1, 2, 3]</code> (id: 0)
+<ul>
+<li><em>Index 0</em>: Element <code>1</code></li>
+<li><em>Index 1</em>: Element <code>2</code></li>
+<li><em>Index 2</em>: Element <code>3</code></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Here, the <code>my_list</code> <em>variable</em> holds a <em>reference</em> to the list object, and each <em>element</em> in the list is assigned an index value to mark it’s position within the list object.</p>
+<h2 id="conceptual-questions-1">Conceptual Questions</h2>
+<ol start="6" type="1">
+<li>For my_list.pop(6), my_list is the first argument and 6 is the second argument. my_list as the first argument of pop() means that the method will be performing a removal of an element on that list. 6 as the second argument of pop() means that the method will remove the value at the 6th index.</li>
+</ol>
+<p>For my_list.append(9), my_list is the first argument and 9 is the second argument. my_list as the first argument of append() means that the method will be adding an element to the end of that list. 9 as the second argument of append() means that the method will add the value 9.</p>
+<p>The pop() method and the append() method in Python lists work differently and have different requirements for their arguments.</p>
+<p>The pop() method removes an element from a list based on its index. It takes an integer as an argument, which specifies the position of the element you want to remove. This is important because when a list contains multiple identical elements, pop() needs to know the exact location of the element you wish to remove. If pop() accepted a value instead of an index, it could potentially remove all instances of that value, which might not be the desired behavior.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>    fruits <span class="op">=</span> [<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;banana&#39;</span>, <span class="st">&#39;cherry&#39;</span>, <span class="st">&#39;banana&#39;</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    <span class="co"># Removes the element at index 1 (&#39;banana&#39;)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    removed_element <span class="op">=</span> fruits.pop(<span class="dv">1</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a>    <span class="bu">print</span>(removed_element)  <span class="co"># Output: banana</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    <span class="bu">print</span>(fruits)           <span class="co"># Output: [&#39;apple&#39;, &#39;cherry&#39;, &#39;banana&#39;]</span></span></code></pre></div>
+<p>Why does it make sense to use an index? By using an index, you can precisely control which element is removed, even if the list contains duplicate values. This ensures that only the element at the specified position is affected.</p>
+<p>If pop() were to take a value instead of an index, it could introduce ambiguity in cases where multiple elements have the same value. Using an index eliminates this uncertainty.</p>
+<p>Memory Tip: You can remember that .pop() requires an index by asking yourself, “How does .pop() know which element to remove?” The answer is that it uses the index you provide. If you call .pop() without an argument, it defaults to removing the last element in the list. append(value): This method adds a new element to the end of the list. It takes a single argument, which is the actual value to be added. Since .append() always adds the element to the end of the list, providing an index doesn’t make sense.</p>
+<p>Memory Tip: You can remember that .append() does not require an index by thinking, “Where does .append() add the element?” The answer is always at the end, so you only need to specify the value itself.</p>
+<h2 id="lists-in-loops-1">Lists in loops</h2>
+<p>7 - 9. Please refer to the code below:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="co">    Iterate through the lists and print out every element using a while loop. </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="co">    Iterate through the lists and print out every element using a for loop. </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="co">    Iterate through the lists and print out every element using a for.. in range() loop.</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: While loops</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>    <span class="co"># List x</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>    x <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(x):</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>        <span class="bu">print</span>(x[i])</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a>    <span class="co"># List y</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>    y <span class="op">=</span> [<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;elephant&quot;</span>]</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(y):</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>        <span class="bu">print</span>(y[i])</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a>    <span class="co"># List z</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a>    z <span class="op">=</span> [<span class="st">&quot;z&quot;</span>]</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(z):</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true"></a>        <span class="bu">print</span>(z[i])</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: for loops</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true"></a>    <span class="co"># List x</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true"></a>    x <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true"></a>    <span class="cf">for</span> element <span class="kw">in</span> x:</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true"></a>        <span class="bu">print</span>(element)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true"></a>    <span class="co"># List y</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true"></a>    y <span class="op">=</span> [<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;elephant&quot;</span>]</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true"></a>    <span class="cf">for</span> element <span class="kw">in</span> y:</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true"></a>        <span class="bu">print</span>(element)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true"></a></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true"></a>    <span class="co"># List z</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true"></a>    z <span class="op">=</span> [<span class="st">&quot;z&quot;</span>]</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true"></a>    <span class="cf">for</span> element <span class="kw">in</span> z:</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true"></a>        <span class="bu">print</span>(element)</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true"></a>    </span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: for... in... range() loops</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true"></a>    <span class="co"># List x</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true"></a>    x <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(x)):</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true"></a>        <span class="bu">print</span>(x[i])</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true"></a></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true"></a>    <span class="co"># List y</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true"></a>    y <span class="op">=</span> [<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;elephant&quot;</span>]</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(y)):</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true"></a>        <span class="bu">print</span>(y[i])</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true"></a></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true"></a>    <span class="co"># List z</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true"></a>    z <span class="op">=</span> [<span class="st">&quot;z&quot;</span>]</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(z)):</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true"></a>        <span class="bu">print</span>(z[i])</span></code></pre></div>
+<ol start="10" type="1">
+<li><em><code>While</code> Loops:</em> Structure: The <code>while</code> loop continues as long as a specified condition is true. Control: Requires manual control of loop variables, such as initialization and incrementing the index.</li>
+</ol>
+<p><em><code>For</code> Loops:</em> Structure: The <code>for</code> loop iterates directly over the elements of the list. Usage: Ideal when you need to access each element without caring about the index. Control: Provides a direct way to iterate over iterable objects like lists without needing an index.</p>
+<p><em><code>For.. in Range()</code> Loop:</em> Structure: Uses an index-based approach, iterating over a range object (set of integer numbers).</p>
+<p><code>While</code> loops and <code>for...in range()</code> loops both iterate over sequences, but they handle indexing differently. In a <code>while</code> loop, you need to manually create and update an index variable to manage iteration. In contrast, a <code>for...in range()</code> loop automatically handles the index (by the nature of a <code>for</code> loop), simplifying the code by managing the variable for you. This makes <code>for...in range()</code> loops more concise and less error-prone when you need straightforward index-based iteration.</p>
+<ol start="11" type="1">
+<li>Please refer to the code below:</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="co">    Modify your solutions for the above by also printing out the index values. </span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="co">    You should not instantiate new variables in order to do this or use any </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="co">    built-in functions that we have not learned, only add a print statement and use the existing variables. </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: While loops</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>    <span class="co"># List x</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>    x <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(x):</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Index </span><span class="sc">{i}</span><span class="ss">: </span><span class="sc">{x</span>[i]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a>    <span class="co"># List y</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a>    y <span class="op">=</span> [<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;elephant&quot;</span>]</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(y):</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Index </span><span class="sc">{i}</span><span class="ss">: </span><span class="sc">{y</span>[i]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a>    <span class="co"># List z</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a>    z <span class="op">=</span> [<span class="st">&quot;z&quot;</span>]</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(z):</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Index </span><span class="sc">{i}</span><span class="ss">: </span><span class="sc">{z</span>[i]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true"></a>    <span class="co"># OR...</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true"></a>    <span class="co"># List x</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true"></a>    x <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(x):</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true"></a>        <span class="bu">print</span>(i)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true"></a>        <span class="bu">print</span>(x[i])</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true"></a>    <span class="co"># List y</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true"></a>    y <span class="op">=</span> [<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;elephant&quot;</span>]</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(y):</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true"></a>        <span class="bu">print</span>(i)</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true"></a>        <span class="bu">print</span>(y[i])</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true"></a></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true"></a>    <span class="co"># List z</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true"></a>    z <span class="op">=</span> [<span class="st">&quot;z&quot;</span>]</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="bu">len</span>(z):</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true"></a>        <span class="bu">print</span>(i)</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true"></a>        <span class="bu">print</span>(x[i])</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true"></a></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: for... in... range() loops</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true"></a>    <span class="co"># List x</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true"></a>    x <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(x)):</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Index </span><span class="sc">{i}</span><span class="ss">: </span><span class="sc">{x</span>[i]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true"></a></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true"></a>    <span class="co"># List y</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true"></a>    y <span class="op">=</span> [<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;elephant&quot;</span>]</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(y)):</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Index </span><span class="sc">{i}</span><span class="ss">: </span><span class="sc">{y</span>[i]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true"></a></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true"></a>    <span class="co"># List z</span></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true"></a>    z <span class="op">=</span> [<span class="st">&quot;z&quot;</span>]</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(z)):</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Index </span><span class="sc">{i}</span><span class="ss">: </span><span class="sc">{z</span>[i]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true"></a></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true"></a>    <span class="co"># OR...</span></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true"></a></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true"></a>    x <span class="op">=</span> [<span class="dv">9</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">5</span>]</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(x)):</span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true"></a>        <span class="bu">print</span>(i)</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true"></a>        <span class="bu">print</span>(x[i])</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true"></a></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true"></a>    <span class="co"># List y</span></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true"></a>    y <span class="op">=</span> [<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;dog&quot;</span>, <span class="st">&quot;turtle&quot;</span>, <span class="st">&quot;elephant&quot;</span>]</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(y)):</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true"></a>        <span class="bu">print</span>(i)</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true"></a>        <span class="bu">print</span>(y[i])</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true"></a></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true"></a>    <span class="co"># List z</span></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true"></a>    z <span class="op">=</span> [<span class="st">&quot;z&quot;</span>]</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(z)):</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true"></a>        <span class="bu">print</span>(i)</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true"></a>        <span class="bu">print</span>(z[i])</span></code></pre></div>
+<ol start="12" type="1">
+<li>The <code>while</code> loops and <code>for … in range()</code> loops. This again reveals how closely similar these two loops are. Depending on the situation, if you wanted to keep track of index values you would use either a <code>for … range()</code> loop or a <code>while</code> loop. If you did not care for keeping track of these values then you would most likely lean towards using a for loop as it directly iterates over the elements of the list.</li>
+</ol>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Viktorya Hunanyan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> For Loops Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429151.5631073">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>For Loops Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#conceptual">Conceptual</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#conceptual-solutions">Conceptual Solutions</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<h2 id="conceptual">Conceptual</h2>
+<p>1.1 Rewrite the following code snippet with same functionality using a <code>for ... in</code> loop. 1.2 Rewrite the following code snippet with same functionality using a <code>for ... in range(...)</code> loop.</p>
+<pre><code>    stats: list[int] = [7, 8, 9]
+    index: int = 0
+    total: int = 100
+    while index &lt; len(stats):
+        total -= stats[index]
+        index += 1</code></pre>
+<ol start="2" type="1">
+<li>Can you iterate through an object using a for loop while also modifying it (removing or adding elements)?</li>
+</ol>
+<p><a href="#conceptual-solutions">Solutions</a></p>
+<h1 id="solutions">Solutions</h1>
+<h2 id="conceptual-solutions">Conceptual Solutions</h2>
+<p>1.1</p>
+<pre><code>    stats: list[int] = [7, 8, 9]
+    total: int = 100
+    for elem in stats:
+        total -= elem</code></pre>
+<p>1.2</p>
+<pre><code>    stats: list[int] = [7, 8, 9]
+    total: int = 100
+    for index in range(0, len(stats)):
+        total -= stats[index]</code></pre>
+<ol start="2" type="1">
+<li>No, generally you cannot safely iterate through an object (like a list or dictionary) while simultaneously modifying it by adding or removing elements during the iteration. Doing so can lead to unexpected behavior or errors like the <code>RuntimeError: dictionary changed size during iteration</code>. When you iterate over an object, Python keeps track of the size and structure of that object. If you modify it (e.g., by adding or removing elements), this can disrupt the iteration process because the underlying data structure changes during traversal.</li>
+</ol>
+<p>Removing elements: Can cause the iteration to skip items or crash because the index or key you’re iterating over might no longer exist. Adding elements: Can lead to the same type of issue, as the size of the object changes unexpectedly, leading to errors.</p>
+<p>Take for example this code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>    <span class="kw">def</span> add_task(todo_list, task):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>        task_found: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>        <span class="cf">for</span> existing_task <span class="kw">in</span> todo_list:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>            <span class="cf">if</span> existing_task <span class="op">==</span> task:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>                task_found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>            <span class="cf">if</span> <span class="kw">not</span> task_found:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>                todo_list[task] <span class="op">=</span> <span class="st">&#39;not done&#39;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a>    <span class="kw">def</span> mark_done(todo_list, task):</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a>        <span class="cf">for</span> existing_task <span class="kw">in</span> todo_list:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a>            <span class="cf">if</span> existing_task <span class="op">==</span> task:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>                todo_list[existing_task] <span class="op">=</span> <span class="st">&#39;done&#39;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>    <span class="kw">def</span> main():</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a>        todo_list: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">str</span>] <span class="op">=</span> {<span class="st">&#39;Buy groceries&#39;</span>: <span class="st">&#39;not done&#39;</span>, <span class="st">&#39;Read a book&#39;</span>: <span class="st">&#39;done&#39;</span>, <span class="st">&#39;Write report&#39;</span>: <span class="st">&#39;not done&#39;</span>, <span class="st">&#39;Call mom&#39;</span>: <span class="st">&#39;done&#39;</span>}</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>        add_task(todo_list, <span class="st">&#39;Finish homework&#39;</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true"></a>        mark_done(todo_list, <span class="st">&#39;Write report&#39;</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true"></a>        <span class="bu">print</span>(<span class="st">&quot;Current to-do list:&quot;</span>, todo_list)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true"></a>    <span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true"></a>        main()</span></code></pre></div>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Alyssa Lytle,        Megan Zhang, David Karash</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

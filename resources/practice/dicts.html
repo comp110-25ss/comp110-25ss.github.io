@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Dictionary Conceptual Questions - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429143.8445294">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="lessons-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Dictionary Conceptual Questions</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#conceptual">Conceptual</a></li>
+<li><a href="#dict-general-questions">Dict General Questions</a></li>
+<li><a href="#dictionary-practice">Dictionary Practice</a></li>
+</ul></li>
+<li><a href="#answers">Answers</a>
+<ul>
+<li><a href="#conceptul">Conceptul</a></li>
+<li><a href="#dict-general-questions-1">Dict General Questions</a></li>
+<li><a href="#dictionary-practice-1">Dictionary Practice</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="questions">Questions</h1>
+<h2 id="conceptual">Conceptual</h2>
+<p>For the following, you must prove your answer to each question. Prove using either memory diagrams or code in VS code.</p>
+<ol type="1">
+<li>Dictionaries in Python can have duplicate keys. (T/F)</li>
+<li>Dictionaries in Python can be nested, meaning a dictionary can contain another dictionary as a value. (T/F)</li>
+<li>Can you remove only a key without removing a value (or vice versa)?</li>
+<li>What act as your indices in a dict?</li>
+</ol>
+<h2 id="dict-general-questions">Dict General Questions</h2>
+<ol start="5" type="1">
+<li>Explain in words how you modify elements in a dict? How would you do this in python? Give an example.</li>
+<li>How do you remove elements in a dict? What does this actually remove?</li>
+<li>How do you modify a key in a dict?</li>
+<li>Write the general formula of how you remove a key-value pair to a dictionary object using the following. You might not need to use all and can use any multiple times: <code>pop</code>, <code>append</code>, <code>()</code>, <code>&lt;object_variable&gt;</code>, <code>.</code> , <code>&lt;key&gt;</code>, <code>&lt;value&gt;</code>, and <code>[]</code>. Give examples.</li>
+<li>Write the general formula of how you remove a key-value pair to a dictionary object using the following. You might not need to use all and can use any multiple times: <code>pop</code>, <code>append</code>, <code>()</code>, <code>&lt;object_variable&gt;</code>, <code>.</code> , <code>&lt;key&gt;</code>, <code>&lt;value&gt;</code>, and <code>[]</code>. Give examples.</li>
+</ol>
+<h2 id="dictionary-practice">Dictionary Practice</h2>
+<ol start="10" type="1">
+<li><p>Create a new dictionary called <code>my_dictionary</code> with <code>str</code> keys and <code>float</code> values and initialize it as an empty dictionary.</p></li>
+<li><p>Using the following dictionary, <code>msg: dict[str, int] = {"Hello": 1, "Yall": 2}</code>, access the <em>value</em> stored under key “Yall”.</p></li>
+<li><p>Using the following dictionary, <code>msg: dict[str, int] = {"Hello": 1, "Yall": 2}</code>, increase the <em>value</em> stored under key “Yall” by 3.</p></li>
+<li><p>Using the following dictionary, <code>ids: dict[int, str] = {100: "Alyssa", 200: "Carmine"}</code>, remove the value “Alyssa”, stored at key 100.</p></li>
+<li><p>Using the following dictionary, <code>ids: dict[int, str] = {100: "Alyssa", 200: "Carmine"}</code>, write a line of code to get the number of key/value pairs in the dictionary.</p></li>
+<li><p>Using the following dictionary, <code>inventory: dict[str, int] = {"pens": 10, "notebooks": 5, "erasers": 8}</code>, add a new key-value pair <code>"markers": 15</code>.</p></li>
+<li><p>Using the following dictionary, <code>prices: dict[str, float] = {"bread": 2.99, "milk": 1.99, "eggs": 3.49}</code>, update the value of <code>"milk"</code> to <code>2.50</code>.</p></li>
+<li><p>Using the dictionary <code>scores: dict[str, int] = {"Alice": 85, "Bob": 90, "Charlie": 88}</code>, print out all the keys in the dictionary.</p></li>
+<li><p>Using the dictionary <code>scores: dict[str, int] = {"Alice": 85, "Bob": 90, "Charlie": 88}</code>, write a line of code that returns the sum of all the values (scores) in the dictionary. Assume that we have a written a <code>sum</code> function that will do this for us when passing in a <code>dict</code>. Store this value in a variable <code>total_score</code>.</p>
+<ul>
+<li>18a. Write the same line of code except using key-word arguments assuming that the only parameter in <code>sum</code> is called <code>inp_dict</code>.</li>
+</ul></li>
+<li><p>Using the dictionary <code>fruit_count: dict[str, int] = {"apples": 5, "bananas": 8}</code>, iterate over the key-value pairs and print them in the format “key: value”.</p></li>
+<li><p>Create a new dictionary by combining the two dictionaries. Store this new object by assiging it’s reference to a variable called <code>combo_dict</code>:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>    first_dict: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">int</span>] <span class="op">=</span> {<span class="st">&quot;a&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;b&quot;</span>: <span class="dv">2</span>}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    second_dict: <span class="bu">dict</span>[<span class="bu">str</span>, <span class="bu">int</span>] <span class="op">=</span> {<span class="st">&quot;c&quot;</span>: <span class="dv">3</span>, <span class="st">&quot;d&quot;</span>: <span class="dv">4</span>}</span></code></pre></div>
+<h1 id="answers">Answers</h1>
+<h2 id="conceptul">Conceptul</h2>
+<ol type="1">
+<li>False. Python dictionaries cannot have duplicate keys. Each key in a dictionary must be unique. If you attempt to create a dictionary with duplicate keys, the latest key-value pair will overwrite the previous one. For example:</li>
+</ol>
+<pre><code>my_dict = {&quot;a&quot;: 1, &quot;a&quot;: 2}
+print(my_dict)
+# Output: {&#39;a&#39;: 2}</code></pre>
+<ol start="2" type="1">
+<li>True, Python dictionaries can be nested. This means that a dictionary can hold another dictionary as a value. You can use this feature to create more complex data structures. For example:</li>
+</ol>
+<pre><code>nested_dict = {
+    &quot;key1&quot;: {&quot;nested_key1&quot;: 1, &quot;nested_key2&quot;: 2},
+    &quot;key2&quot;: {&quot;nested_key3&quot;: 3, &quot;nested_key4&quot;: 4}
+}</code></pre>
+<ol start="3" type="1">
+<li><p>False. No, you cannot remove just a key or just a value in a dictionary. A key-value pair is considered a single entity in a dictionary. If you remove the key, the corresponding value is also removed.</p></li>
+<li><p>In a Python dictionary, the keys act as the “indices.” Unlike lists, where numerical indices are used to access elements, dictionaries use keys to access values and these keys can be of any type. Each key must be unique, and it serves as the identifier for accessing the corresponding value. For example:</p></li>
+</ol>
+<pre><code>my_dict = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}
+print(my_dict[&quot;name&quot;])  # Output: Alice</code></pre>
+<h2 id="dict-general-questions-1">Dict General Questions</h2>
+<ol start="5" type="1">
+<li>To modify an element in a Python dictionary, you use the key associated with the value you want to change. You can access the value using the key, and then assign a new value to it. In order to access the value, we use subscription notation, <code>[]</code>, on the object that we want to access the value at. This replaces the old value with the new one.</li>
+</ol>
+<pre><code>my_dict = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}
+my_dict[&quot;age&quot;] = 26  # Modifying the value associated with the key &quot;age&quot;
+print(my_dict)
+# Output: {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 26}</code></pre>
+<ol start="6" type="1">
+<li>To remove elements from a dictionary, we use the the pop() method. This method will remove the key and its corresponding value (key-value pair). The pop() method allows you to retrieve the value that was removed (not discussed in lecture but a very cool fact).</li>
+</ol>
+<pre><code>my_dict = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}
+removed_value = my_dict.pop(&quot;age&quot;)  # Removes the key &quot;age&quot; and returns the value
+print(my_dict)  # Output: {&quot;name&quot;: &quot;Alice&quot;}
+print(removed_value)  # Output: 25</code></pre>
+<ol start="7" type="1">
+<li>To modify a key in a Python dictionary, we can follow these steps:</li>
+</ol>
+<ul>
+<li><ol type="1">
+<li>Add a new key with the same value as the old key.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>Use pop() to remove the old key-value pair.</li>
+</ol></li>
+</ul>
+<pre><code>my_dict = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}
+
+# Step 1: Create a new key-value pair using the value from the old key
+my_dict[&quot;years_old&quot;] = my_dict.pop(&quot;age&quot;)
+
+print(my_dict)
+# Output: {&quot;name&quot;: &quot;Alice&quot;, &quot;years_old&quot;: 25}</code></pre>
+<ol start="8" type="1">
+<li><code>&lt;object_variable&gt;.pop(&lt;key&gt;)</code></li>
+</ol>
+<pre><code>my_dict = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}
+removed_value = my_dict.pop(&quot;name&quot;)  # Removes the key &quot;name&quot; and returns its value
+print(my_dict)
+# Output: {&quot;age&quot;: 25}</code></pre>
+<ol start="9" type="1">
+<li><code>&lt;object_variable&gt;[&lt;key&gt;] = &lt;value&gt;</code></li>
+</ol>
+<pre><code>my_dict = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25}
+my_dict[&quot;location&quot;] = &quot;New York&quot;  # Adds a new key-value pair to the dictionary
+print(my_dict)
+# Output: {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25, &quot;location&quot;: &quot;New York&quot;}</code></pre>
+<h2 id="dictionary-practice-1">Dictionary Practice</h2>
+<ol start="10" type="1">
+<li><p><code>my_dictionary: dict[str, float] = {}</code> or <code>my_dictionary: dict[str, float] = dict()</code></p></li>
+<li><p><code>msg["Yall"]</code></p></li>
+<li><p><code>msg["Yall"] += 3</code> or <code>msg["Yall"] = 5</code></p></li>
+<li><p><code>ids.pop(100)</code></p></li>
+<li><p><code>len(ids)</code></p></li>
+<li><p><code>inventory["markers"] = 15</code></p></li>
+<li><p><code>prices["milk"] = 2.50</code></p></li>
+<li><p>Code below:</p></li>
+</ol>
+<pre><code>for x in scores:
+    print(x)</code></pre>
+<ol start="18" type="1">
+<li><code>total_score = sum(scores)</code></li>
+</ol>
+<ul>
+<li>18a. <code>total_score = sum(inp_dict=scores)</code></li>
+</ul>
+<ol start="19" type="1">
+<li>Code below:</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="cf">for</span> boo <span class="kw">in</span> fruit_count:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a>    ghost <span class="op">=</span> fruit_count[boo]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>boo<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>ghost<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<ol start="20" type="1">
+<li><code>combo_dict: dict[str, int] = {"a": 1, "b": 2, "c": 3, "d": 4}</code></li>
+</ol>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Alyssa Lytle,        Viktorya Hunanyan, Carmine Anderson-Falconi</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

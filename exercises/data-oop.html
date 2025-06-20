@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> EX08 - Data Utility Methods - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429168.581647">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="exercises-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>EX08 - Data Utility Methods</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#part-0.-pull-the-skeleton-code">Part 0. Pull the skeleton code</a>
+<ul>
+<li><a href="#understanding-the-exercise-files-install-required-library">Understanding the Exercise Files + Install Required Library</a></li>
+</ul></li>
+<li><a href="#part-1-data-utils">Part 1: Data Utils</a>
+<ul>
+<li><a href="#read_csv_rows">1.0 <code>read_csv_rows</code></a></li>
+<li><a href="#column_values">1.1 <code>column_values</code></a></li>
+<li><a href="#columnar">1.2 <code>columnar</code></a></li>
+</ul></li>
+<li><a href="#part-2-dataframe-class">Part 2: <code>DataFrame</code> Class</a>
+<ul>
+<li><a href="#init__">2.0 <code>__init__</code></a></li>
+<li><a href="#add__">2.1 <code>__add__</code></a></li>
+<li><a href="#head">2.2 <code>head</code></a></li>
+<li><a href="#select">2.3 <code>select</code></a></li>
+<li><a href="#filter_by_col_value">2.4 <code>filter_by_col_value</code></a></li>
+</ul></li>
+<li><a href="#make-a-backup-checkpoint-commit">Make a Backup Checkpoint “Commit”</a></li>
+<li><a href="#submit-to-gradescope-for-grading">Submit to Gradescope for Grading</a></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><p>For this exercise, you are going to get more practice writing classes while writing functions and methods to analyze some data!</p>
+<h2 id="part-0.-pull-the-skeleton-code">Part 0. Pull the skeleton code</h2>
+<p>You will find the starter files needed by “pulling” from the course workspace repository. Before beginning, be sure to:</p>
+<ol start="0" type="1">
+<li>Be sure you are in your course workspace. Open the file explorer and you should see your work for the course. If you do not, open your course workspace through File &gt; Open Recent.</li>
+<li>Open the <em>Source Control View</em> by clicking the 3-node (circles) graph (connected by lines) icon in your sidebar or opening the command palatte and searching for <em>Source Control</em>.</li>
+<li>Click the Ellipses in the Source Control pane and select “Pull” from the drop-down menu. This will begin the pulling process from the course repository. It should silently succeed.</li>
+<li>Return to the File Explorer pane and open the <code>exercises</code> directory. You should see it now contains another directory named <code>ex08</code>. If you expand that directory, you should see the starter files for the code you’ll be writing.</li>
+<li>If you do not see the <code>ex08</code> directory, try once more but selecting <code>"Pull From"</code> and select <code>origin</code> in step 2.</li>
+</ol>
+<h3 id="understanding-the-exercise-files-install-required-library">Understanding the Exercise Files + Install Required Library</h3>
+<p>In your <code>ex08</code> directory, you should now have the following three files:</p>
+<ul>
+<li><code>analyze_data.py</code>: this is where you are going to import and test your functions from <code>data_utils</code> and methods from <code>DataFrame</code></li>
+<li><code>data_utils.py</code>: this is where you will define some functions to read csv files and manipulate the imported data</li>
+<li><code>DataFrame.py</code>: this is where you will create your DataFrame class and define methods to manipulate and analyze the DataFrame objects.</li>
+</ul>
+<p>You’ll notice these files already have some skeleton code in them. They provide an outline of what your code will look like, but it’s your job to give them functionality!</p>
+<p>Additionally, you should see a <code>data</code> folder appear in your workspace with some .csv files! This is the data we are going to use in <code>analyze_data.py</code> to test your functions and methods! There are two datasets of popular baby names in New York from different year ranges.</p>
+<h4 id="required-library">Required Library</h4>
+<p>You’ll need to use the <code>tabulate</code> library for visualizing data in this assignment. In order to install this library, paste the following command in your terminal:</p>
+<pre><div class="terminal">python -m pip install tabulate
+</div>
+</pre>
+<p><strong><em>IF YOU RESTART YOUR CONTAINER, YOU’LL HAVE TO RERUN THIS COMMAND!</em></strong></p>
+<h2 id="part-1-data-utils">Part 1: Data Utils</h2>
+<p>For this part, you’re going to be working in <code>data_utils.py</code> to write some functions that will help you pull the data from the .csv files and prepare them to be made into <code>DataFrame</code>s!</p>
+<h3 id="read_csv_rows">1.0 <code>read_csv_rows</code></h3>
+<p>Complete the implementation of the <code>read_csv_rows</code> function in <code>data_utils.py</code>.</p>
+<p>Purpose: Read an entire CSV of data into a <code>list</code> of rows, each row represented as <code>dict[str, str]</code>.</p>
+<ul>
+<li>Function Name: <code>read_csv_rows</code></li>
+<li>Parameter:
+<ol type="1">
+<li><code>str</code> path to CSV file</li>
+</ol></li>
+<li>Return Type: <code>list[dict[str, str]]</code></li>
+</ul>
+<p>Implementation hint: refer back to the code you wrote in lecture for reading a CSV file. We give you the code for this function.</p>
+<h4 id="test-your-function">Test your function</h4>
+<p>In <code>analyze_data.py</code>, you’ll see that there are two lines of code to import both data files:</p>
+<pre><code>early_data: list[dict[str, str]] = read_csv_rows(&quot;data/baby_names_2012_2017.csv&quot;)</code></pre>
+<pre><code>later_data: list[dict[str, str]] = read_csv_rows(&quot;data/baby_names_2018_2021.csv&quot;)</code></pre>
+<p>To check that your function works, you can check the <em>length</em> of both <code>early_data</code> and <code>later_data</code>.</p>
+<p><code>early_data</code> should have a length of 48041 and <code>later_data</code> should have a length of 21173. <em>(That’s a lot of data!)</em></p>
+<h3 id="column_values">1.1 <code>column_values</code></h3>
+<p>Define and implement this function in <code>data_utils.py</code>.</p>
+<p>Purpose: Produce a <code>list[str]</code> of all values in a single <code>column</code> whose name is the second parameter.</p>
+<ul>
+<li>Function Name: <code>column_values</code></li>
+<li>Parameters:
+<ol type="1">
+<li><code>list[dict[str, str]]</code> - a list of rows representing a <em>table</em></li>
+<li><code>str</code> - the name of the column (key) whose values are being selected</li>
+</ol></li>
+<li>Return Type: <code>list[str]</code></li>
+</ul>
+<p>Implementation strategy: Establish an empty list to store your column values. Loop through every row in the first parameter. Append the value associated with the key (“column”) given as the second parameter to your list of column values. After looping through every row, return the list of column values.</p>
+<h4 id="test-your-function-1">Test your function</h4>
+<p>In <code>analyze_data.py</code>, you’ll see there is a line of code to test this function:</p>
+<pre><code>names_early_data: list[str] = column_values(early_data, &quot;name&quot;)</code></pre>
+<p>The length of <code>names_early_data</code> should be 48041.</p>
+<h3 id="columnar">1.2 <code>columnar</code></h3>
+<p>Finally, you are going to reformat your data to get it ready to be made into a <code>DataFrame</code>!</p>
+<p>Define and implement this function in <code>data_utils.py</code>.</p>
+<p>Purpose: <em>Transform</em> a table represented as a list of rows (e.g. <code>list[dict[str, str]]</code>) into one represented as a dictionary of columns (e.g. <code>dict[str, list[str]]</code>).</p>
+<p>Why is this function useful? Many types of analysis are much easier to perform column-wise.</p>
+<ul>
+<li>Function Name: <code>columnar</code></li>
+<li>Parameter: <code>list[dict[str, str]]</code> - a “table” organized as a list of rows</li>
+<li>Return Type: <code>dict[str, list[str]]</code> - a “table” organized as a dictionary of columns</li>
+</ul>
+<p>Implementation strategy: Establish an empty dictionary to the your column-oriented table you are building up to ultimately return. Loop through each of the column names in the first row of the parameter. Get a list of each column’s values via your <code>column_values</code> function defined previously. Then, associate the column name with the list of its values in the dictionary you established. After looping through every column name, return the dictionary.</p>
+<h4 id="test-your-function-2">Test your function</h4>
+<p>In <code>analyze_data.py</code>, you’ll see there two lines of code to test this function:</p>
+<pre><code>columnar_early_data: dict[str, list[str]] = columnar(early_data)</code></pre>
+<pre><code>columnar_later_data: dict[str, list[str]] = columnar(later_data)</code></pre>
+<p>Both <code>columnar_early_data</code> and <code>columnar_later_data</code> should be dictionaries with the keys [‘year’, ‘gender’, ‘ethnicity’, ‘name’, ‘count’].</p>
+<h2 id="part-2-dataframe-class">Part 2: <code>DataFrame</code> Class</h2>
+<p>Now, you are going to add some functionality to the <code>DataFrame</code> class!</p>
+<h3 id="init__">2.0 <code>__init__</code></h3>
+<p>Your <code>DataFrames</code> class is only going to have one attribute: <code>data: dict[str, list[str]]</code>. The idea is that once you reformat your data using <code>columnar</code>, you’ll be able to store it as the <code>data</code> attribute in a <code>DataFrame</code> object.</p>
+<p>Define your <code>DataFrame</code> class, declare your <code>data</code> attribute, and write an <code>__init__</code> method that takes a <code>input_data: dict[str, list[str]]</code> as a parameter and initializes your <code>data</code> attribute to equal <code>input_data</code>.</p>
+<h4 id="test-your-function-3">Test your function</h4>
+<p>You can test your <code>DataFrame</code> class in the REPL with the following small example:</p>
+<pre><div class="terminal">/workspace (main*) » python                                                                         
+>>> from exercises.ex08.DataFrame import DataFrame
+>>> data: dict[str, list[str]] = {"first_name": ["alyssa", "izzi"], "last_name": ["lytle","hinks"]}
+>>> df: DataFrame = DataFrame(data)
+>>> df.data
+{'first_name': ['alyssa', 'izzi'], 'last_name': ['lytle', 'hinks']}
+</div>
+</pre>
+<p>In <code>analyze_data.py</code>, you’ll see there two lines of code to turn both sets of baby name data into <code>DataFrame</code>s:</p>
+<pre><code>df_early: DataFrame = DataFrame(columnar_early_data)</code></pre>
+<pre><code>df_later: DataFrame = DataFrame(columnar_later_data)</code></pre>
+<h4 id="tabulate"><code>tabulate</code></h4>
+<p>You’ll see in <code>DataFrame.py</code>, there is a method called <code>tabulate</code> that has already been written for you! It allows you to visualize your data as a table. In analyze_data.py, you’ll see it called:</p>
+<pre><code>df_early.tabulate()</code></pre>
+<h3 id="add__">2.1 <code>__add__</code></h3>
+<p>For this next method, we are going to give the plus <code>+</code> sign some functionality between two <code>DataFrame</code> objects.</p>
+<p>The main idea behind this method is the following:</p>
+<p>Given two <code>DataFrame</code>s with the same keys (aka column headers), concatenate them to create one large <code>DataFrame</code>.</p>
+<ul>
+<li>Method Name: <code>__add__</code></li>
+<li>Parameter: <code>self</code> (which is a <code>DataFrame</code>) and an additional <code>DataFrame</code> object</li>
+<li>Return Type: <code>DataFrame</code></li>
+</ul>
+<p>You can test your <code>__add__</code> method in the REPL with the following small example:</p>
+<pre><div class="terminal">/workspace (main*) » python                                                                         
+>>> from exercises.ex08.DataFrame import DataFrame
+>>> data: dict[str, list[str]] = {"first_name": ["alyssa", "izzi"], "last_name": ["lytle","hinks"]}
+>>> df: DataFrame = DataFrame(data)
+>>> more_data:  dict[str, list[str]] = {"first_name": ["sophie"], "last_name": ["jiang"]}
+>>> df2: DataFrame = DataFrame(more_data)
+>>> big_frame: DataFrame = df + df2
+>>> big_frame.tabulate()
++--------------+-------------+
+| first_name   | last_name   |
++==============+=============+
+| alyssa       | lytle       |
++--------------+-------------+
+| izzi         | hinks       |
++--------------+-------------+
+| sophie       | jiang       |
++--------------+-------------+
+</div>
+</pre>
+<p>In <code>analyze_data.py</code>, you’ll see the <code>__add__</code> magic method is used:</p>
+<pre><code>df: DataFrame = df_early + df_later</code></pre>
+<p>Try running <code>df.tabulate()</code> to visualize your new dataset! (Warning: it’ll be a loooong output!)</p>
+<h3 id="head">2.2 <code>head</code></h3>
+<p>Let’s find a way to deal with these long outputs! Let’s write a method that let’s us look at a subset of the data! <code>head</code> should return a DataFrame with only the first <code>N</code> (a parameter) rows of data for each column.</p>
+<ul>
+<li>Method name: <code>head</code></li>
+<li>Parameters: <code>self</code> and an <code>int</code> to represent the number of “rows” to include in the resulting <code>DataFrame</code></li>
+<li>Return type: <code>Data Frame</code></li>
+</ul>
+<p>Implementation strategy:</p>
+<ol type="1">
+<li>Establish an empty dictionary that will serve as the returned dictionary this function is building up.</li>
+<li>Loop through each of the columns in the first row of the table given as a parameter.
+<ol type="1">
+<li>Inside of the loop, establish an empty list to store each of the first N values in the column.</li>
+<li>Loop through the first N items of the table’s column,
+<ol type="1">
+<li>Appending each item to the previously list established in step 2.1.</li>
+</ol></li>
+<li>Assign the produced list of column values to the dictionary established in step 1.</li>
+</ol></li>
+<li>Use the dictionary to create a new <code>DataFrame</code> and return it!</li>
+</ol>
+<h4 id="test-your-method">Test your method</h4>
+<p>You can test your method in the REPL with the following small example:</p>
+<pre><div class="terminal">/workspace (main*) » python
+>>> from exercises.ex08.DataFrame import DataFrame
+>>> data: dict[str, list[str]] = {"first_name": ["alyssa", "izzi", "sophie", "viktorya"], "last_name": ["lytle","hink
+s", "jiang", "hunanyan"]}
+>>> df: DataFrame = DataFrame(data)
+>>> df.tabulate()
++--------------+-------------+
+| first_name   | last_name   |
++==============+=============+
+| alyssa       | lytle       |
++--------------+-------------+
+| izzi         | hinks       |
++--------------+-------------+
+| sophie       | jiang       |
++--------------+-------------+
+| viktorya     | hunanyan    |
++--------------+-------------+
+>>> subset: DataFrame = df.head(2)
+>>> subset.tabulate()
++--------------+-------------+
+| first_name   | last_name   |
++==============+=============+
+| alyssa       | lytle       |
++--------------+-------------+
+| izzi         | hinks       |
++--------------+-------------+
+</div></pre>
+<p>In <code>analyze_data.py</code>, you’ll see the <code>head</code> method is used to get the first 10 entries of data.</p>
+<pre><code>first_ten: DataFrame = df.head(10)</code></pre>
+<p>Visualize the result using</p>
+<pre><code>first_ten.tabulate()</code></pre>
+<h3 id="select">2.3 <code>select</code></h3>
+<p>Now, say we want to reason about a subset of the <em>columns</em> in our table.</p>
+<p>Many data tables will contain many columns that are not related to the analysis you are trying to perform. <em>Selecting</em> only the columns you care about makes it easier to focus your attention on the problem at hand.</p>
+<ul>
+<li>Function Name: <code>select</code></li>
+<li>Parameters:
+<ol type="1">
+<li><code>self</code> - a <code>DataFrame</code></li>
+<li><code>list[str]</code> - the names of the columns to copy to the new, returned <code>DataFrame</code></li>
+</ol></li>
+<li>Return type: <code>DataFrame</code></li>
+</ul>
+<p>Implementation strategy:</p>
+<ol type="1">
+<li>Establish an empty dictionary.</li>
+<li>Loop through each of the columns <em>in the second parameter of the function</em>
+<ol type="1">
+<li>Assign to the column key of the result dictionary the list of values stored in the input dictionary at the same column</li>
+</ol></li>
+<li>Use the dictionary to create a new <code>DataFrame</code> and return it!</li>
+</ol>
+<h4 id="test-your-method-1">Test your method</h4>
+<p>You can test your method in the REPL with the following small example:</p>
+<pre><div class="terminal">/workspace (main*) » python
+>>> from exercises.ex08.DataFrame import DataFrame
+>>> data: dict[str, list[str]] = {"first_name": ["alyssa", "izzi"], "last_name": ["lytle","hinks"], "title": ["Professor", "Professor"]}
+>>> df: DataFrame = DataFrame(data)
+>>> df.tabulate()
++--------------+-------------+-----------+
+| first_name   | last_name   | title     |
++==============+=============+===========+
+| alyssa       | lytle       | Professor |
++--------------+-------------+-----------+
+| izzi         | hinks       | Professor |
++--------------+-------------+-----------+
+>>> just_names: DataFrame = df.select(["first_name", "last_name"])
+>>> just_names.tabulate()
++--------------+-------------+
+| first_name   | last_name   |
++==============+=============+
+| alyssa       | lytle       |
++--------------+-------------+
+| izzi         | hinks       |
++--------------+-------------+
+</div></pre>
+<p>In <code>analyze_data.py</code>, you’ll see the <code>select</code> and <code>head</code> methods are used together to get just the <code>name</code> and <code>count</code> of the first 10 entries of data.</p>
+<pre><code>name_and_count: DataFrame = df.head(10).select([&quot;name&quot;, &quot;count&quot;])</code></pre>
+<p>Visualize the result using</p>
+<pre><code>name_and_count.tabulate()</code></pre>
+<h3 id="filter_by_col_value">2.4 <code>filter_by_col_value</code></h3>
+<p>Now, say you want to filter out the data in your table so that you only have entries with specific values in a given column.</p>
+<p>Now, say we want to reason about a subset of the <em>columns</em> in our table.</p>
+<p>Many data tables will contain many columns that are not related to the analysis you are trying to perform. <em>Selecting</em> only the columns you care about makes it easier to focus your attention on the problem at hand.</p>
+<ul>
+<li>Function Name: <code>select</code></li>
+<li>Parameters:
+<ol type="1">
+<li><code>self</code> - a <code>DataFrame</code></li>
+<li><code>str</code> - the names of the column that has the value to filter</li>
+<li><code>str</code> - the specific value that will be filtered out</li>
+</ol></li>
+<li>Return type: <code>DataFrame</code></li>
+</ul>
+<p>Implementation strategy:</p>
+<p><em>TODO</em></p>
+<h4 id="test-your-method-2">Test your method</h4>
+<p>You can test your method in the REPL with the following small example:</p>
+<pre><div class="terminal">/workspace (main*) » python
+>>> from exercises.ex08.DataFrame import DataFrame
+>>> data: dict[str, list[str]] = {"first_name": ["alyssa", "izzi", "sophie", "viktorya"], "last_name": ["lytle","hinks", "jiang", "hunanyan"], "title" : ["Professor", "Professor", "TA", "TA"]}
+>>> df: DataFrame = DataFrame(data)
+>>> df.tabulate()
++--------------+-------------+-----------+
+| first_name   | last_name   | title     |
++==============+=============+===========+
+| alyssa       | lytle       | Professor |
++--------------+-------------+-----------+
+| izzi         | hinks       | Professor |
++--------------+-------------+-----------+
+| sophie       | jiang       | TA        |
++--------------+-------------+-----------+
+| viktorya     | hunanyan    | TA        |
++--------------+-------------+-----------+
+>>> TA_df: DataFrame = df.filter_by_col_value("title", "TA")
+>>> TA_df.tabulate()
++--------------+-------------+---------+
+| first_name   | last_name   | title   |
++==============+=============+=========+
+| sophie       | jiang       | TA      |
++--------------+-------------+---------+
+| viktorya     | hunanyan    | TA      |
++--------------+-------------+---------+
+</div></pre>
+<p>In <code>analyze_data.py</code>, you’ll see <code>filter_by_col_value</code> method is used to get just the names data of babies born in 2020.</p>
+<pre><code>names_2020: DataFrame = df.filter_by_col_value(&quot;year&quot;, &quot;2020&quot;)</code></pre>
+<p>Visualize the result using</p>
+<pre><code>names_2020.tabulate()</code></pre>
+<h2 id="make-a-backup-checkpoint-commit">Make a Backup Checkpoint “Commit”</h2>
+<p>As you make progress on this exercise, making backups is encouraged.</p>
+<ol type="1">
+<li>Open the Source Control panel (Command Palette: “Show SCM” or click the icon with three circles and lines on the activity panel).</li>
+<li>Notice the files listed under Changes. These are files you’ve made modifications to since your last backup.</li>
+<li>Move your mouse’s cursor over the word <em>Changes</em> and notice the + symbol that appears. Click that plus symbol to add all changes to the next backup. You will now see the files listed under “Staged Changes”.
+<ul>
+<li>If you do not want to backup <em>all</em> changed files, you can select them individually. For this course you’re encouraged to back everything up.</li>
+</ul></li>
+<li>In the Message box, give a brief description of what you’ve changed and are backing up. This will help you find a specific backup (called a “commit”) if needed. In this case a message such as, “Progress on Exercise N” will suffice, where N is the current exercise.</li>
+<li>Press the Check icon to make a <em>Commit</em> (a version) of your work.</li>
+<li>Finally, press the Ellipses icon (…), look for “Pull/Push” submenu, and select “Push to…”, and in the dropdown select your backup repository.</li>
+</ol>
+<h2 id="submit-to-gradescope-for-grading">Submit to Gradescope for Grading</h2>
+<p>All that’s left now is to hand-in your work on Gradescope for grading!</p>
+<p>Type the following command (all on a single line):</p>
+<p><code>python -m tools.submission exercises/ex08</code></p>
+<p>In the file explorer pane, look to find the zip file named “yy.mm.dd-hh.mm-exercises-ex08.zip”. The “yy”, “mm”, “dd”, and so on, are timestamps with the current year, month, day, hour, minute. If you right click on this file and select “Reveal in File Explorer” on Windows or “Reveal in Finder” on Mac, the zip file’s location on your computer will open. Upload this file to Gradescope to submit your work for this exercise.</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s):        Alyssa Lytle, Kris Jordan</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

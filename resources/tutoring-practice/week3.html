@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Week 3 Practice - COMP110 - 24F</title>
+  <link rel="icon" type="image/png" href="/static/tabbrand.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/styles.css?v=1750429160.4737704">
+</head>
+
+<body>
+  <script src="/static/scripts/nav-menu-esc.js"></script> 
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">COMP 110</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" onclick="esc_key()" data-bs-target="#navmenu" aria-label="Main Menu" aria-controls="#navmenu" role="navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">agenda</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources" class="nav-link">resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="/support" class="nav-link">support</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/syllabus" class="nav-link">syllabus</a>
+          </li>
+          <li class="nav-item">
+            <a href="/resources/team.html" class="nav-link">team110</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="resources-page" class="container">
+    <div class="row pt-4">
+      <div class="col-12">
+        <h1>Week 3 Practice</h1>
+        <hr class="title" />
+      </div>
+    </div>
+
+    <script src="/static/scripts/toggle-handler.js"></script>
+    
+    <div class="row px-4">
+        <div id="box" class="toc col-xl-3 col-lg-3 order-1 order-lg-2" role="doc-toc">
+            <div id="menu-overview" class="link-page horizon-box">
+                <button id="overview-button" class="btn btn-ov" onclick="hideshow()">Overview  <img id="button-img" class="filter-icon" src="/static/components/Itinerary/arrow-up.svg" style="height:15px; padding-left: 4px;"></button>
+                <div id="overview-links">
+                    <div id="TOC" role="doc-toc">
+                        <ul class="overview-item"><ul>
+<li><a href="#concepts-reviewed">Concepts Reviewed</a></li>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#functions">Functions</a></li>
+</ul></li>
+<li><a href="#solutions">Solutions</a>
+<ul>
+<li><a href="#functions-1">Functions</a></li>
+</ul></li>
+</ul>
+</</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="concepts-reviewed">Concepts Reviewed</h1>
+<p>These questions are optional supplements that ideally help you get prepared for the quizzes ahead of time. Before working through these practice questions, you should get familiar with the concepts covered in the lessons of the third week.</p>
+<p><br></p>
+<h1 id="questions">Questions</h1>
+<p>These questions might not be in the same format as quizzes. Don’t hesitate to bring them to the Tutoring section for help.</p>
+<h3 id="functions">Functions</h3>
+<ol type="1">
+<li>Answer the 1.1 and 1.2 based on the following codes:</li>
+</ol>
+<pre><code>def foo(x):
+  return x + 1
+
+def bar(x):
+  return x * 2
+
+print(foo(bar(3))) </code></pre>
+<p>1.1 Do you know from the above codes, which function has been called the first? Foo or bar?</p>
+<p>1.2 What will be the final line’s output?</p>
+<ol start="2" type="1">
+<li><p>This is an open-ended question, as we have learned the creation of function, can you think of the benefits of using functions in programming?</p></li>
+<li><p>Regarding the naming convention or naming rule for naming a function in Python, identify the following statements as either true or false.</p></li>
+</ol>
+<ul>
+<li>The name could start with a number, 1, 2, 3, etc</li>
+<li>The name can only contain letters, numbers, and underscores</li>
+<li>The name can contain any characters as long as the first one is a letter or an underscore.</li>
+<li>The name can be a reserved keyword in Python that is capitalized. (such as DEF, IF, FOR)</li>
+<li>It is encouraged to have the first letter of the name capitalized as it is also the convention we follow in daily writing.</li>
+</ul>
+<ol start="4" type="1">
+<li><p>What is the difference between a function definition and a function call?</p></li>
+<li><p>5.1 Write a function called <code>odd_or_even</code>. Given a list of <code>ints</code> and one <code>string</code> of either <code>even</code> or <code>odd</code>, the function will return a substring containing only the even or odd numbers based on the input <code>string</code>.</p></li>
+</ol>
+<p>5.2 Write a function called <code>even_and3</code>. Given a list of <code>int</code>s, the function should return a substring with numbers that are either <code>even</code> or at the <code>index of multiple of 3</code>.</p>
+<p>5.3 Based on the codes you wrote for 5.1 and 5.2, could you identify the following elements with the codes? a. return type declaration b. arguments c. parameters d. returned value e. function signature</p>
+<ol start="6" type="1">
+<li><p>What is the difference between a return statement and a print statement in a function?</p></li>
+<li><p>What is the purpose of the global keyword in a function?</p></li>
+<li><p>What is the scope of a variable in a function? (Hints: Think of global scope and function scope)</p></li>
+<li><p>What is the output of this code?</p></li>
+</ol>
+<pre><code>x = 10
+
+def foo():
+  x = 20
+  print(x)
+
+foo()
+print(x)</code></pre>
+<ol start="10" type="1">
+<li>What is the output of this code?</li>
+</ol>
+<pre><code>x = 10
+
+def foo():
+  global x
+  x = 20
+  print(x)
+
+foo()
+print(x)</code></pre>
+<ol start="11" type="1">
+<li>What is the output of this code?</li>
+</ol>
+<pre><code>x = 10
+
+def foo():
+  x = 20
+  def bar():
+    global x
+    x = 30
+  bar()
+  print(x)
+
+foo()
+print(x)</code></pre>
+<h1 id="solutions">Solutions</h1>
+<h3 id="functions-1">Functions</h3>
+<ol type="1">
+<li>Answer the 1.1 and 1.2 based on the following codes:</li>
+</ol>
+<p>1.1 Do you know from the above codes, which function has been called the first? Foo or bar? - <code>bar</code> will be called the first.</p>
+<p>1.2 What will be the final line’s output? Answer: 7</p>
+<ol start="2" type="1">
+<li>This is an open-ended question, as we have learned the creation of function, can you think of the benefits of using functions in programming?</li>
+</ol>
+<ul>
+<li>Benefits of using functions include code reuse, organization, readability, and maybe ease of debugging.rstudi</li>
+</ul>
+<p>3.1 False 3.2 True 3.3 True 3.4 False 3.5 False</p>
+<ol start="4" type="1">
+<li>What is the difference between a function definition and a function call?</li>
+</ol>
+<ul>
+<li>A function definition specifies the name, parameters, and body of the function, while a function call executes the function with given arguments.</li>
+</ul>
+<ol start="5" type="1">
+<li><p>Open-ended questions, feel free to go VSCode to try it or tutoring.</p></li>
+<li><p>A return statement sends a value back to the caller and exits the function, while a print statement outputs a value to the console without exiting or returning to the caller.</p></li>
+<li><p>The purpose of the global keyword is to declare that a variable inside a function is global, allowing the function to modify the variable outside of its local scope.</p></li>
+<li><p>The scope of a variable in a function is limited to the function itself unless it is declared global.</p></li>
+<li><p>What is the output of this code?</p></li>
+</ol>
+<pre><code>x = 10
+
+def foo():
+  x = 20
+  print(x)
+
+foo()
+print(x)</code></pre>
+<p>20 10</p>
+<ol start="10" type="1">
+<li>What is the output of this code?</li>
+</ol>
+<pre><code>x = 10
+
+def foo():
+  global x
+  x = 20
+  print(x)
+
+foo()
+print(x)</code></pre>
+<p>20 20</p>
+<ol start="11" type="1">
+<li>What is the output of this code?</li>
+</ol>
+<pre><code>x = 10
+
+def foo():
+  x = 20
+  def bar():
+    global x
+    x = 30
+  bar()
+  print(x)
+
+foo()
+print(x)</code></pre>
+<p>20 30</p>
+</div>
+
+       
+
+    </div> 
+
+    <div class="authors-box bg-dark mt-4 py-3 ps-4">
+      <span> Contributor(s): Vincent Li</span>
+    </div>
+  </div>
+  <div class='link-page mt-3 container'>
+    <footer>
+      <h3 class="text-center align-middle footer-text">&copy; 2023 <a href="https://krisjordan.com">Kris Jordan</a>
+        - <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSenaJ2uZ_n2FfAb2PWL6YPG4AUT-G2-xVJP6HIwMr6cd6nSYA/viewform?usp=sf_link">Feedback
+          Form</a>
+        - Made with 💛 in <a href="https://cs.unc.edu/">Chapel Hill</a></h3>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <!-- Code Block Formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+  <script>hljs.initLineNumbersOnLoad();</script>
+  <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>
