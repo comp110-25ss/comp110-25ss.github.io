@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> EX04 - list Utility Functions - COMP110 - 24F</title>
+  <title> EX03 - list Utility Functions - COMP110 - 24F</title>
   <link rel="icon" type="image/png" href="/static/tabbrand.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1751934413.6377463">
+  <link rel="stylesheet" href="/static/styles.css?v=1751984012.4219024">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
   <div id="exercises-page" class="container">
     <div class="row pt-4">
       <div class="col-12">
-        <h1>EX04 - list Utility Functions</h1>
+        <h1>EX03 - list Utility Functions</h1>
         <hr class="title" />
       </div>
     </div>
@@ -112,14 +112,14 @@
 <p>In Visual Studio Code, be sure your workspace is open.</p>
 <p>Open the Explorer pane (the icon with two sheets of paper or menu View &gt; Explorer) and expand the Workspace directory.</p>
 <p>Right click on the <code>exercises</code> directory and select “New File”. Enter the following filename, being careful to match punctuation:</p>
-<p><code>ex04_utils.py</code></p>
+<p><code>ex03_utils.py</code></p>
 <p>Before beginning work on the program, you should add a docstring to the top of your Python module just as you have previously. Then, you should add a line with the special variable named <strong>author</strong> assigned to be a string with your 9-digit student PID.</p>
 <h2 id="all-20-points">1. <code>all</code> – 20 Points</h2>
-<p>This is the first function you will write in <code>ex04_utils.py</code>. The other two functions will also be defined in this file.</p>
+<p>This is the first function you will write in <code>ex03_utils.py</code>. The other two functions will also be defined in this file.</p>
 <p>Given a <code>list</code> of <code>ints</code> and an <code>int</code>, <code>all</code> should return a bool indicating whether or not all the ints in the list are the same as the given <code>int</code>. Example usage:</p>
 <pre>
 <div class="terminal">
->>> from exercises.ex04_utils import all
+>>> from exercises.ex03_utils import all
 >>> all([1, 2, 3], 1)
 False
 >>> all([1, 1, 1], 2)
@@ -140,7 +140,7 @@ True
 <p>If the <code>list</code> is empty, <code>max</code> should result in a <code>ValueError</code>. We’ll show you how! Examples:</p>
 <pre>
 <div class="terminal">
->>> from exercises.ex04_utils import max
+>>> from exercises.ex03_utils import max
 >>> max([1, 3, 2])
 3
 >>> max([100, 99, 98])
@@ -163,7 +163,7 @@ ValueError: max() arg is an empty List
 <p>Given two <code>list</code>s of <code>int</code> values, return <code>True</code> if <em>every</em> element at <em>every</em> index is equal in both <code>list</code>s.</p>
 <pre>
 <div class="terminal">
->>> from exercises.ex04_utils import is_equal
+>>> from exercises.ex03_utils import is_equal
 >>> is_equal([1, 0, 1], [1, 0, 1])
 True
 >>> is_equal([1, 1, 0], [1, 0, 1])
@@ -184,7 +184,7 @@ False
 <p>Note that this function is not <em>returning</em> anything! It is only <em>mutating</em> one of the inputs.</p>
 <pre>
 <div class="terminal">
->>> from exercises.ex04_utils import extend
+>>> from exercises.ex03_utils import extend
 >>> a: list[int] = [1, 3, 5]
 >>> b: list[int] = [2, 4, 6]
 >>> extend(a, b)
@@ -223,11 +223,11 @@ False
 <li>Finally, press the Ellipses icon (…), look for “Pull/Push” submenu, and select “Push to…”, and in the dropdown select your backup repository.</li>
 </ol>
 <h2 id="submit-to-gradescope-for-grading">7. Submit to Gradescope for Grading</h2>
-<p>Login to Gradescope and select the assignment named “EX04 - Lists Utils”. You’ll see an area to upload a zip file. To produce a zip file for autograding, return back to Visual Studio Code.</p>
+<p>Login to Gradescope and select the assignment named “ex03 - Lists Utils”. You’ll see an area to upload a zip file. To produce a zip file for autograding, return back to Visual Studio Code.</p>
 <p>If you <em>do not</em> see a Terminal at the bottom of your screen, open the Command Palette and search for “View: Toggle Integrated Terminal”.</p>
 <p>Type the following command (all on a single line):</p>
-<p><code>python -m tools.submission exercises/ex04_utils.py</code></p>
-<p>In the file explorer pane, look to find the zip file named “yy.mm.dd-hh.mm-exercises-ex04-utils.py.zip”. The “yy”, “mm”, “dd”, and so on, are timestamps with the current year, month, day, hour, minute. If you right click on this file and select “Reveal in File Explorer” on Windows or “Reveal in Finder” on Mac, the zip file’s location on your computer will open. Upload this file to Gradescope to submit your work for this exercise.</p>
+<p><code>python -m tools.submission exercises/ex03_utils.py</code></p>
+<p>In the file explorer pane, look to find the zip file named “yy.mm.dd-hh.mm-exercises-ex03-utils.py.zip”. The “yy”, “mm”, “dd”, and so on, are timestamps with the current year, month, day, hour, minute. If you right click on this file and select “Reveal in File Explorer” on Windows or “Reveal in Finder” on Mac, the zip file’s location on your computer will open. Upload this file to Gradescope to submit your work for this exercise.</p>
 <p>Autograding will take a few moments to complete. If there are issues reported, you are encouraged to try and resolve them and resubmit. If for any reason you aren’t receiving full credit and aren’t sure what to try next, come give us a visit in office hours!</p>
 </div>
 
