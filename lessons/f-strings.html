@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Practice Memory Diagram - COMP110 - 24F</title>
+  <title> f-Strings - COMP110 - 24F</title>
   <link rel="icon" type="image/png" href="/static/tabbrand.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="/static/styles.css?v=1752442477.7374756">
+  <link rel="stylesheet" href="/static/styles.css?v=1752442491.3921063">
 </head>
 
 <body>
@@ -47,7 +47,7 @@
   <div id="lessons-page" class="container">
     <div class="row pt-4">
       <div class="col-12">
-        <h1>Practice Memory Diagram</h1>
+        <h1>f-Strings</h1>
         <hr class="title" />
       </div>
     </div>
@@ -61,34 +61,41 @@
                 <div id="overview-links">
                     <div id="TOC" role="doc-toc">
                         <ul class="overview-item"><ul>
-<li><a href="#snippet">Snippet</a></li>
-<li><a href="#solution">Solution</a></li>
+<li><a href="#f-strings">f-strings</a>
+<ul>
+<li><a href="#practice">Practice</a>
+<ul>
+<li><a href="#answer">Answer</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </</ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="snippet">Snippet</h1>
-<pre>
-<code class="python">   """ Practice Memory Diagram """
-
-    i: int = 0
-    s: str = ""
-
-    while i < 4:
-        if i % 2 == 0:
-            s += "h"
-        elif i % 3 == 0:
-            s += "!"
-        else:
-            s += "e"
-        i += 1
-    print(s)
-</code></pre>
-<h1 id="solution">Solution</h1>
-<p><a href="https://youtu.be/Uj6OGZuW464?si=mbgy26DKt4A5onN-">Video</a></p>
-<p><img class="img-fluid" src="/static/mem-diags/while-00.png" alt=" " /></p>
+        <div id="content" class="content box col-xl-9 col-lg-9 order-2 order-lg-1 pt-3"><h1 id="f-strings">f-strings</h1>
+<p><em>f-strings</em> are a helpful way to embed expressions directly into strings!</p>
+<p>Without f-strings:</p>
+<pre><code>    print(&quot;They are &quot; + str(30 + 1))</code></pre>
+<p>With f-strings:</p>
+<pre><code>    print(f&quot;They are {30 + 1}&quot;)</code></pre>
+<p>Both will output the string:</p>
+<pre><div class="terminal">
+They are 31
+</div>
+</pre>
+<p>Note that you didn’t have to convert <code>30+1</code> from an <code>int</code> into a <code>str</code> using <code>str(30 + 1)</code>. The f-string handles that for you implicitly!</p>
+<p>That’s it! It’s just another syntax to help you write strings!</p>
+<h2 id="practice">Practice</h2>
+<p>Try re-writing the following as an f-string:</p>
+<pre><code>    student: str = &quot;Dave&quot;
+    course: int = 110
+    message: str = &quot;Hello &quot; + student + &quot; welcome to Comp &quot; + str(course) &quot;!&quot;</code></pre>
+<h3 id="answer">Answer</h3>
+<pre><code>    student: str = &quot;Dave&quot;
+    course: int = 110
+    message: str = f&quot;Hello {student} welcome to Comp {course}!&quot;</code></pre>
 </div>
 
        
